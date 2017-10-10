@@ -71,12 +71,11 @@ html.no-js(lang="ru", manifest="{% static 'businnes/app.manifest' %}")
   body
     #root
       .curtain
-      .sk-double-bounce
-        .sk-child.sk-double-bounce1
-        .sk-child.sk-double-bounce2
-      
+        .sk-double-bounce
+          .sk-child.sk-double-bounce1
+          .sk-child.sk-double-bounce2
 
-    script(async, src="{% static 'businnes/js/main.js' %}")
+    script(async, src="{% static '/businnes/js/main.js' %}")
     link(rel="stylesheet",
          href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css",
          media='none',
