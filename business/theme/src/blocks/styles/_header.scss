@@ -1,16 +1,18 @@
 // Header
 .header {
-
+  margin-top: 5%;
+  @extend %clearfix;
 }
 /* START BRAND */
-.brandContainer {
-	
-}
 .brand {
-	
+	max-width: 320px;
+  @extend %five;
+  @extend %inline-block;
 }
-.brand__name {
 
+.brand__name {
+  @extend %fullWidth;
+  @include responsive-background((192% / 1023 * 100), './../img/logo.png');
 }
 /* END BRAND */
 
@@ -18,11 +20,13 @@
 .navHeader {
 
 }
-.navigaton {
-  
+.navigation {
+  @extend %seven;
+  @extend %floatRight;
 }
 .navigation__openMenuButton {
-  
+  @extend %floatRight;
+
 }
 .navigation__closeMenuButton {
    z-index: 11;
@@ -77,3 +81,4 @@
   }
 }
 /* END NAV ITEMS */
+

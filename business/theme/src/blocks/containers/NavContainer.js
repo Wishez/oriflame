@@ -21,7 +21,6 @@ class NavContainer extends Component {
   };
 
   openMenu = () => {
-    
     if (!this.state.isOpen) {
       let width;
 
@@ -29,7 +28,6 @@ class NavContainer extends Component {
         width = '100%';
       else 
         width = '20vw';
-
       this.setState({
         isOpen: true,
         navStyles: {

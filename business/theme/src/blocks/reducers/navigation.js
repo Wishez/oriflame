@@ -8,37 +8,44 @@ export const initNavigationState = {
 		active: false,
 		name: navigationItems.home,
 		index: 'firstNavItem',
-		icon: 'home',
+		icon: '',
 		pathTo: '/'
 	},
 	secondNavItem: {
 		active: false,
-		name: navigationItems.services,
+		name: navigationItems.shares,
 		index: 'secondNavItem',
 		icon: '',
-		pathTo: '/services'
+		pathTo: '/shares'
 	},
 	thirdNavItem: {
 		active: false,
-		name: navigationItems.contacts,
+		name: navigationItems.possibilities,
 		index: 'thirdNavItem',
 		icon: '',
-		pathTo: '/contacts'
+		pathTo: '/possibilities'
 	},
 	fourthNavItem: {
 		active: false,
-		name: navigationItems.advice,
+		name: navigationItems.registration,
 		index: 'fourthNavItem',
 		icon: '',
-		pathTo: '/advice'
+		pathTo: '/registration'
+	},
+	fifthNavItem: {
+		active: false,
+		name: navigationItems.media,
+		index: 'fifthNavItem',
+		icon: '',
+		pathTo: '/media'
+	},
+	sixthNavItem: {
+		active: false,
+		name: navigationItems.contacts,
+		index: 'sixthNavItem',
+		icon: '',
+		pathTo: '/contacts'
 	}
-	// fifthNavItem: {
-	// 	active: false,
-	// 	name: navigationItems.isistutions,
-	// 	index: 'fifthNavItem',
-	// 	icon: 'users',
-	// 	pathTo: '/isistutions'
-	// }
 };
 
 const navigation = (

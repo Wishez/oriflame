@@ -25,7 +25,8 @@ const gulp = require('gulp'),
       envify = require('envify'),
       manifest = require('gulp-manifest'),
       watchify = require('watchify'),
-      jshint = require('gulp-jshint');
+      jshint = require('gulp-jshint'),
+      livereload = require('gulp-livereload');
 
 
 
@@ -105,7 +106,8 @@ gulp.task('fastjs', () => {
     .pipe(buffer())
     .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(settings.build + '/js'));
+    .pipe(gulp.dest(settings.build + '/js'))
+    .pipe(livereload());
 });
 
 
@@ -150,7 +152,7 @@ gulp.task('faststyles', () => {
     }))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(settings.build + '/css'))
-    .pipe(browserSync.stream());
+    .pipe(livereload());
 });
 
 gulp.task('styles', () => {
@@ -172,7 +174,8 @@ gulp.task('styles', () => {
 gulp.task('html', () => {
   return gulp.src(settings.src + '/*.pug')
     .pipe(pug())
-    .pipe(gulp.dest(templatesPath));
+    .pipe(gulp.dest(templatesPath))
+    .pipe(livereload());
 });
 
 
@@ -190,7 +193,8 @@ gulp.task('fonts', () => {
 /* ----------------- */
 gulp.task('fastimages', () => {
   return gulp.src(settings.src + '/img/**/*')
-    .pipe(gulp.dest(settings.build + '/img'));
+    .pipe(gulp.dest(settings.build + '/img'))
+    .pipe(livereload());
 });
 
 gulp.task('images', () => {
@@ -237,17 +241,22 @@ gulp.task('manifest', () => {
 //       baseDir: settings.build
 //     },
 //     open: false,
-//     port: 9020,
+//     port: 8080,
 //     reloadDelay: 2200
 //   });
 // });
 
 gulp.task('watch', () => {
+  livereload.listen({
+    basePath: './src',
+    host: 'localhost',
+    port: '8080'
+  });
   gulp.watch(settings.src + '/**/*.scss', ['faststyles']);
   gulp.watch(settings.src + '/img/**/*.*', ['fastimages']);
   gulp.watch(settings.src + '/fonts/**/*.*', ['fonts']);
   gulp.watch(settings.src + '/**/*.pug', ['html']);
-  gulp.watch(settings.src + '/**/*.js', ['fastjs'])
+  gulp.watch(settings.src + '/**/*.js', ['fastjs']);
 });
 
 gulp.task('lintfastjs', ['lintsource', 'fastjs']);

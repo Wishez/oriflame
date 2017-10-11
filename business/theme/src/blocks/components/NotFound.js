@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NotFound = ({ site }) => (	
-	<div className='notFound'>
-		<h1 className='text-center notFound'>
-			В разработке&hellip;
-		</h1>
+import Section from './Section';
+import Title from './Title';
+
+const NotFound = ({  }) => (	
+	<Section block='notFound'>
+		<Title block='notFound'
+			text='В разработке&hellip;' />
 		<Link to='/'>На главную</Link>
-	</div>
+	</Section>
 );
 
 export default NotFound;

@@ -8,7 +8,9 @@ $i: !important;
 @import 'config/flex.scss';
 @import 'config/mixins.scss';
 
-
+// Blocks
+@import './../styles/blocks/_paragraph.scss';
+// Elemets
 
 // Custom styles
 html, body {
@@ -106,7 +108,6 @@ ul {
   list-style: none;
 }
 p {
- @extend %defaultTopMargin;
 }
 a {
   border-radius: 5px;
