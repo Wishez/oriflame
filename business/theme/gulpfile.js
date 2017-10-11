@@ -41,14 +41,15 @@ const hbsfy = require('hbsfy').configure({
 
 const settings = {
   src: './src',
-  build: './../static/businnes'
+  build: './../static/business'
 }, 
 templatesPath = './../app/templates/',
 scssPathes = ['node_modules/susy/sass', 
               'node_modules/breakpoint-sass/stylesheets',
              'node_modules/bootstrap-sass/assets/stylesheets',
              'node_modules/font-awesome-sass/assets/stylesheets/',
-             'node_modules/semantic-ui-sass/',];
+             'node_modules/semantic-ui-sass/',
+             'node_modules/slick-carousel/slick/'];
 
 
 

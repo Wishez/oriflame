@@ -7,7 +7,7 @@ const Section = ({
 	block,
 	children
 }) => (
-	<section className={block}>
+	<section className={`${block} section`}>
 		<Container>
 		 	{children}
 		</Container>

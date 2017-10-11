@@ -1,4 +1,5 @@
 $i: !important;
+@import 'config/mixins.scss';
 @import 'config/grid.scss';
 @import 'config/fonts.scss';
 @import 'config/colors.scss';
@@ -6,10 +7,10 @@ $i: !important;
 @import 'config/sizes.scss';
 @import 'config/animation.scss';
 @import 'config/flex.scss';
-@import 'config/mixins.scss';
 
 // Blocks
 @import './../styles/blocks/_paragraph.scss';
+@import './../styles/blocks/_section.scss';
 // Elemets
 
 // Custom styles

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Title from './Title';
 
 const FooterContacts = ({
 	phone,
@@ -7,7 +7,9 @@ const FooterContacts = ({
 	address,
 	addressHref
 }) => (
-	<ul className='footerContacts'>
+  <ul className='footerContacts'>
+    <Title block='footerContacts' 
+      text='Контакты' />
 		<li className='footerContactsItem'>
           <span className='footerContactsItem__label'>Адрес: </span>
           <a href={addressHref}

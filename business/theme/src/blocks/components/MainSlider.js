@@ -12,7 +12,7 @@ const MainSlider = ({
 				<figure key={index}
 					className='mainSlider__slide'
 					style={{
-					backgroundImage: `url("/static/img/slides/${image}")`
+						backgroundImage: `url("/static/business/img/slides/${image}")`
 				}} />
 			))
 		}

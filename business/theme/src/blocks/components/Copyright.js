@@ -13,7 +13,7 @@ const Copyright = ({
 	      text='Официальный сайт компании' 
 	    >  
 	      <a href='http://oriflame.com' 
-	      className='paragraph__refer not-follow'> www.oriflame.com</a>
+	      className='copyright__refer not-follow'> www.oriflame.com</a>
 	    </Paragraph>
   	</div>
 );

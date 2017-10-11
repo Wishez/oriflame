@@ -1,3 +1,7 @@
+%defaultSectionPadding {
+	padding: 3% 0;
+}
+
 %onePercentSidePaddings {
 	padding-left: 1%;
   	padding-right: 1%;
@@ -11,9 +15,14 @@
 %increasedTopPadding {
 	padding-top: 1.5em;
 }
-
+%bigTopPadding {
+	padding-top: 2.5em;
+}
 %defaultBottomPadding {
 	padding-bottom: 1em;
+}
+%defaultRightPadding {
+	padding-right: 2em;
 }
 
 %extraSmalltBottomPadding {

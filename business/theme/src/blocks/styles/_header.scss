@@ -17,12 +17,10 @@
 /* END BRAND */
 
 /* START NAVIGATION */
-.navHeader {
-
-}
 .navigation {
   @extend %seven;
   @extend %floatRight;
+  @extend %defaultTopPadding;
 }
 .navigation__openMenuButton {
   @extend %floatRight;
@@ -32,7 +30,7 @@
    z-index: 11;
    @extend %pointIt;
    @extend %absolute;
-   left: 10%;
+   right: 10%;
    top: 10%;
 }
 
@@ -44,7 +42,7 @@
     @extend %fullHeight;
     transition: opacity 1.5s, width 1s; 
     width: 0;
-    background-color: #f1f1f1;
+    background-color: $white;
     flex-direction: column;
     align-items: space-between;
     z-index: 10;

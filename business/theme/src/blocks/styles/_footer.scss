@@ -1,6 +1,6 @@
-/* 
-	START FOOTER
-							*/
+ 
+	// START FOOTER
+		
 .footer {
   
   
@@ -11,20 +11,35 @@
 /* 
 	START FOOTER CONTACTS 
 										*/
+									
+.footer__paragraph, .footerContacts, .copyright	{
+	@extend %floatLeft;
+
+}
+
+.footer__paragraph {
+	@extend %seven;
+	@extend %bigTopPadding;
+	padding-right: 2em;
+}
 .footerContacts {
+	@include gutters(2em inside);
+	@extend %five;
+	
  }
 
 .footerContactsItem {
-
-}
-
-.footerContactsItem__refer {
-
-}
-
-.footerContactsItem__icon {
 	
+	@extend %defaultTopMargin;
 }
+.footerContactsItem__label {
+	color: $gray;
+}
+
+.footerContactsItem__contact {
+	// color: $dark
+}
+
 /* 
 	END FOOTER CONTACTS 
 										*/
@@ -32,8 +47,15 @@
 	STANRT FOOTER COPYRIGHT 
 											*/					
 .copyright {
-	
+	@extend %bigTopMargin;
+	@extend %darkGrayBg;
+	color: $white;
+	@extend %fullWidth;
+	@extend %text-center;
+	padding: 1em 0;
 }
-/* 
-	END FOOTER COPYRIGHT 
-											*/
+.copyright__refer {
+	color: $lightGray $i;
+}
+// END FOOTER COPYRIGHT 
+											

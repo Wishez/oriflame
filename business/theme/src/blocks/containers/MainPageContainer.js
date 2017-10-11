@@ -3,8 +3,15 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+
+import { 
+	images,
+	activities
+ } from './../constants/conf.js';
+
 import Section from './../components/Section';
 import MainSlider from './../components/MainSlider';
+import About from './../components/About';
 
 class MainPageContainer extends Component {
 	static PropTypes = {
@@ -23,17 +30,18 @@ class MainPageContainer extends Component {
 
 
 	render() {
+
 		return (
 			<Section block='topSlider'>
 				<MainSlider 
-					images={[ 'slide1.png', 'slide2.png', 'slide3.png', 'slide4.png', 'slide5.png' ]}
+					images={images}
 					dots={true}
   					infinite={true}
-  					speed={500}
+  					speed={1000}
   					fade={true}
   					cssEase='linear'
   					autoplay={true}
-  					autoplaySpeed={2000}
+  					autoplaySpeed={5000}
   					responsive={[{
 					    breakpoint: 800,
 					      	settings: {
@@ -42,6 +50,7 @@ class MainPageContainer extends Component {
 					    }
 					]}
 				/>
+				<About activities={activities}/>
 			</Section>
 		);
 	}
