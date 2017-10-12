@@ -6,12 +6,16 @@ import { connect } from 'react-redux';
 
 import { 
 	images,
-	activities
+	catalogs,
+	activities,
+	catalogSliderCustoms,
+	mainSliderCustoms
  } from './../constants/conf.js';
 
 import Section from './../components/Section';
 import MainSlider from './../components/MainSlider';
 import About from './../components/About';
+import Catalogs from './../components/Catalogs';
 
 class MainPageContainer extends Component {
 	static PropTypes = {
@@ -30,27 +34,14 @@ class MainPageContainer extends Component {
 
 
 	render() {
-
+			console.log(catalogs);
 		return (
 			<Section block='topSlider'>
-				<MainSlider 
-					images={images}
-					dots={true}
-  					infinite={true}
-  					speed={1000}
-  					fade={true}
-  					cssEase='linear'
-  					autoplay={true}
-  					autoplaySpeed={5000}
-  					responsive={[{
-					    breakpoint: 800,
-					      	settings: {
-					      	  arrows: false
-					      	}  
-					    }
-					]}
-				/>
+				<MainSlider images={images}
+					{...mainSliderCustoms} />
 				<About activities={activities}/>
+				<Catalogs catalogs={catalogs}
+					sliderCustoms={catalogSliderCustoms} />
 			</Section>
 		);
 	}

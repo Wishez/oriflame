@@ -62,6 +62,7 @@
 	@include breakpoint($xs) {
 		width: span(12);
 		min-height: 490px;
+		border-radius: 5px;
 	}
 	&_light {
 		@extend %whiteBg;
@@ -74,12 +75,29 @@
 }
 
 .aboutItem:first-of-type {
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
+	@include breakpoint($lg) {
+		border-top-left-radius: 5px;
+		border-bottom-left-radius: 5px;
+	}
 }
 .aboutItem:last-child {
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
+	@include breakpoint($lg) {
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
+	}
+}
+
+.aboutItem:nth-child(even) {
+	@include breakpoint($md-less) {
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
+	}
+}
+.aboutItem:nth-child(odd) {
+	@include breakpoint($md-less) {
+		border-top-left-radius: 5px;
+		border-bottom-left-radius: 5px;
+	}
 }
 
 .aboutItemImageContainer, .aboutItem__title {
@@ -92,6 +110,7 @@
 }
 .aboutItemImageContainer {
 	@extend %four;
+	max-width: 135px;	
 }
 .aboutItemImageContainer__image {
 	@include responsive-background(100%);
@@ -108,6 +127,51 @@
 	@extend %defaultTopMargin;
 	@include breakpoint($md-less) {
 		margin-top: 2em;
+	}
+}
+
+// Catalog slider
+
+.catalogsSlider {
+	& .slick-arrow  {
+    	// opacity: 1;
+    	top: -55px;
+  	}
+	& .slick-next {
+		right: 31px;
+	}
+	& .slick-prev {
+		left: auto;
+		right: 90px;
+	}
+	& .slick-next::before, & .slick-prev::before {
+		@extend %darkGrayBg;
+		font-size: 35px;
+		padding: 0 18px 13px;
+	 
+	} 
+	& .slick-next::before {
+		content: "\0203A";
+	}
+	& .slick-prev::before {
+		content: "\02039";
+	}
+}
+
+.catalogs__title {
+	@extend %relative;
+	top: -22px;
+}
+.catalogsSlider__slide {
+	@extend %three;
+	@include breakpoint($sm) {
+		width: span(4);
+	}
+	@include breakpoint($xs) {
+		width: span(6);
+	}
+	@include breakpoint($xxs) {
+		width: span(12);
 	}
 }
 

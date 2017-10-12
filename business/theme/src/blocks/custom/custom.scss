@@ -99,10 +99,10 @@ h2 {
       font-size: (24em / 16);
     }
   @include breakpoint($xs) {
-      font-size: 4vw;
+      font-size: 7vw;
     }
   @include breakpoint($xxs) {
-     font-size: 6vw;
+     font-size: 8vw;
   }
 }
 ul {

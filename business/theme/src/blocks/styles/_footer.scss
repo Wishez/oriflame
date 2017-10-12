@@ -21,10 +21,17 @@
 	@extend %seven;
 	@extend %bigTopPadding;
 	padding-right: 2em;
+	@include breakpoint($xs) {
+		display: none;
+	}
 }
 .footerContacts {
 	@include gutters(2em inside);
 	@extend %five;
+	@include breakpoint($xs) {
+		text-align: center;
+		width: 	100%;
+	}
 	
  }
 

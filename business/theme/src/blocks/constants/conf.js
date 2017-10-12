@@ -1,11 +1,4 @@
-// For main slider
-export const images = [
-	'slide1.jpg',
-	'slide2.png',
-	'slide3.jpg',
-	'slide4.jpg',
-	'slide5.jpg'
-];
+
 // For second section
 // Two styles - "dark" and "light"
 export const activities = [
@@ -42,3 +35,52 @@ export const email = 'support@cosmeticsyou.ru';
 export const phone = '8 (965) 158-14-81';
 export const address = 'Ивантеевская д. 13 кор.1';
 export const addressHref = 'https://www.google.ru/maps/place/%D0%98%D0%B2%D0%B0%D0%BD%D1%82%D0%B5%D0%B5%D0%B2%D1%81%D0%BA%D0%B0%D1%8F+%D1%83%D0%BB.,+13%D0%BA1,+%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0,+107150/@55.818067,37.7239063,17z/data=!4m5!3m4!1s0x46b53450cf0645b9:0x869f26e9d7ad24d3!8m2!3d55.818067!4d37.726095';
+
+// Sliders 
+// Main Slider's images
+export const images = [
+	'slide1.jpg',
+	'slide2.png',
+	'slide3.jpg',
+	'slide4.jpg',
+	'slide5.jpg'
+];
+export const mainSliderCustoms = {
+  dots: true,
+  infinite: true,
+  speed: 1000,
+  fade: true,
+  cssEase: 'linear',
+  autoplay: true,
+  autoplaySpeed: 5000,
+  responsive: [{
+      breakpoint: 800,
+      settings: {
+        arrows: false
+      }  
+    }
+  ]
+};
+export const catalogs = [
+	{
+		refer: 'http://ru.oriflame.com/ecatalogue/502181?per=201609',
+		image: 'http://ru.oriflame.com/catalogue-image.png'
+	}
+];
+export const catalogSliderCustoms = {
+	lazyLoad: 'ondemand',
+	slidesToShow: 4,
+	slidesToScroll: 1,
+	arrows: true,
+	responsive: [{
+		breakpoint: 800,
+		settings: {
+			slidesToShow: 2,
+		}  
+	}, {
+		breakpoint: 991,
+		settings: {
+	   		slidesToShow: 3,
+		}
+	}]
+};
