@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 
+
 import { 
 	images,
 	catalogs,
@@ -11,9 +12,8 @@ import {
 	catalogSliderCustoms,
 	mainSliderCustoms
  } from './../constants/conf.js';
-
-import Section from './../components/Section';
 import MainSlider from './../components/MainSlider';
+import Present from './../components/Present';
 import About from './../components/About';
 import Catalogs from './../components/Catalogs';
 
@@ -34,15 +34,15 @@ class MainPageContainer extends Component {
 
 
 	render() {
-			console.log(catalogs);
 		return (
-			<Section block='topSlider'>
+			<main className='main'>
 				<MainSlider images={images}
 					{...mainSliderCustoms} />
+				<Present />
 				<About activities={activities}/>
 				<Catalogs catalogs={catalogs}
 					sliderCustoms={catalogSliderCustoms} />
-			</Section>
+			</main>
 		);
 	}
 }

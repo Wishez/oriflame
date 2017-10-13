@@ -48,6 +48,20 @@
 	padding-bottom: 6.98%;
 }
 
+// Present section
+.present {
+	padding: 0;
+}
+.present__refer {
+	@extend %fullWidth;
+	@extend %block;
+}
+.present__button {
+	@extend %centerBlock;
+	background-color: $purple $i;
+	color: $black $i;
+}
+
 // About section
 .aboutItem {
 	@extend %floatLeft;

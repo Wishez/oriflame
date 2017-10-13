@@ -7,10 +7,8 @@ import account from './account.js';
 
 const rootReducer = combineReducers({
 	form: formReducer,
-	visibilityFilter,
 	navigation,
-	registration,
-	account
+	registration
 });
 
 

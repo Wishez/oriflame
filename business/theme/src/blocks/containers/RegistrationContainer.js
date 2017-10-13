@@ -3,15 +3,13 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import ContentWrapperContainer from './ContentWrapperContainer';
-import Register from './../components/Register';
-import { changeHeightAwesomeBorder } from './../constants/pureFunctions.js';
+
+import Registration from './../components/Registration';
 import { tryRegister } from './../actions/accountActions.js';
-import { changeSiteIfNeeded } from './../actions/selectedSiteActions.js';
 import { selectNavigationItem } from './../actions/navigationActions.js';
 
 
-class RegisterContainer extends Component {
+class RegistrationContainer extends Component {
 	static PropTypes = {
 		registered: PropTypes.bool.isRequired,
 		isRegistering: PropTypes.bool.isRequired,
@@ -24,25 +22,17 @@ class RegisterContainer extends Component {
 		knowRules: false
 	}
 
-	customViewComponent = () => {
-		const { dispatch, location } = this.props;
-		dispatch(selectNavigationItem('firstNavItem'));
-		changeSiteIfNeeded(this.props);
-        changeHeightAwesomeBorder('/registration', location.pathname);
-	}
-
 	componentDidMount() {
-		this.customViewComponent();
+		// const { dispatch } = this.props;
+		// dispatch(selectNavigationItem('fifthNavItem'));
+
     }
 
     componentDidUpdate() {
-    	this.customViewComponent();
+    	
     }
 
 	submitRegisterForm = (values, dispatch) => {
-
-		// Change it, if you need.
-		values.site = 'main';
 		
 		dispatch(tryRegister('main', values));
 		
@@ -56,13 +46,13 @@ class RegisterContainer extends Component {
 
 	render() {
 		return (
-			<ContentWrapperContainer>
-				<Register {...this.props}
+			<main className='main'>
+				<Registration {...this.props}
 					{...this.state}
 					submitRegisterForm={this.submitRegisterForm} 
 					allowRegister={this.allowRegister}
 				/>
-			</ContentWrapperContainer>
+			</main>
 		);
 	}
 }
@@ -86,4 +76,4 @@ const mapStateToProps = state => {
 	};
 }
 
-export default withRouter(connect(mapStateToProps)(RegisterContainer));
+export default withRouter(connect(mapStateToProps)(RegistrationContainer));

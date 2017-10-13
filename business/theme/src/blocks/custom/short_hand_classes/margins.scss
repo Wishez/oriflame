@@ -43,8 +43,8 @@
 	margin-bottom: 2em;
 }
 
-%center-block {
-   margin-left: auto !important;
-   margin-right: auto !important;
-   display: block;
+%centerBlock {
+   margin-left: auto $i;
+   margin-right: auto $i;
+   display: block $i;
 }

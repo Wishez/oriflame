@@ -12,7 +12,6 @@ const Catalogs = ({
 			text='Катологи' />
 		<CatalogsSlider	{...rest} />
 	</Section>
-
 );
 
 export default Catalogs;

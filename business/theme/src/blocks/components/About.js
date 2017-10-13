@@ -5,7 +5,7 @@ import AboutItem from './AboutItem';
 const About = ({
 	activities
 }) => (
-	<Section>
+	<Section block='about'>
 		{
 			activities.map((activiti ,index) => (
 				<AboutItem 
