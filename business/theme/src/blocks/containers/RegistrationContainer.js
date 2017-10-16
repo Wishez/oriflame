@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-
 import Registration from './../components/Registration';
 import { tryRegister } from './../actions/accountActions.js';
 import { selectNavigationItem } from './../actions/navigationActions.js';
-
 
 class RegistrationContainer extends Component {
 	static PropTypes = {
@@ -19,13 +17,16 @@ class RegistrationContainer extends Component {
 	}
 	// Переменная для чек-бокса.
 	state = {
-		knowRules: false
+		knowRules: false,
+		removedMiddleNameField: false,
+		isMaskedFields: false
 	}
 
 	componentDidMount() {
 		// const { dispatch } = this.props;
 		// dispatch(selectNavigationItem('fifthNavItem'));
-
+		$('#dateField').mask("00/00/0000", {placeholder: "__/__/____"});
+		this.maskFields(true);
     }
 
     componentDidUpdate() {
@@ -38,10 +39,37 @@ class RegistrationContainer extends Component {
 		
 	}
 
-	allowRegister = e => {
+	allowRegister = () => {
 		this.setState({
 			knowRules: !this.state.knowRules
 		});
+	}
+
+	switchState = (key, callback) => e => {
+		this.setState({
+			[key]: !this.state[key]
+		});
+
+		if (callback) callback();
+	}
+	maskFields = state => {
+		const phoneMask = '+7 (000) 000-00-00';
+		const passportMask = '0000-000000';
+		const $phone = $('#phoneField');
+		const $passport = $('#passportField');
+		
+		if (state) {
+			$phone.mask(phoneMask);
+			$passport.mask(passportMask, {placeholder: "__-______"});
+		} else {
+			$phone.unmask(phoneMask);
+			$passport.unmask(passportMask);
+		}
+	}
+	switchMask = () => {
+		const { isMaskedFields } = this.state;
+
+		this.maskFields(isMaskedFields)
 	}
 
 	render() {
@@ -51,6 +79,8 @@ class RegistrationContainer extends Component {
 					{...this.state}
 					submitRegisterForm={this.submitRegisterForm} 
 					allowRegister={this.allowRegister}
+					switchState={this.switchState}
+					switchMask={this.switchMask}
 				/>
 			</main>
 		);

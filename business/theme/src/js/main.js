@@ -7,7 +7,7 @@
 import 'jquery';
 import 'babel-polyfill';
 import 'whatwg-fetch';
-// import 'bootstrap-sass';
+import './../libs/jquery.mask.js';
 // import './modernizr.min.js';
 /**********
 

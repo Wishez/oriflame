@@ -43,11 +43,15 @@
 
 
 .mainSlider__slide 
-	@include responsive-background
-	border-radius: 5px
-	padding-bottom: 6.98%
-
-
+	// @include responsive-background
+	@extend %defaultBorderRadius
+	// padding-bottom: 6.98%
+	opacity: 0
+	transition: opacity 1s
+	max-height: 500px
+	
+.mainSlider__slide.fadeIn
+	opacity: 1
 // Present section
 .present 
 	padding: 0
@@ -58,9 +62,6 @@
 
 .present__button 
 	@extend %centerBlock
-	background-color: $purple $i
-	color: $white $i
-
 
 // About section
 .aboutItem 

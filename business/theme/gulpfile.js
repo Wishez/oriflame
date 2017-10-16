@@ -44,13 +44,14 @@ const settings = {
   build: './../static/business'
 }, 
 templatesPath = './../app/templates/',
-scssPathes = ['node_modules/susy/sass', 
-              'node_modules/breakpoint-sass/stylesheets',
-             'node_modules/bootstrap-sass/assets/stylesheets',
-             'node_modules/font-awesome-sass/assets/stylesheets/',
-             'node_modules/semantic-ui-sass/',
-             'node_modules/slick-carousel/slick'
-             ];
+scssPathes = [
+  'node_modules/susy/sass', 
+  'node_modules/breakpoint-sass/stylesheets',
+  'node_modules/bootstrap-sass/assets/stylesheets',
+  'node_modules/font-awesome-sass/assets/stylesheets/',
+  'node_modules/semantic-ui-sass/',
+  'node_modules/slick-carousel/slick'
+];
 
 
 
@@ -249,7 +250,7 @@ gulp.task('manifest', () => {
 gulp.task('watch', () => { 
   gulp.watch(settings.src + '/**/*.sass', ['faststyles']);
   gulp.watch(settings.src + '/img/**/*.*', ['fastimages']);
-  gulp.watch(settings.src + '/js/**/*.js', ['fastjs']);
+  gulp.watch(settings.src + '/**/*.js', ['fastjs']);
   gulp.watch(settings.src + '/*.html', ['html']);
 });
 

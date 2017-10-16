@@ -10,7 +10,7 @@ $(function() {
       // }
   // });
   $(document).on('click', '.not-follow', openUrlInNewWindow);
-  console.log('hello');
+  
   function openUrlInNewWindow(e) {
     e.preventDefault();
     

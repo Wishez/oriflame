@@ -1,3 +1,51 @@
+.registrationForm
+	margin-top: 10%
+.registrationFormButtons, .registrationFormController
+	max-width: 275px
+	@extend %centerBlock
+	@extend %fullWidth
+	@extend %defaultTopMargin
+
 .registrationFormController
-	&__input, &__label
-		@extend %block
+	@extend %index1
+	&_narrow
+		max-width: 170px
+	&_checkbox
+		padding: 0.5em 0 0.5em 1em
+	&_switched
+		opacity: 1
+		transition: opacity 1s, max-height 1.4s
+		max-height: 150px
+
+
+.registrationFormController__checkRules, .registrationFormController_checkbox
+	@extend %defaultBorderRadius
+	@extend %darkGrayBg
+	& label
+		color: $white $i
+.registrationFormController__checkRules
+	padding: 1em
+	@extend %defaultTopMargin
+.registrationFormController__label
+	@extend %fs-18
+	@extend %block
+.registrationFormController__input
+	display: block $i
+	margin: 0.3em auto 0 $i
+	& input 
+		@extend %fullWidth
+		&:focus
+			&:valid, &:invalid
+				border: 1px solid 
+			&:valid
+				border-color: $green
+			&:invalid
+				border-color: $purple
+
+.registrationFormButtons__button
+	@extend %centerBlock
+
+.registrationFormController__rules
+	@extend %text-center
+	@extend %refusedTopPadding
+	border-top: 1px solid $darkenLightGray

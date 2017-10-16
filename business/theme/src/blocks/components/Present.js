@@ -16,9 +16,8 @@ const Present = ({
 			url='#'
 			block='present' />
 		<Link to='/registration'>
-			<Button className='present__button'
+			<Button className='present__button purpleButton'
 				content='Регистрация'
-				
 				size='huge' />
 		</Link>
 	</Section>

@@ -16,22 +16,8 @@
   padding-bottom: #{$padding-bottom}
   &::after 
     background-color: #{$color}
+
   
-
-%center-block 
-   margin-left: auto !important
-   margin-right: auto !important
-   display: block
-
-@mixin center-block 
-  @extend %center-block
-
-
-%responsiveBackground 
-  background: center top no-repeat
-  background-size: cover
-  
-
 @mixin responsive-background($padding-bottom: false, $url: false, $attachment: false) 
   @extend %responsiveBackground
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import Section from './Section';
+import { Image } from 'semantic-ui-react';
 
 const MainSlider = ({
 	...rest,
@@ -11,11 +12,10 @@ const MainSlider = ({
 			{...rest}>
 			{
 				images.map((image, index) => (
-					<figure key={index}
+					<Image key={index}
+						data-src={`/static/business/img/slides/${image}`}
 						className='mainSlider__slide'
-						style={{
-							backgroundImage: `url("/static/business/img/slides/${image}")`
-					}} />
+					/>
 				))
 			}
 		</Slider>

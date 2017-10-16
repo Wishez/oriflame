@@ -6,10 +6,6 @@ import ReactHtmlParser from 'react-html-parser'
 
 import { 
 	required,
- 	passwordLenght,
- 	login,
- 	loginLength,
- 	passwordLength,
  	password,
  	email,
  	nameValidation,
@@ -25,7 +21,10 @@ const RegistrationForm = ({
 	allowRegister,
 	knowRules,
 	isRegistering,
-	registerMessage
+	registerMessage,
+	switchState,
+	removedMiddleNameField,
+	switchMask
 }) => (
 	<form id='registrationForm'
 		onSubmit={handleSubmit(submitRegisterForm.bind(this))}
@@ -49,8 +48,8 @@ const RegistrationForm = ({
 			label='Фамилия'
 		 />
 	
-		<div className='registrationFormController'>
-			<Checkbox onClick={() => {}}
+		<div onClick={switchState('removedMiddleNameField')} className='registrationFormController registrationFormController_narrow registrationFormController_checkbox'>
+			<Checkbox 
 			 	className='registrationFormController__checkbox'
 			 	name='empty_middle_name'
 			    label={
@@ -59,6 +58,11 @@ const RegistrationForm = ({
 		 <Field component={RenderController}
 		 	name='middle_name'
 		 	type='text'
+		 	style={removedMiddleNameField ? {
+				opacity: 0,
+				maxHeight: 0
+		 	} : {}}
+		 	modifier='switched'
 		 	block='registrationFormController'
 			validate={[required]}
 			placeholder='Иванов'
@@ -67,13 +71,15 @@ const RegistrationForm = ({
 		 />
 		 <Field component={RenderController}
 		 	name='birthday'
-		 	type='date'
+		 	type='text'
 		 	block='registrationFormController'
 			validate={[required]}
+			id='dateField'
 			label='День рождения'
 		 />
-		 <div className='registrationFormController'>
-			<Checkbox onClick={() => {}}
+		 <div onClick={switchState('isMaskedFields', switchMask)}
+		 	className='registrationFormController registrationFormController_narrow registrationFormController_checkbox'>
+			<Checkbox 
 			 	className='registrationFormController__checkbox'
 			 	name='citizenship'
 			    label={
@@ -86,6 +92,7 @@ const RegistrationForm = ({
 			validate={[required]}
 			placeholder='1234-654321'
 			maxLength='30'
+			id='passportField'
 			label='Серия и номер паспорта'
 		 />
 	
@@ -96,6 +103,7 @@ const RegistrationForm = ({
 			validate={[required]}
 			placeholder='+7 (964) 555-65-75 '
 			maxLength='25'
+			id='phoneField'
 			label='Номер телефона'
 		 />
 		<Field component={RenderController}
@@ -112,7 +120,7 @@ const RegistrationForm = ({
 		 	type='text'
 		 	block='registrationFormController'
 			validate={[required]}
-			placeholder='Московская, Тульская, Нижегородская'
+			placeholder='Московская, Тульская'
 			maxLength='50'
 			label='Область'
 		 />
@@ -136,7 +144,7 @@ const RegistrationForm = ({
 		 />
 		<Field component={RenderController}
 		 	name='num_apartment'
-		 	type='num'
+		 	type='number'
 		 	block='registrationFormController'
 			validate={[required]}
 			placeholder='28'
@@ -165,12 +173,12 @@ const RegistrationForm = ({
 			    label={
 			 	'Вы ознакомились с договором и условиями?'} />
 		 </div>
-		 <div className='registerFormButtons'>
-			{registerMessage ? <strong className='formError'>{registerMessage}</strong> : ''}
+		 <div className='registrationFormButtons'>
+			{registerMessage ? <strong className='registrationFormButtons__formError formError'>{registerMessage}</strong> : ''}
 			<br />
 		 	<Button disabled={!knowRules}
 		 		loading={isRegistering}
-		 		className='registerFormButtons__button registerFormButtons__button--submit submit' 
+		 		className='registrationFormButtons__button registrationFormButtons__button_submit submit purpleButton' 
 		 	   	content='Зарегистрироваться'
 		 	/>
 		 </div>

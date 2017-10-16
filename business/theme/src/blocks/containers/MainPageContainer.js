@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import lozad from 'lozad'
 
 
 import { 
@@ -25,7 +25,14 @@ class MainPageContainer extends Component {
 	}
 
 	componentDidMount() {
-	
+		lozad('.mainSlider__slide', {
+			load: el => {
+				el.src = el.dataset.src;
+				el.onload = () => {
+					el.classList.add('fadeIn');
+				}
+			}
+		}).observe();
     }
 
     componentDidUpdate() {
