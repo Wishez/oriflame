@@ -31,101 +31,139 @@ const RegistrationForm = ({
 		onSubmit={handleSubmit(submitRegisterForm.bind(this))}
 		className='registerForm'>
 		<Field component={RenderController}
-			name='name'
+			name='first_name'
 			type='text'
 			block='registrationFormController'
 			validate={[required]}
-			placeholder='Имя'
+			placeholder='Хэнк'
 			maxLength='24'
+			label='Имя'
 		 />
 		 <Field component={RenderController}
-		 	name='patronymic'
+		 	name='last_name'
 		 	type='text'
 		 	block='registrationFormController'
 			validate={[required]}
-			placeholder='Отчество'
+			placeholder='Реардэн'
 			maxLength='30'
+			label='Фамилия'
 		 />
 	
+		<div className='registrationFormController'>
+			<Checkbox onClick={() => {}}
+			 	className='registrationFormController__checkbox'
+			 	name='empty_middle_name'
+			    label={
+			 	'Нет отчества'} />
+		 </div>
+		 <Field component={RenderController}
+		 	name='middle_name'
+		 	type='text'
+		 	block='registrationFormController'
+			validate={[required]}
+			placeholder='Иванов'
+			maxLength='30'
+			label='Отчество'
+		 />
 		 <Field component={RenderController}
 		 	name='birthday'
 		 	type='date'
 		 	block='registrationFormController'
 			validate={[required]}
+			label='День рождения'
 		 />
+		 <div className='registrationFormController'>
+			<Checkbox onClick={() => {}}
+			 	className='registrationFormController__checkbox'
+			 	name='citizenship'
+			    label={
+			 	'Не гражданин РФ'} />
+		 </div>
 		 <Field component={RenderController}
-		 	name='patronymic'
+		 	name='passport_data'
 		 	type='text'
 		 	block='registrationFormController'
 			validate={[required]}
-			placeholder='Отчество'
+			placeholder='1234-654321'
 			maxLength='30'
+			label='Серия и номер паспорта'
 		 />
 	
 		<Field component={RenderController}
-		 	name='patronymic'
+		 	name='phone_number'
 		 	type='text'
 		 	block='registrationFormController'
 			validate={[required]}
-			placeholder='Отчество'
-			maxLength='30'
+			placeholder='+7 (964) 555-65-75 '
+			maxLength='25'
+			label='Номер телефона'
 		 />
 		<Field component={RenderController}
-		 	name='patronymic'
+		 	name='city'
 		 	type='text'
 		 	block='registrationFormController'
 			validate={[required]}
-			placeholder='Отчество'
-			maxLength='30'
+			placeholder='Москва, Лондон, Токио'
+			maxLength='50'
+			label='Город'
 		 />
 		<Field component={RenderController}
-		 	name='patronymic'
+		 	name='region'
 		 	type='text'
 		 	block='registrationFormController'
 			validate={[required]}
-			placeholder='Отчество'
-			maxLength='30'
+			placeholder='Московская, Тульская, Нижегородская'
+			maxLength='50'
+			label='Область'
 		 />
 		<Field component={RenderController}
-		 	name='patronymic'
+		 	name='street'
 		 	type='text'
 		 	block='registrationFormController'
 			validate={[required]}
-			placeholder='Отчество'
-			maxLength='30'
+			placeholder='Тисовая, Бейкер-стрит, Пушкина '
+			maxLength='50'
+			label='Улица'
 		 />
 		<Field component={RenderController}
-		 	name='patronymic'
+		 	name='num_home'
 		 	type='text'
 		 	block='registrationFormController'
 			validate={[required]}
-			placeholder='Отчество'
-			maxLength='30'
+			placeholder='85A'
+			maxLength='8'
+			label='Номер дома'
 		 />
 		<Field component={RenderController}
-		 	name='patronymic'
-		 	type='text'
+		 	name='num_apartment'
+		 	type='num'
 		 	block='registrationFormController'
 			validate={[required]}
-			placeholder='Отчество'
-			maxLength='30'
+			placeholder='28'
+			max='600'
+			min='1'
+			label='Номер квартиры'
 		 />
 		 <Field component={RenderController}
 		 	name='email'
 		 	type='email'
 		 	block='registrationFormController'
 			validate={[required, email]}
-			placeholder='Email'
+			placeholder='your_email@mail.ru'
 			maxLength='100'
+			label='E-mail'
 		 />
-
-
 		 
 		 <div className='registrationFormController'>
-			 <Checkbox onClick={allowRegister}
-			 	className='registrationFormController__check'
-			    label={ReactHtmlParser(
-			 	'Вы ознакомились с <a href=`/rules` class="not-follow">правилами</a> проекта')} />
+		 	<div class='registrationFormController__rules'>
+		 		<a href='https://ru-eshop.oriflame.com/iframe/custom/ru/consultant/Registration.pdf' class='not-follow'>Договор</a>
+				<br />
+		 		<a href='https://ru-eshop.oriflame.com/iframe/custom/ru/consultant/Registration.pdf' class='not-follow'>Условия</a>
+		 	</div>
+			<Checkbox onClick={allowRegister}
+			 	className='registrationFormController__checkRules'
+			    label={
+			 	'Вы ознакомились с договором и условиями?'} />
 		 </div>
 		 <div className='registerFormButtons'>
 			{registerMessage ? <strong className='formError'>{registerMessage}</strong> : ''}

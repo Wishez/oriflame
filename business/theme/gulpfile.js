@@ -49,7 +49,8 @@ scssPathes = ['node_modules/susy/sass',
              'node_modules/bootstrap-sass/assets/stylesheets',
              'node_modules/font-awesome-sass/assets/stylesheets/',
              'node_modules/semantic-ui-sass/',
-             'node_modules/slick-carousel/slick/'];
+             'node_modules/slick-carousel/slick'
+             ];
 
 
 
@@ -108,7 +109,7 @@ gulp.task('fastjs', () => {
     .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(settings.build + '/js'))
-    .pipe(livereload());
+    
 });
 
 
@@ -142,7 +143,7 @@ gulp.task('source', ['lintsource'], () => {
 /* ----------------- */
 
 gulp.task('faststyles', () => {
-  return gulp.src(settings.src + '/scss/**/*.scss')
+  return gulp.src(settings.src + '/sass/**/*.sass')
     .pipe(sourcemaps.init())
     .pipe(sass({
       includePaths: scssPathes
@@ -152,12 +153,11 @@ gulp.task('faststyles', () => {
       cascade: false
     }))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(settings.build + '/css'))
-    .pipe(livereload());
+    .pipe(gulp.dest(settings.build + '/css'));
 });
 
 gulp.task('styles', () => {
-  return gulp.src(settings.src + '/scss/**/*.scss')
+  return gulp.src(settings.src + '/sass/**/*.sass')
     .pipe(sass({
       outputStyle: 'compressed',
       includePaths: scssPathes
@@ -175,8 +175,7 @@ gulp.task('styles', () => {
 gulp.task('html', () => {
   return gulp.src(settings.src + '/*.pug')
     .pipe(pug())
-    .pipe(gulp.dest(templatesPath))
-    .pipe(livereload());
+    .pipe(gulp.dest(templatesPath));
 });
 
 
@@ -194,8 +193,8 @@ gulp.task('fonts', () => {
 /* ----------------- */
 gulp.task('fastimages', () => {
   return gulp.src(settings.src + '/img/**/*')
-    .pipe(gulp.dest(settings.build + '/img'))
-    .pipe(livereload());
+    .pipe(gulp.dest(settings.build + '/img'));
+    
 });
 
 gulp.task('images', () => {
@@ -235,29 +234,23 @@ gulp.task('manifest', () => {
 /* ----------------- */
 /* Predefined
 /* ----------------- */
-// Uncomment if you need front-end server, but then you need to change pathes in html templates.
-// gulp.task('serve', () => {
-//   browserSync.init({
-//     server: {
-//       baseDir: settings.build
-//     },
-//     open: false,
-//     port: 8080,
-//     reloadDelay: 2200
-//   });
-// });
 
-gulp.task('watch', () => {
-  livereload.listen({
-    basePath: './src',
-    host: 'localhost',
-    port: '8080'
-  });
-  gulp.watch(settings.src + '/**/*.scss', ['faststyles']);
+// gulp.task('serve', () => { 
+//   browserSync.init({ 
+//     server: { 
+//     baseDir: settings.build 
+//     }, 
+//     open: false, 
+//     port: 9020, 
+//     reloadDelay: 2200 
+//   }); 
+// }); 
+
+gulp.task('watch', () => { 
+  gulp.watch(settings.src + '/**/*.sass', ['faststyles']);
   gulp.watch(settings.src + '/img/**/*.*', ['fastimages']);
-  gulp.watch(settings.src + '/fonts/**/*.*', ['fonts']);
-  gulp.watch(settings.src + '/**/*.pug', ['html']);
-  gulp.watch(settings.src + '/**/*.js', ['fastjs']);
+  gulp.watch(settings.src + '/js/**/*.js', ['fastjs']);
+  gulp.watch(settings.src + '/*.html', ['html']);
 });
 
 gulp.task('lintfastjs', ['lintsource', 'fastjs']);

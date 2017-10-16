@@ -1,4 +1,5 @@
 import React from 'react';
+import { Input } from 'semantic-ui-react';
 
 const RenderController = ({
 	input,
@@ -13,7 +14,7 @@ const RenderController = ({
 }) => (
 	<div className={block}>
 		<label className={`${block}__label`}>{label}</label>
-		<input {...input}
+		<Input {...input}
 			{...rest}
 			className={`${block}__input`} />
 		 {touched && 

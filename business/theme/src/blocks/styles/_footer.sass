@@ -1,0 +1,66 @@
+/* START FOOTER	*/
+.footer 
+  
+  
+
+/* 
+	END FOOTER
+							*/
+/* 
+	START FOOTER CONTACTS 
+										*/
+									
+.footer__paragraph, .footerContacts, .copyright	
+	@extend %floatLeft
+
+
+
+.footer__paragraph 
+	@extend %seven
+	@extend %bigTopPadding
+	padding-right: 2em
+	@include breakpoint($xs) 
+		display: none
+	
+
+.footerContacts 
+	@include gutters(2em inside)
+	@extend %five
+	@include breakpoint($xs) 
+		text-align: center
+		width: 	100%
+	
+	
+ 
+
+.footerContactsItem 
+	
+	@extend %defaultTopMargin
+
+.footerContactsItem__label 
+	color: $gray
+
+
+.footerContactsItem__contact 
+	// color: $dark
+
+
+/* 
+	END FOOTER CONTACTS 
+										*/
+/* 
+	STANRT FOOTER COPYRIGHT 
+											*/					
+.copyright 
+	@extend %bigTopMargin
+	@extend %darkGrayBg
+	color: $white
+	@extend %fullWidth
+	@extend %text-center
+	padding: 1em 0
+
+.copyright__refer 
+	color: $lightGray $i
+
+// END FOOTER COPYRIGHT 
+											
