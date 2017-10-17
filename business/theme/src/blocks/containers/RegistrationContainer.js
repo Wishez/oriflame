@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Registration from './../components/Registration';
-import { tryRegister } from './../actions/accountActions.js';
+import { tryRegister } from './../actions/registrationActions.js';
 import { selectNavigationItem } from './../actions/navigationActions.js';
 
 class RegistrationContainer extends Component {
@@ -29,13 +29,10 @@ class RegistrationContainer extends Component {
 		this.maskFields(true);
     }
 
-    componentDidUpdate() {
-    	
-    }
 
-	submitRegisterForm = (values, dispatch) => {
-		
-		dispatch(tryRegister('main', values));
+
+	submitRegistrationForm = (values, dispatch) => {
+		dispatch(tryRegister(values));
 		
 	}
 
@@ -60,7 +57,7 @@ class RegistrationContainer extends Component {
 		
 		if (state) {
 			$phone.mask(phoneMask);
-			$passport.mask(passportMask, {placeholder: "__-______"});
+			$passport.mask(passportMask);
 		} else {
 			$phone.unmask(phoneMask);
 			$passport.unmask(passportMask);
@@ -77,7 +74,7 @@ class RegistrationContainer extends Component {
 			<main className='main'>
 				<Registration {...this.props}
 					{...this.state}
-					submitRegisterForm={this.submitRegisterForm} 
+					submitRegistrationForm={this.submitRegistrationForm} 
 					allowRegister={this.allowRegister}
 					switchState={this.switchState}
 					switchMask={this.switchMask}
@@ -89,9 +86,10 @@ class RegistrationContainer extends Component {
 
 const mapStateToProps = state => {
 	const { 
-		registration
+		registration,
+		form
 	} = state;
-		
+
 	const { 
 		isRegistering,
 		registered,

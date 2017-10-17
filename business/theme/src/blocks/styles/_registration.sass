@@ -1,8 +1,13 @@
+.registrationInfo, .registrationFormButtons, .registrationFormController, .registrationFormButtons__button
+	@extend %centerBlock
+
+.registrationInfo
+	max-width: 700px
 .registrationForm
-	margin-top: 10%
+	margin-top: 7%
+
 .registrationFormButtons, .registrationFormController
 	max-width: 275px
-	@extend %centerBlock
 	@extend %fullWidth
 	@extend %defaultTopMargin
 
@@ -34,16 +39,14 @@
 	margin: 0.3em auto 0 $i
 	& input 
 		@extend %fullWidth
+		&:valid, &:invalid
+			border: 2px solid transparent
 		&:focus
-			&:valid, &:invalid
-				border: 1px solid 
 			&:valid
 				border-color: $green
 			&:invalid
 				border-color: $purple
 
-.registrationFormButtons__button
-	@extend %centerBlock
 
 .registrationFormController__rules
 	@extend %text-center

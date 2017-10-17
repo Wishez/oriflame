@@ -6,17 +6,28 @@ import ReactHtmlParser from 'react-html-parser'
 
 import { 
 	required,
- 	password,
  	email,
- 	nameValidation,
- 	surnameLength,
- 	nameLength
+ 	houseNum,
+ 	houseNumLength,
+ 	cityRegionStreet,
+ 	cityLength,
+ 	regionLength,
+ 	streetLength,
+ 	firstMiddleLastNames,
+ 	nameLength,
+ 	lastNameLength,
+ 	middleNameLength,
+ 	passportLength,
+ 	passport,
+ 	birthday,
+ 	phoneLength,
+ 	phone
 } from './../constants/validation.js';
 
 // import Captcha from './Captcha';
 
 const RegistrationForm = ({
-	submitRegisterForm,
+	submitRegistrationForm,
 	handleSubmit,
 	allowRegister,
 	knowRules,
@@ -27,31 +38,34 @@ const RegistrationForm = ({
 	switchMask
 }) => (
 	<form id='registrationForm'
-		onSubmit={handleSubmit(submitRegisterForm.bind(this))}
-		className='registerForm'>
+		onSubmit={handleSubmit(submitRegistrationForm.bind(this))}
+		className='registrationForm'>
 		<Field component={RenderController}
 			name='first_name'
 			type='text'
 			block='registrationFormController'
-			validate={[required]}
+			validate={[required, firstMiddleLastNames, nameLength]}
 			placeholder='Хэнк'
 			maxLength='24'
+			minLength='3'
 			label='Имя'
+			pattern='^[A-ZА-ЯЁ][a-zа-яё]*$'
 		 />
 		 <Field component={RenderController}
 		 	name='last_name'
 		 	type='text'
 		 	block='registrationFormController'
-			validate={[required]}
+			validate={[required, firstMiddleLastNames, lastNameLength]}
 			placeholder='Реардэн'
 			maxLength='30'
+			minLength='3'
 			label='Фамилия'
+			pattern='^[A-ZА-ЯЁ][a-zа-яё]*$'
 		 />
 	
 		<div onClick={switchState('removedMiddleNameField')} className='registrationFormController registrationFormController_narrow registrationFormController_checkbox'>
 			<Checkbox 
 			 	className='registrationFormController__checkbox'
-			 	name='empty_middle_name'
 			    label={
 			 	'Нет отчества'} />
 		 </div>
@@ -64,18 +78,21 @@ const RegistrationForm = ({
 		 	} : {}}
 		 	modifier='switched'
 		 	block='registrationFormController'
-			validate={[required]}
+			validate={!removedMiddleNameField ? [firstMiddleLastNames, middleNameLength] : []}
 			placeholder='Иванов'
 			maxLength='30'
+			minLength='3'
 			label='Отчество'
+			pattern='^[A-ZА-ЯЁ][a-zа-яё]*$'
 		 />
 		 <Field component={RenderController}
 		 	name='birthday'
 		 	type='text'
 		 	block='registrationFormController'
-			validate={[required]}
+			validate={[required, birthday]}
 			id='dateField'
 			label='День рождения'
+			pattern='^([0-2][0-9]|3[0-1])\/(0[0-9]|1[0-2])\/([1-2][019][0-9][0-9])$'
 		 />
 		 <div onClick={switchState('isMaskedFields', switchMask)}
 		 	className='registrationFormController registrationFormController_narrow registrationFormController_checkbox'>
@@ -83,26 +100,32 @@ const RegistrationForm = ({
 			 	className='registrationFormController__checkbox'
 			 	name='citizenship'
 			    label={
-			 	'Не гражданин РФ'} />
+			 	'Не гражданин РФ'
+				} 
+			/>
 		 </div>
 		 <Field component={RenderController}
 		 	name='passport_data'
 		 	type='text'
 		 	block='registrationFormController'
-			validate={[required]}
+			validate={[required, passportLength, passport]}
 			placeholder='1234-654321'
-			maxLength='30'
+			maxLength='15'
+			minLength='7'
 			id='passportField'
 			label='Серия и номер паспорта'
+			pattern='^[A-ZА-Я0-9\-]*$'
 		 />
 	
 		<Field component={RenderController}
 		 	name='phone_number'
 		 	type='text'
 		 	block='registrationFormController'
-			validate={[required]}
+			validate={[required, phoneLength, phone]}
 			placeholder='+7 (964) 555-65-75 '
-			maxLength='25'
+			maxLength='24'
+			minLength='11'
+			pattern='^\+?[0-9\s\-)(]*$'
 			id='phoneField'
 			label='Номер телефона'
 		 />
@@ -110,37 +133,45 @@ const RegistrationForm = ({
 		 	name='city'
 		 	type='text'
 		 	block='registrationFormController'
-			validate={[required]}
+			validate={[required, cityRegionStreet, cityLength]}
 			placeholder='Москва, Лондон, Токио'
 			maxLength='50'
+			minLength='3'
 			label='Город'
+			pattern='^[a-zA-Zа-яА-Я\s\-]*$'
 		 />
 		<Field component={RenderController}
 		 	name='region'
 		 	type='text'
 		 	block='registrationFormController'
-			validate={[required]}
+			validate={[regionLength, cityRegionStreet]}
 			placeholder='Московская, Тульская'
 			maxLength='50'
+			minLength='3'
 			label='Область'
+			pattern='^[a-zA-Zа-яА-Я\s\-]*$'
 		 />
 		<Field component={RenderController}
 		 	name='street'
 		 	type='text'
 		 	block='registrationFormController'
-			validate={[required]}
+			validate={[required, cityRegionStreet, streetLength]}
 			placeholder='Тисовая, Бейкер-стрит, Пушкина '
 			maxLength='50'
+			minLength='3'
 			label='Улица'
+			pattern='^[a-zA-Zа-яА-Я\s\-]*$'
 		 />
 		<Field component={RenderController}
 		 	name='num_home'
 		 	type='text'
 		 	block='registrationFormController'
-			validate={[required]}
+			validate={[required, houseNumLength, houseNum]}
 			placeholder='85A'
-			maxLength='8'
+			maxLength='7'
+			minLength='1'
 			label='Номер дома'
+			pattern='^[\w0-9]*$'
 		 />
 		<Field component={RenderController}
 		 	name='num_apartment'
@@ -159,6 +190,7 @@ const RegistrationForm = ({
 			validate={[required, email]}
 			placeholder='your_email@mail.ru'
 			maxLength='100'
+			minLength='5'
 			label='E-mail'
 		 />
 		 
@@ -189,10 +221,3 @@ const RegistrationForm = ({
 export default reduxForm({
 	form: 'registrationForm'
 })(RegistrationForm);
- 
-		 // <Field 
-		 //   component={Captcha}
-		 //   name='captcha'
-		 //   block='registrationFormController'
-		 //   validate={[required]} 
-		 //  /> 

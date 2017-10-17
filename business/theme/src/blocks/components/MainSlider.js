@@ -12,8 +12,10 @@ const MainSlider = ({
 			{...rest}>
 			{
 				images.map((image, index) => (
-					<Image key={index}
-						data-src={`/static/business/img/slides/${image}`}
+					<figure key={index}
+						style={{
+							backgroundImage: `url("/static/business/img/slides/${image}")`
+						}}
 						className='mainSlider__slide'
 					/>
 				))

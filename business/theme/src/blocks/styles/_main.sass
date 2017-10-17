@@ -43,15 +43,15 @@
 
 
 .mainSlider__slide 
-	// @include responsive-background
+	@include responsive-background
 	@extend %defaultBorderRadius
-	// padding-bottom: 6.98%
+	padding-bottom: 6.98%
 	opacity: 0
 	transition: opacity 1s
-	max-height: 500px
 	
-.mainSlider__slide.fadeIn
+.fadeIn
 	opacity: 1
+
 // Present section
 .present 
 	padding: 0
@@ -191,3 +191,4 @@
 
 
 @import './_registration.sass'
+@import './_shares.sass'

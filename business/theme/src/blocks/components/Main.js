@@ -6,6 +6,8 @@ import NotFound from './NotFound';
 import MyRoute from './MyRoute';
 import MainPageContainer from './../containers/MainPageContainer';
 import RegistrationContainer from './../containers/RegistrationContainer';
+import SharesContainer from './../containers/SharesContainer';
+import SingleShareContainer from './../containers/SingleShareContainer';
 
 const Main = ({
 }) => (
@@ -17,7 +19,9 @@ const Main = ({
                    <MainPageContainer {...props} />
             )} />   
             <MyRoute path='/shares'
-                component={({}) => ( <section>It is second section!</section> )} />
+                component={SharesContainer} />
+            <MyRoute path='/shares/:shareId'
+                component={SingleShareContainer} />
             <MyRoute path='/possibilities'
                 component={({}) => ( <section>It is third section!</section> )} />
             <MyRoute path='/registration'

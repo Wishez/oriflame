@@ -25,14 +25,7 @@ class MainPageContainer extends Component {
 	}
 
 	componentDidMount() {
-		lozad('.mainSlider__slide', {
-			load: el => {
-				el.src = el.dataset.src;
-				el.onload = () => {
-					el.classList.add('fadeIn');
-				}
-			}
-		}).observe();
+
     }
 
     componentDidUpdate() {

@@ -1,0 +1,4 @@
+export const GET_SHARES = 'GET_SHARES';
+export const GET_SINGLE_SHARES = 'GET_SINGLE_SHARES';
+export const CLEAR_SHARES = 'CLEAR_SHARES';
+export const REQUEST_SHARES = 'REQUEST_SHARES';

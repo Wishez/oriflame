@@ -2,7 +2,7 @@ import {
  	REGISTER,
  	REQUEST_REGISTER
  	
-} from './../constants/actionTypes.js';
+} from './../constants/registrationTypes.js';
 import customAjaxRequest from './../constants/ajax.js';
 
 // Показывает обработку регистрации.
@@ -22,11 +22,8 @@ const register = (
 
 
 
-export const tryRegister = (site, data) => dispatch => {
-	
+export const tryRegister = data => dispatch => {	
 	dispatch(registering());
-
-	data.site = site;
 
 	customAjaxRequest({
 		url: '/register/',
@@ -38,7 +35,6 @@ export const tryRegister = (site, data) => dispatch => {
 
     return $.ajax({
 		success: (registerMessage) => {
-		
 			// Сервер возвращает Вы успешно прошли регистрацию, если пользователь успешно зарегистрировался.
 			// В остальных случаях он возвращает другое сообщение.
 			if (registerMessage === 'Вы успешно прошли регистрацию') {
