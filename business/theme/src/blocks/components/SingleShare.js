@@ -14,7 +14,7 @@ const SingleShare = ({
 			/>
 			<Text className='share__text'
 				text={share.text} />
-			<Link to='/shares' className='share__referToAll'>
+			<Link to='/shares' className='share__referToAll defaultButton'>
 					Назад
 			</Link>
 		</Container>

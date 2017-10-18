@@ -1,14 +1,5 @@
 
 $(function() {
-  // $(window).resize(() => {
-
-      // let $navList = $('#navList');
-      // if (window.innerWidth > 799) {
-      //   $navList.show('fast');
-      // } else  {
-      //   $navList.hide('fast');
-      // }
-  // });
   $(document).on('click', '.not-follow', openUrlInNewWindow);
   
   function openUrlInNewWindow(e) {

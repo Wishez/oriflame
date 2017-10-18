@@ -45,8 +45,9 @@ class SharesContainer extends Component {
 			<main className='main'>
 				<Section block='shares'>
 					<Button loading={isRequestingShares}
+						aria-pressed='false'
 						content='Обновить'
-						className='purpleButton shares__button'
+						className='defaultButton shares__button'
 						onClick={() => {
 							dispatch(tryGetSharesIfNeeded(false));
 						}} 

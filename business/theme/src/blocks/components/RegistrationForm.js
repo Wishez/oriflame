@@ -210,7 +210,7 @@ const RegistrationForm = ({
 			<br />
 		 	<Button disabled={!knowRules}
 		 		loading={isRegistering}
-		 		className='registrationFormButtons__button registrationFormButtons__button_submit submit purpleButton' 
+		 		className='registrationFormButtons__button registrationFormButtons__button_submit submit defaultButton' 
 		 	   	content='Зарегистрироваться'
 		 	/>
 		 </div>

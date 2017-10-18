@@ -1,13 +1,21 @@
 // Header
 .header 
-  margin-top: 3.5%
   @extend %clearfix
+  & > .container
+    padding: 3em 5%
+    @extend %darkGrayBg
+    border-top-right-radius: 3px
+    border-top-left-radius: 3px
+    @extend %overflowHidden
+
 
 /* START BRAND */
 .brand 
-	max-width: 320px
+  max-width: 320px
   @extend %five
   @extend %inline-block
+  @extend %centerBlock-xs
+  @extend %fullWidth-xs
 
 
 .brand__name 
@@ -21,17 +29,26 @@
   @extend %seven
   @extend %floatRight
   @extend %defaultTopPadding
+  @extend %fullWidth-xs
+  @extend %defaultTopMargin-xs
 
 .navigation__openMenuButton 
   @extend %floatRight
+  @extend %centerBlock-xs
+  color: $darkGray
+  background-color: $pink $i
+  @include smooth-transition-button( lighten($darkGray, 5%) $i, darken($pink, 10%) $i )
+  @include breakpoint($xs)
+    float: none
+
 
 
 .navigation__closeMenuButton 
    z-index: 11
-   @extend %pointIt
+   cursor: pointer
    @extend %absolute
-   right: 10%
-   top: 10%
+   right: 5%
+   top: 5%
 
 
 .navList 
@@ -46,21 +63,32 @@
     flex-direction: column
     align-items: space-between
     z-index: 10
-    padding-top: 35vh
     @extend %text-center
     @extend %fs-21
+    padding-top: 10%
+    @include breakpoint($xs) 
 
 /* END NAV ITEMS */
 
 /* START NAV ITEMS */
 .navItem 
-  @extend %defaultTopMargin
-  &.active .navItem__refer 
+  // @extend %defaultTopMargin
+  
+  transition: background 1s
+  &:hover, &--active
+    @extend %darkGrayBg
+    & .navItem__refer
+      color: $pink $i
+      &:hover
+        color: darken($pink, 5%) $i
     
   
  
 
 .navItem__refer 
+  padding: 1em 0
+  @extend %fullWidth
+  display: block
   @include breakpoint($sm) 
      
   

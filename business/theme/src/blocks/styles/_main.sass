@@ -1,5 +1,5 @@
 .main  
-	
+	padding-bottom: 165px
  
 
 .mainSlider 
@@ -86,7 +86,6 @@
 		@extend %darkGrayBg
 		color: $lightGray
 		
-	
 
 
 .aboutItem:first-of-type 
@@ -106,13 +105,16 @@
 	@include breakpoint($md-less) 
 		border-top-right-radius: 5px
 		border-bottom-right-radius: 5px
-	
+	.aboutItem__title
+		color: $brown
 
 .aboutItem:nth-child(odd) 
 	@include breakpoint($md-less) 
 		border-top-left-radius: 5px
 		border-bottom-left-radius: 5px
-	
+	.aboutItem__title
+		color: $pink
+
 
 
 .aboutItemImageContainer, .aboutItem__title 

@@ -57,8 +57,10 @@ class NavContainer extends Component {
       }, 800);
   }
 
-  changeActiveNavigationItem = navigationItem => 
-      () => this.props.dispatch(selectNavigationItem(navigationItem));
+  changeActiveNavigationItem = navigationItem => () => {
+        this.props.dispatch(selectNavigationItem(navigationItem));
+        this.closeMenu();
+  }
 
 
   getActiveClasses = state => ( 
@@ -66,7 +68,7 @@ class NavContainer extends Component {
       'navItem': true,
       'navItem--active': state
     })
-  );
+  )
    
   closeMenu = () => {
     this.setState({

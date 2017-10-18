@@ -10,6 +10,7 @@ import SharesContainer from './../containers/SharesContainer';
 import SingleShareContainer from './../containers/SingleShareContainer';
 import ContactsContainer from './../containers/ContactsContainer';
 import MediaContainer from './../containers/MediaContainer';
+import BusinessContainer from './../containers/BusinessContainer';
 
 const Main = ({
 }) => (
@@ -24,7 +25,7 @@ const Main = ({
             <MyRoute path='/shares'
                 component={SharesContainer} />
             <MyRoute path='/possibilities'
-                component={({}) => ( <section>It is third section!</section> )} />
+                component={BusinessContainer} />
             <MyRoute path='/registration'
                 component={RegistrationContainer} />  
             <MyRoute path='/contacts'

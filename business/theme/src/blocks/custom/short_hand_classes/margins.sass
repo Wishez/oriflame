@@ -13,7 +13,9 @@
 
 %defaultTopMargin 
 	margin-top: 1em
-
+%defaultTopMargin-xs
+	@include breakpoint($xs)
+		margin-top: 1em
 
 %increasedTopMargin 
 	margin-top: 1.5em
@@ -47,3 +49,8 @@
    margin-left: auto $i
    margin-right: auto $i
    display: block $i
+%centerBlock-xs
+	@include breakpoint($xs)
+		margin-left: auto $i
+		margin-right: auto $i
+		display: block $i
