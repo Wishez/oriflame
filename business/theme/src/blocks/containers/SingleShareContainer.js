@@ -2,36 +2,47 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Loader } from 'semantic-ui-react'
+
 
 import {
-	tryGetShare,
+	tryGetSingleSharesIfNeeded,
 	clearShares
  } from './../actions/sharesActions.js';
 import SingleShare from './../components/SingleShare';
 
 class SingleShareContainer extends Component {
 	static PropTypes = {
+		isShareGotten: PropTypes.bool.isRequired,
 		share: PropTypes.object.isRequired,
 		dispatch: PropTypes.func.isRequired,
 		match: PropTypes.object.isRequired
 	}
 
-	componentDidMount() {
-		const { dispatch } = this.props;
+	getShare = () => {
+		const { dispatch, isShareGotten } = this.props;
 		const { shareId } = this.props.match.params;
 
-		dispatch(tryGetShare(shareId));
+		dispatch(tryGetSingleSharesIfNeeded(shareId, isShareGotten));
+	}
+
+	componentDidMount() {
+		this.getShare();
     }
 
     componentDidUpdate() {
-    
+	
     }
 
 	render() {
-		dispatch(clearShares());
+		const { isShareGotten, dispatch } = this.props;
+
 		return (
 			<main className='main'>
-				<SingleShare {...this.props} />
+				{ isShareGotten ?
+						<SingleShare {...this.props} /> :
+						<Loader active inline='centered' content='Загрузка' size='large' />
+				}
 			</main>
 		);
 	}
@@ -39,9 +50,11 @@ class SingleShareContainer extends Component {
 
 const mapStateToProps = state => {
 	const { shares } = state;
-	const { share } = shares
+	const { share, isShareGotten } = shares;
+	
 	return {
-		share
+		share,
+		isShareGotten
 	};
 }
 

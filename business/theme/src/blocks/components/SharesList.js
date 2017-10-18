@@ -7,8 +7,8 @@ import SharesListItem from './SharesListItem';
 const SharesList = ({
 	shares
 }) => (
-    <ul className='sharesList'>
-		{
+	<ul className='sharesList'>
+		{	
 			shares.map(share => (
 				<SharesListItem key={share.id}
 					share={share} />

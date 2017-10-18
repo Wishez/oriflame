@@ -24,10 +24,10 @@ const sharesRequesting = () => ({
 	type: REQUEST_SHARES
 });
 
-export const tryGetShares = () => dispatch => {
+const tryGetShares = () => dispatch => {
 	dispatch(sharesRequesting());
-
-	return fetch('/api/v0/shares/')
+	console.log('request s')
+	return fetch('/getMe/v0/shares/')
 		.then(resp => resp.json())
 		.then(data => {
 			dispatch(getShares(data));
@@ -37,16 +37,23 @@ export const tryGetShares = () => dispatch => {
 		});
 };
 
-export const tryGetSingleShare = id => dispatch => {
+const tryGetSingleShare = id => dispatch => {
 	dispatch(sharesRequesting());
-
-	return fetch(`/api/v0/shares/${id}/`)
+	console.log('request')
+	return fetch(`/getMe/v0/shares/${id}/`)
 		.then(resp => resp.json())
 		.then(data => {
-			dispatch(getShare(data[0]));
+			dispatch(getSingleShare(data));
 		})
-		.catch((err) => {
+		.catch(err => {
 			console.log(err);
 		});
 };
 
+export const tryGetSharesIfNeeded = isSharesGotten => dispatch => {
+	if (!isSharesGotten) dispatch(tryGetShares());
+};
+
+export const tryGetSingleSharesIfNeeded = (id, isShareGotten) => dispatch => {
+	if (!isShareGotten) dispatch(tryGetSingleShare(id));
+}

@@ -9,7 +9,8 @@ const initSharesState = {
 	sharesList: [],
 	share: {},
 	isSharesGotten: false,
-	isRequestingShares: false
+	isRequestingShares: false,
+	isShareGotten: false
 };
 
 
@@ -29,13 +30,16 @@ const shares = (
 				...state,
 				sharesList: action.data,
 				isRequestingShares: false,
-				isSharesGotten: true
+				isSharesGotten: true,
+				isShareGotten: false
 			};
-		case GET_SHARES: 
+		case GET_SINGLE_SHARES: 
 			return {
 				...state,
 				share: action.data,
-				isRequestingShares: false
+				isRequestingShares: false,
+				isShareGotten: true,
+				isSharesGotten: false
 			};
 		case CLEAR_SHARES:
 			return {

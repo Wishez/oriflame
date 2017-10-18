@@ -1,0 +1,11 @@
+
+.media .container
+	@extend %defaultFlex
+.media__video
+	@extend %five
+	@extend %fullWidth-xs
+	@extend %defaultTopMargin
+	padding-bottom: (9% / 16 * 100 / 2) $i
+	@include breakpoint($xs)
+		padding-bottom: (9% / 16 * 100) $i
+

@@ -3,10 +3,12 @@ import ReactHtmlParser from 'react-html-parser';
 
 const Text = ({
 	text,
-	className
+	className,
+	children
 }) => (
 	<div className={`textContainer ${className ? className : ''}`}>
 		{ReactHtmlParser(text)}
+		{children}
 	</div>
 );
 

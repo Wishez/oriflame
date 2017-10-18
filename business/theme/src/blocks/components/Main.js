@@ -8,26 +8,29 @@ import MainPageContainer from './../containers/MainPageContainer';
 import RegistrationContainer from './../containers/RegistrationContainer';
 import SharesContainer from './../containers/SharesContainer';
 import SingleShareContainer from './../containers/SingleShareContainer';
+import ContactsContainer from './../containers/ContactsContainer';
+import MediaContainer from './../containers/MediaContainer';
 
 const Main = ({
 }) => (
     <Route render={({ location }) => (
-        <Switch style={{opacity: 0}}
-         key={location.key} 
-         location={location}>
+        <Switch key={location.key} 
+                location={location}>
             <Route exact path='/' render={props => (
                    <MainPageContainer {...props} />
             )} />   
+            <MyRoute path='/shares/:shareId/'
+                component={SingleShareContainer} />
             <MyRoute path='/shares'
                 component={SharesContainer} />
-            <MyRoute path='/shares/:shareId'
-                component={SingleShareContainer} />
             <MyRoute path='/possibilities'
                 component={({}) => ( <section>It is third section!</section> )} />
             <MyRoute path='/registration'
-                component={RegistrationContainer} />   
-            <MyRoute path='/video'
-                component={({}) => ( <section>It is fifth section!</section> )} /> 
+                component={RegistrationContainer} />  
+            <MyRoute path='/contacts'
+                component={ContactsContainer} /> 
+            <MyRoute path='/media'
+                component={MediaContainer} /> 
             <Route render={() => (
                 <Redirect to="/not_found" />
             )}  />

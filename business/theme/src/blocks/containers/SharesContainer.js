@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 
 import {
-	tryGetShares,
+	tryGetSharesIfNeeded,
 	clearShares
  } from './../actions/sharesActions.js';
 import ShareList from './../components/SharesList';
@@ -20,14 +20,17 @@ class SharesContainer extends Component {
 		sharesList: PropTypes.array.isRequired,
 		dispatch: PropTypes.func.isRequired
 	}
+	getShares = () => {
+		const { dispatch, isSharesGotten } = this.props;
+		dispatch(tryGetSharesIfNeeded(isSharesGotten));
+	}
 
 	componentDidMount() {
-		const { dispatch } = this.props;
-		dispatch(tryGetShares());
+		this.getShares();
     }
 
     componentDidUpdate() {
-    
+
     }
 
 	render() {
@@ -43,8 +46,9 @@ class SharesContainer extends Component {
 				<Section block='shares'>
 					<Button loading={isRequestingShares}
 						content='Обновить'
+						className='purpleButton shares__button'
 						onClick={() => {
-							dispatch(tryGetShares());
+							dispatch(tryGetSharesIfNeeded(false));
 						}} 
 					/>
 					{isSharesGotten ?
@@ -59,7 +63,7 @@ class SharesContainer extends Component {
 
 const mapStateToProps = state => {
 	const { shares } = state;
-
+	console.log(shares);
 	return {
 		...shares
 	};

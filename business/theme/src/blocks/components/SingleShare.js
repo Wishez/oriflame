@@ -7,15 +7,16 @@ import { Container } from 'semantic-ui-react';
 const SingleShare = ({
 	share
 }) => (
-	<article className='share'>
+	<article className='share section'>
 		<Container>
 			<Title block='share' 
 				text={share.title} 
 			/>
-			<Text block='share'>
-				{share.text}
-			</Text>
-			<Link to='/shares' className='share__referToAll' />
+			<Text className='share__text'
+				text={share.text} />
+			<Link to='/shares' className='share__referToAll'>
+					Назад
+			</Link>
 		</Container>
 	</article>
 );
