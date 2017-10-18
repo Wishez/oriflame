@@ -102554,7 +102554,7 @@ var closeNavIfNeededAndSelectNavigationItem = exports.closeNavIfNeededAndSelectN
 	};
 };
 
-},{"./../constants/navigationTypes.js":1316}],1285:[function(require,module,exports){
+},{"./../constants/navigationTypes.js":1315}],1285:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -102615,13 +102615,13 @@ var tryRegister = exports.tryRegister = function tryRegister(data) {
 	};
 };
 
-},{"./../constants/ajax.js":1314,"./../constants/registrationTypes.js":1317}],1286:[function(require,module,exports){
+},{"./../constants/ajax.js":1313,"./../constants/registrationTypes.js":1317}],1286:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.tryGetSingleShare = exports.tryGetShares = exports.clearShares = undefined;
+exports.tryGetSingleSharesIfNeeded = exports.tryGetSharesIfNeeded = exports.clearShares = undefined;
 
 var _sharesTypes = require('./../constants/sharesTypes.js');
 
@@ -102651,11 +102651,11 @@ var sharesRequesting = function sharesRequesting() {
 	};
 };
 
-var tryGetShares = exports.tryGetShares = function tryGetShares() {
+var tryGetShares = function tryGetShares() {
 	return function (dispatch) {
 		dispatch(sharesRequesting());
-
-		return fetch('/api/v0/shares/').then(function (resp) {
+		console.log('request s');
+		return fetch('/getMe/v0/shares/').then(function (resp) {
 			return resp.json();
 		}).then(function (data) {
 			dispatch(getShares(data));
@@ -102665,17 +102665,29 @@ var tryGetShares = exports.tryGetShares = function tryGetShares() {
 	};
 };
 
-var tryGetSingleShare = exports.tryGetSingleShare = function tryGetSingleShare(id) {
+var tryGetSingleShare = function tryGetSingleShare(id) {
 	return function (dispatch) {
 		dispatch(sharesRequesting());
-
-		return fetch('/api/v0/shares/' + id + '/').then(function (resp) {
+		console.log('request');
+		return fetch('/getMe/v0/shares/' + id + '/').then(function (resp) {
 			return resp.json();
 		}).then(function (data) {
-			dispatch(getShare(data[0]));
+			dispatch(getSingleShare(data));
 		}).catch(function (err) {
 			console.log(err);
 		});
+	};
+};
+
+var tryGetSharesIfNeeded = exports.tryGetSharesIfNeeded = function tryGetSharesIfNeeded(isSharesGotten) {
+	return function (dispatch) {
+		if (!isSharesGotten) dispatch(tryGetShares());
+	};
+};
+
+var tryGetSingleSharesIfNeeded = exports.tryGetSingleSharesIfNeeded = function tryGetSingleSharesIfNeeded(id, isShareGotten) {
+	return function (dispatch) {
+		if (!isShareGotten) dispatch(tryGetSingleShare(id));
 	};
 };
 
@@ -102727,7 +102739,7 @@ var About = function About(_ref) {
 
 exports.default = About;
 
-},{"./AboutItem":1288,"./Section":1308,"React":4}],1288:[function(require,module,exports){
+},{"./AboutItem":1288,"./Section":1307,"React":4}],1288:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -102790,7 +102802,7 @@ var AboutItem = function AboutItem(_ref) {
 
 exports.default = AboutItem;
 
-},{"./Text":1312,"./Title":1313,"React":4}],1289:[function(require,module,exports){
+},{"./Text":1311,"./Title":1312,"React":4}],1289:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -102848,7 +102860,7 @@ var Catalogs = function Catalogs(_ref) {
 
 exports.default = Catalogs;
 
-},{"./CatalogsSlider":1290,"./Section":1308,"./Title":1313,"react":956}],1290:[function(require,module,exports){
+},{"./CatalogsSlider":1290,"./Section":1307,"./Title":1312,"react":956}],1290:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -102971,53 +102983,7 @@ var Copyright = function Copyright(_ref) {
 
 exports.default = Copyright;
 
-},{"./Paragraph":1303,"react":956}],1292:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-var _jsxFileName = 'E:\\Dropbox\\Dropbox\\repo\\oriflame\\business\\theme\\src\\blocks\\components\\Figure.js';
-
-var _React = require('React');
-
-var _React2 = _interopRequireDefault(_React);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Figure = function Figure(_ref) {
-	var block = _ref.block,
-	    url = _ref.url,
-	    width = _ref.width,
-	    height = _ref.height,
-	    maxWidth = _ref.maxWidth;
-	return _React2.default.createElement(
-		'div',
-		{ className: 'imageContainer ' + block + 'ImageContainer',
-			style: {
-				maxWidth: maxWidth + 'px'
-			},
-			__source: {
-				fileName: _jsxFileName,
-				lineNumber: 10
-			}
-		},
-		_React2.default.createElement('figure', {
-			className: 'imageContainer__image ' + block + 'ImageContainer__image',
-			style: {
-				backgroundImage: 'url(' + url + ')',
-				paddingBottom: height / width * 100 + '%'
-			}, __source: {
-				fileName: _jsxFileName,
-				lineNumber: 15
-			}
-		})
-	);
-};
-
-exports.default = Figure;
-
-},{"React":4}],1293:[function(require,module,exports){
+},{"./Paragraph":1302,"react":956}],1292:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103091,7 +103057,7 @@ var Footer = function Footer() {
 
 exports.default = Footer;
 
-},{"./../constants/conf.js":1315,"./Copyright":1291,"./FooterContacts":1294,"./Paragraph":1303,"react":956,"semantic-ui-react":1166}],1294:[function(require,module,exports){
+},{"./../constants/conf.js":1314,"./Copyright":1291,"./FooterContacts":1293,"./Paragraph":1302,"react":956,"semantic-ui-react":1166}],1293:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103213,7 +103179,7 @@ var FooterContacts = function FooterContacts(_ref) {
 
 exports.default = FooterContacts;
 
-},{"./Title":1313,"react":956}],1295:[function(require,module,exports){
+},{"./Title":1312,"react":956}],1294:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103275,7 +103241,7 @@ var Header = function Header(_ref) {
 
 exports.default = Header;
 
-},{"./../containers/NavContainer.js":1322,"./Logo":1296,"react":956,"semantic-ui-react":1166}],1296:[function(require,module,exports){
+},{"./../containers/NavContainer.js":1325,"./Logo":1295,"react":956,"semantic-ui-react":1166}],1295:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103322,7 +103288,7 @@ var Logo = function Logo(_ref) {
 
 exports.default = Logo;
 
-},{"react":956,"react-router-dom":929}],1297:[function(require,module,exports){
+},{"react":956,"react-router-dom":929}],1296:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103365,6 +103331,18 @@ var _SingleShareContainer = require('./../containers/SingleShareContainer');
 
 var _SingleShareContainer2 = _interopRequireDefault(_SingleShareContainer);
 
+var _ContactsContainer = require('./../containers/ContactsContainer');
+
+var _ContactsContainer2 = _interopRequireDefault(_ContactsContainer);
+
+var _MediaContainer = require('./../containers/MediaContainer');
+
+var _MediaContainer2 = _interopRequireDefault(_MediaContainer);
+
+var _BusinessContainer = require('./../containers/BusinessContainer');
+
+var _BusinessContainer2 = _interopRequireDefault(_BusinessContainer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
@@ -103376,109 +103354,88 @@ var Main = function Main(_ref) {
             var location = _ref2.location;
             return _react2.default.createElement(
                 _reactRouterDom.Switch,
-                { style: { opacity: 0 },
-                    key: location.key,
+                { key: location.key,
                     location: location, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 15
+                        lineNumber: 18
                     }
                 },
                 _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', render: function render(props) {
                         return _react2.default.createElement(_MainPageContainer2.default, _extends({}, props, {
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 19
+                                lineNumber: 21
                             }
                         }));
                     }, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 18
+                        lineNumber: 20
                     }
                 }),
-                _react2.default.createElement(_MyRoute2.default, { path: '/shares',
-                    component: _SharesContainer2.default, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 21
-                    }
-                }),
-                _react2.default.createElement(_MyRoute2.default, { path: '/shares/:shareId',
+                _react2.default.createElement(_MyRoute2.default, { path: '/shares/:shareId/',
                     component: _SingleShareContainer2.default, __source: {
                         fileName: _jsxFileName,
                         lineNumber: 23
                     }
                 }),
-                _react2.default.createElement(_MyRoute2.default, { path: '/possibilities',
-                    component: function component(_ref3) {
-                        _objectDestructuringEmpty(_ref3);
-
-                        return _react2.default.createElement(
-                            'section',
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 26
-                                }
-                            },
-                            'It is third section!'
-                        );
-                    }, __source: {
+                _react2.default.createElement(_MyRoute2.default, { path: '/shares',
+                    component: _SharesContainer2.default, __source: {
                         fileName: _jsxFileName,
                         lineNumber: 25
+                    }
+                }),
+                _react2.default.createElement(_MyRoute2.default, { path: '/possibilities',
+                    component: _BusinessContainer2.default, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 27
                     }
                 }),
                 _react2.default.createElement(_MyRoute2.default, { path: '/registration',
                     component: _RegistrationContainer2.default, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 27
+                        lineNumber: 29
                     }
                 }),
-                _react2.default.createElement(_MyRoute2.default, { path: '/video',
-                    component: function component(_ref4) {
-                        _objectDestructuringEmpty(_ref4);
-
-                        return _react2.default.createElement(
-                            'section',
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 30
-                                }
-                            },
-                            'It is fifth section!'
-                        );
-                    }, __source: {
+                _react2.default.createElement(_MyRoute2.default, { path: '/contacts',
+                    component: _ContactsContainer2.default, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 29
+                        lineNumber: 31
+                    }
+                }),
+                _react2.default.createElement(_MyRoute2.default, { path: '/media',
+                    component: _MediaContainer2.default, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 33
                     }
                 }),
                 _react2.default.createElement(_reactRouterDom.Route, { render: function render() {
                         return _react2.default.createElement(_reactRouterDom.Redirect, { to: '/not_found', __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 32
+                                lineNumber: 36
                             }
                         });
                     }, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 31
+                        lineNumber: 35
                     }
                 }),
                 _react2.default.createElement(_MyRoute2.default, { path: '/not_found',
                     component: _NotFound2.default, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 34
+                        lineNumber: 38
                     }
                 })
             );
         }, __source: {
             fileName: _jsxFileName,
-            lineNumber: 14
+            lineNumber: 17
         }
     });
 };
 
 exports.default = Main;
 
-},{"./../containers/MainPageContainer":1321,"./../containers/RegistrationContainer":1323,"./../containers/SharesContainer":1324,"./../containers/SingleShareContainer":1325,"./MyRoute":1299,"./NotFound":1302,"react":956,"react-router-dom":929,"react-router-transition":932}],1298:[function(require,module,exports){
+},{"./../containers/BusinessContainer":1321,"./../containers/ContactsContainer":1322,"./../containers/MainPageContainer":1323,"./../containers/MediaContainer":1324,"./../containers/RegistrationContainer":1326,"./../containers/SharesContainer":1327,"./../containers/SingleShareContainer":1328,"./MyRoute":1298,"./NotFound":1301,"react":956,"react-router-dom":929,"react-router-transition":932}],1297:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103545,7 +103502,7 @@ var MainSlider = function MainSlider(_ref) {
 
 exports.default = MainSlider;
 
-},{"./Section":1308,"react":956,"react-slick":945,"semantic-ui-react":1166}],1299:[function(require,module,exports){
+},{"./Section":1307,"react":956,"react-slick":945,"semantic-ui-react":1166}],1298:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103585,7 +103542,7 @@ var MyRoute = function MyRoute(_ref) {
 };
 exports.default = MyRoute;
 
-},{"react":956,"react-router-dom":929}],1300:[function(require,module,exports){
+},{"react":956,"react-router-dom":929}],1299:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103625,7 +103582,7 @@ var NavItem = function NavItem(_ref) {
 
 exports.default = NavItem;
 
-},{"classnames":32,"react":956,"react-router-dom":929,"semantic-ui-react":1166}],1301:[function(require,module,exports){
+},{"classnames":32,"react":956,"react-router-dom":929,"semantic-ui-react":1166}],1300:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103745,7 +103702,7 @@ var Navigation = function Navigation(_ref) {
           _react2.default.createElement(
             'a',
             { href: 'http://beautystore.oriflame.ru/502181',
-              className: 'not-follow', __source: {
+              className: 'not-follow navItem__refer', __source: {
                 fileName: _jsxFileName,
                 lineNumber: 49
               }
@@ -103760,7 +103717,7 @@ var Navigation = function Navigation(_ref) {
 
 exports.default = Navigation;
 
-},{"./NavItem":1300,"prop-types":868,"react":956,"semantic-ui-react":1166}],1302:[function(require,module,exports){
+},{"./NavItem":1299,"prop-types":868,"react":956,"semantic-ui-react":1166}],1301:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103816,7 +103773,7 @@ var NotFound = function NotFound(_ref) {
 
 exports.default = NotFound;
 
-},{"./Section":1308,"./Title":1313,"react":956,"react-router-dom":929}],1303:[function(require,module,exports){
+},{"./Section":1307,"./Title":1312,"react":956,"react-router-dom":929}],1302:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103876,7 +103833,7 @@ var Paragraph = function Paragraph(_ref) {
 
 exports.default = Paragraph;
 
-},{"classnames":32,"react":956,"react-html-parser":884}],1304:[function(require,module,exports){
+},{"classnames":32,"react":956,"react-html-parser":884}],1303:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103896,13 +103853,12 @@ var _Section = require('./Section');
 
 var _Section2 = _interopRequireDefault(_Section);
 
-var _Figure = require('./Figure');
-
-var _Figure2 = _interopRequireDefault(_Figure);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
+
+// import Figure from './Figure';
+
 
 var Present = function Present(_ref) {
 	_objectDestructuringEmpty(_ref);
@@ -103914,36 +103870,32 @@ var Present = function Present(_ref) {
 				lineNumber: 12
 			}
 		},
-		_React2.default.createElement(_Figure2.default, { width: 100,
-			height: 100,
-			maxWidth: 100,
-			url: '#',
-			block: 'present', __source: {
-				fileName: _jsxFileName,
-				lineNumber: 13
-			}
-		}),
 		_React2.default.createElement(
 			_reactRouterDom.Link,
 			{ to: '/registration', __source: {
 					fileName: _jsxFileName,
-					lineNumber: 18
+					lineNumber: 13
 				}
 			},
-			_React2.default.createElement(_semanticUiReact.Button, { className: 'present__button purpleButton',
+			_React2.default.createElement(_semanticUiReact.Button, { className: 'present__button defaultButton',
 				content: '\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F',
 				size: 'huge', __source: {
 					fileName: _jsxFileName,
-					lineNumber: 19
+					lineNumber: 14
 				}
 			})
 		)
 	);
 };
 
+// <Figure width={100}
+// 			height={100}
+// 			maxWidth={100}
+// 			url='#'
+// 			block='present' />
 exports.default = Present;
 
-},{"./Figure":1292,"./Section":1308,"React":4,"react-router-dom":929,"semantic-ui-react":1166}],1305:[function(require,module,exports){
+},{"./Section":1307,"React":4,"react-router-dom":929,"semantic-ui-react":1166}],1304:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104041,7 +103993,7 @@ var Registration = function Registration(_ref) {
 
 exports.default = Registration;
 
-},{"./Paragraph":1303,"./RegistrationForm":1306,"./Section":1308,"./Title":1313,"react":956}],1306:[function(require,module,exports){
+},{"./Paragraph":1302,"./RegistrationForm":1305,"./Section":1307,"./Title":1312,"react":956}],1305:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104377,7 +104329,7 @@ var RegistrationForm = function RegistrationForm(_ref) {
 			}),
 			_react2.default.createElement(_semanticUiReact.Button, { disabled: !knowRules,
 				loading: isRegistering,
-				className: 'registrationFormButtons__button registrationFormButtons__button_submit submit purpleButton',
+				className: 'registrationFormButtons__button registrationFormButtons__button_submit submit defaultButton',
 				content: '\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F',
 				__source: {
 					fileName: _jsxFileName,
@@ -104392,7 +104344,7 @@ exports.default = (0, _reduxForm.reduxForm)({
 	form: 'registrationForm'
 })(RegistrationForm);
 
-},{"./../constants/validation.js":1319,"./RenderController":1307,"react":956,"react-html-parser":884,"redux-form":1016,"semantic-ui-react":1166}],1307:[function(require,module,exports){
+},{"./../constants/validation.js":1319,"./RenderController":1306,"react":956,"react-html-parser":884,"redux-form":1016,"semantic-ui-react":1166}],1306:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104470,7 +104422,7 @@ var RenderController = function RenderController(_ref) {
 
 exports.default = RenderController;
 
-},{"react":956,"semantic-ui-react":1166}],1308:[function(require,module,exports){
+},{"react":956,"semantic-ui-react":1166}],1307:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104515,7 +104467,7 @@ var Section = function Section(_ref) {
 
 exports.default = Section;
 
-},{"./Paragraph":1303,"react":956,"semantic-ui-react":1166}],1309:[function(require,module,exports){
+},{"./Paragraph":1302,"react":956,"semantic-ui-react":1166}],1308:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104561,7 +104513,7 @@ var SharesList = function SharesList(_ref) {
 
 exports.default = SharesList;
 
-},{"./SharesListItem":1310,"./Title":1313,"react":956,"react-router-dom":929}],1310:[function(require,module,exports){
+},{"./SharesListItem":1309,"./Title":1312,"react":956,"react-router-dom":929}],1309:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104573,6 +104525,8 @@ var _React = require('React');
 
 var _React2 = _interopRequireDefault(_React);
 
+var _reactRouterDom = require('react-router-dom');
+
 var _Title = require('./Title');
 
 var _Title2 = _interopRequireDefault(_Title);
@@ -104581,11 +104535,12 @@ var _Text = require('./Text');
 
 var _Text2 = _interopRequireDefault(_Text);
 
+var _pureFunctions = require('./../constants/pureFunctions.js');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var SharesListItem = function SharesListItem(_ref) {
-	var share = _ref.share,
-	    requestShare = _ref.requestShare;
+	var share = _ref.share;
 	return _React2.default.createElement(
 		'li',
 		{ style: {
@@ -104598,9 +104553,8 @@ var SharesListItem = function SharesListItem(_ref) {
 			}
 		},
 		_React2.default.createElement(
-			Link,
-			{ to: '/shares/' + share.id,
-				onClick: requestShare(share.id), __source: {
+			_reactRouterDom.Link,
+			{ to: '/shares/' + share.id, __source: {
 					fileName: _jsxFileName,
 					lineNumber: 15
 				}
@@ -104608,24 +104562,24 @@ var SharesListItem = function SharesListItem(_ref) {
 			_React2.default.createElement(_Title2.default, { block: 'sharesListItem',
 				text: share.title, __source: {
 					fileName: _jsxFileName,
-					lineNumber: 17
+					lineNumber: 16
 				}
 			}),
 			_React2.default.createElement(
 				'p',
 				{ className: 'sharesListItemMeta', __source: {
 						fileName: _jsxFileName,
-						lineNumber: 19
+						lineNumber: 18
 					}
 				},
 				_React2.default.createElement(
 					'span',
 					{ className: 'shareListItemMeta__date', __source: {
 							fileName: _jsxFileName,
-							lineNumber: 20
+							lineNumber: 19
 						}
 					},
-					share.published_date
+					'\u0414\u0430\u0442\u0430 \u043F\u0443\u0431\u043B\u0438\u043A\u0430\u0446\u0438\u0438: ' + (0, _pureFunctions.convertDate)(share.published_date)
 				)
 			)
 		)
@@ -104634,7 +104588,7 @@ var SharesListItem = function SharesListItem(_ref) {
 
 exports.default = SharesListItem;
 
-},{"./Text":1312,"./Title":1313,"React":4}],1311:[function(require,module,exports){
+},{"./../constants/pureFunctions.js":1316,"./Text":1311,"./Title":1312,"React":4,"react-router-dom":929}],1310:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104664,7 +104618,7 @@ var SingleShare = function SingleShare(_ref) {
 	var share = _ref.share;
 	return _React2.default.createElement(
 		'article',
-		{ className: 'share', __source: {
+		{ className: 'share section', __source: {
 				fileName: _jsxFileName,
 				lineNumber: 10
 			}
@@ -104684,27 +104638,28 @@ var SingleShare = function SingleShare(_ref) {
 					lineNumber: 12
 				}
 			}),
+			_React2.default.createElement(_Text2.default, { className: 'share__text',
+				text: share.text, __source: {
+					fileName: _jsxFileName,
+					lineNumber: 15
+				}
+			}),
 			_React2.default.createElement(
-				_Text2.default,
-				{ block: 'share', __source: {
+				_reactRouterDom.Link,
+				{ to: '/shares', className: 'share__referToAll defaultButton', __source: {
 						fileName: _jsxFileName,
-						lineNumber: 15
+						lineNumber: 17
 					}
 				},
-				share.text
-			),
-			_React2.default.createElement(_reactRouterDom.Link, { to: '/shares', className: 'share__referToAll', __source: {
-					fileName: _jsxFileName,
-					lineNumber: 18
-				}
-			})
+				'\u041D\u0430\u0437\u0430\u0434'
+			)
 		)
 	);
 };
 
 exports.default = SingleShare;
 
-},{"./Text":1312,"./Title":1313,"React":4,"react-router-dom":929,"semantic-ui-react":1166}],1312:[function(require,module,exports){
+},{"./Text":1311,"./Title":1312,"React":4,"react-router-dom":929,"semantic-ui-react":1166}],1311:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104724,21 +104679,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Text = function Text(_ref) {
 	var text = _ref.text,
-	    className = _ref.className;
+	    className = _ref.className,
+	    children = _ref.children;
 	return _react2.default.createElement(
 		'div',
 		{ className: 'textContainer ' + (className ? className : ''), __source: {
 				fileName: _jsxFileName,
-				lineNumber: 8
+				lineNumber: 9
 			}
 		},
-		(0, _reactHtmlParser2.default)(text)
+		(0, _reactHtmlParser2.default)(text),
+		children
 	);
 };
 
 exports.default = Text;
 
-},{"react":956,"react-html-parser":884}],1313:[function(require,module,exports){
+},{"react":956,"react-html-parser":884}],1312:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104772,7 +104729,7 @@ var Title = function Title(_ref) {
 
 exports.default = Title;
 
-},{"react":956,"react-html-parser":884}],1314:[function(require,module,exports){
+},{"react":956,"react-html-parser":884}],1313:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104824,7 +104781,7 @@ var customAjaxRequest = function customAjaxRequest(_ref) {
 
 exports.default = customAjaxRequest;
 
-},{"js-cookie":513}],1315:[function(require,module,exports){
+},{"js-cookie":513}],1314:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104855,7 +104812,7 @@ var email = exports.email = 'support@cosmeticsyou.ru';
 var phone = exports.phone = '8 (965) 158-14-81';
 var address = exports.address = 'Ивантеевская д. 13 кор.1';
 var addressHref = exports.addressHref = 'https://www.google.ru/maps/place/%D0%98%D0%B2%D0%B0%D0%BD%D1%82%D0%B5%D0%B5%D0%B2%D1%81%D0%BA%D0%B0%D1%8F+%D1%83%D0%BB.,+13%D0%BA1,+%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0,+107150/@55.818067,37.7239063,17z/data=!4m5!3m4!1s0x46b53450cf0645b9:0x869f26e9d7ad24d3!8m2!3d55.818067!4d37.726095';
-
+var map = exports.map = '<iframe class="mapContainer__map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d17933.626006869385!2d37.725323!3d55.815752!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b53450cf0645b9%3A0x869f26e9d7ad24d3!2z0JjQstCw0L3RgtC10LXQstGB0LrQsNGPINGD0LsuLCAxM9C6MSwg0JzQvtGB0LrQstCwLCDQoNC-0YHRgdC40Y8sIDEwNzE1MA!5e0!3m2!1sru!2sru!4v1508326598031" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>';
 // Sliders 
 // Main Slider's images
 var images = exports.images = ['slide1.jpg', 'slide2.png', 'slide3.jpg', 'slide4.jpg', 'slide5.jpg'];
@@ -104896,7 +104853,7 @@ var catalogSliderCustoms = exports.catalogSliderCustoms = {
 	}]
 };
 
-},{}],1316:[function(require,module,exports){
+},{}],1315:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104912,6 +104869,42 @@ var navigationItems = exports.navigationItems = {
 	registration: 'Регистрация',
 	media: 'Видео',
 	contacts: 'Контакты'
+};
+
+},{}],1316:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var cookiesHandler = exports.cookiesHandler = {
+	setUsernameAndPasswordToCookies: function setUsernameAndPasswordToCookies(_ref) {
+		var site = _ref.site,
+		    username = _ref.username,
+		    password = _ref.password;
+
+		localStorage.setItem(site + 'Password', password);
+		localStorage.setItem(site + 'Username', username);
+	},
+	getUsernameAndPasswordFromCookies: function getUsernameAndPasswordFromCookies(site) {
+		return {
+			username: localStorage.getItem(site + 'Username'),
+			password: localStorage.getItem(site + 'Password')
+		};
+	},
+	clearCookies: function clearCookies(site) {
+		localStorage.removeItem(site + 'Username');
+		localStorage.removeItem(site + 'Password');
+	}
+
+};
+
+var convertDate = exports.convertDate = function convertDate(date) {
+	return new Date(date).toLocaleDateString('ru-RU', {
+		hour: 'numeric',
+		minute: 'numeric',
+		second: 'numeric'
+	});
 };
 
 },{}],1317:[function(require,module,exports){
@@ -105099,7 +105092,399 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(App));
 
-},{"./../components/Footer":1293,"./../components/Header":1295,"./../components/Main":1297,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929}],1321:[function(require,module,exports){
+},{"./../components/Footer":1292,"./../components/Header":1294,"./../components/Main":1296,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929}],1321:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var _jsxFileName = 'E:\\Dropbox\\Dropbox\\repo\\oriflame\\business\\theme\\src\\blocks\\containers\\BusinessContainer.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactRouterDom = require('react-router-dom');
+
+var _reactRedux = require('react-redux');
+
+var _semanticUiReact = require('semantic-ui-react');
+
+var _Section = require('./../components/Section');
+
+var _Section2 = _interopRequireDefault(_Section);
+
+var _Title = require('./../components/Title');
+
+var _Title2 = _interopRequireDefault(_Title);
+
+var _Paragraph = require('./../components/Paragraph');
+
+var _Paragraph2 = _interopRequireDefault(_Paragraph);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var BusinessContainer = function (_Component) {
+	_inherits(BusinessContainer, _Component);
+
+	function BusinessContainer() {
+		_classCallCheck(this, BusinessContainer);
+
+		return _possibleConstructorReturn(this, (BusinessContainer.__proto__ || Object.getPrototypeOf(BusinessContainer)).apply(this, arguments));
+	}
+
+	_createClass(BusinessContainer, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'main',
+				{ className: 'main', __source: {
+						fileName: _jsxFileName,
+						lineNumber: 15
+					}
+				},
+				_react2.default.createElement(
+					_Section2.default,
+					{ block: 'business', __source: {
+							fileName: _jsxFileName,
+							lineNumber: 16
+						}
+					},
+					_react2.default.createElement(_Title2.default, { block: 'business',
+						text: '\u0421\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u0447\u0430\u044F \u0441 \u041E\u0440\u0438\u0444\u043B\u044D\u0439\u043C, \u0412\u044B \u0441\u043C\u043E\u0436\u0435\u0442\u0435:', __source: {
+							fileName: _jsxFileName,
+							lineNumber: 17
+						}
+					}),
+					_react2.default.createElement(_Paragraph2.default, { block: 'business',
+						text: '\u041E\u0442\u043B\u0438\u0447\u043D\u043E \u0432\u044B\u0433\u043B\u044F\u0434\u0435\u0442\u044C, \u043F\u043E\u043A\u0443\u043F\u0430\u0442\u044C \u043A\u043E\u0441\u043C\u0435\u0442\u0438\u043A\u0443 \u0441\u043E \u0441\u043A\u0438\u0434\u043A\u043E\u0439 \u043E\u0442 20 \u0434\u043E 32%;\r \u0417\u0430\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u0442\u044C, \u0441\u043E\u0432\u043C\u0435\u0449\u0430\u044F \u0441 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0439 \u0440\u0430\u0431\u043E\u0442\u043E\u0439;\r \u041D\u0430\u0447\u0430\u0442\u044C \u0441\u0432\u043E\u0439 \u0431\u0438\u0437\u043D\u0435\u0441 \u0431\u0435\u0437 \u0441\u0442\u0430\u0440\u0442\u043E\u0432\u043E\u0433\u043E \u043A\u0430\u043F\u0438\u0442\u0430\u043B\u0430 \u0438 \u0432\u044B\u0441\u043E\u043A\u0438\u043C \u0434\u043E\u0445\u043E\u0434\u043E\u043C;', __source: {
+							fileName: _jsxFileName,
+							lineNumber: 19
+						}
+					}),
+					_react2.default.createElement(_semanticUiReact.Image, { className: 'business__image',
+						centered: true, src: './static/business/img/business.jpg', __source: {
+							fileName: _jsxFileName,
+							lineNumber: 23
+						}
+					}),
+					_react2.default.createElement(_Title2.default, { block: 'business',
+						text: '\u0412\u043E\u0437\u043C\u043E\u0436\u043D\u043E\u0441\u0442\u0438 \u041E\u0440\u0438\u0444\u043B\u044D\u0439\u043C:', __source: {
+							fileName: _jsxFileName,
+							lineNumber: 25
+						}
+					}),
+					_react2.default.createElement(_Paragraph2.default, { block: 'business',
+						text: '\u041E\u0444\u043E\u0440\u043C\u0438\u0432 \u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044E \u0432 \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u0438 \u0443 \u0412\u0430\u0441 \u043F\u043E\u044F\u0432\u0438\u0442\u0441\u044F \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E\u0441\u0442\u044C \u043F\u043E\u043A\u0443\u043F\u0430\u0442\u044C \u043F\u0440\u043E\u0434\u0443\u043A\u0446\u0438\u044E \u0441\u043E \u0441\u043A\u0438\u0434\u043A\u043E\u0439 \u043E\u0442 20 \u0434\u043E 32%. \u0422\u0430\u043A\u0436\u0435 \u0412\u044B \u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u0435\u0441\u044C \u0443\u0447\u0430\u0441\u0442\u043D\u0438\u043A\u043E\u043C \u0430\u043A\u0446\u0438\u0439 \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u0438, \u043F\u043E \u043A\u043E\u0442\u043E\u0440\u044B\u043C \u0434\u0430\u0440\u044F\u0442 \u043C\u043D\u043E\u0436\u0435\u0441\u0442\u0432\u043E \u043F\u043E\u0434\u0430\u0440\u043A\u043E\u0432.', __source: {
+							fileName: _jsxFileName,
+							lineNumber: 27
+						}
+					}),
+					_react2.default.createElement(_Paragraph2.default, { block: 'business',
+						text: '\u041F\u043E\u0441\u0442\u0440\u043E\u0435\u043D\u0438\u0435 \u0441\u0432\u043E\u0435\u0439 \u043A\u043E\u043C\u0430\u043D\u0434\u044B \u2013 \u044D\u0442\u043E \u043F\u0440\u0438\u0433\u043B\u0430\u0448\u0435\u043D\u0438\u0435 \u0432 \u041E\u0440\u0438\u0444\u043B\u044D\u0439\u043C \u0434\u0440\u0443\u0433\u0438\u0445 \u043B\u044E\u0434\u0435\u0439 \u0432 \u0441\u0432\u043E\u044E \u0433\u0440\u0443\u043F\u043F\u0443.', __source: {
+							fileName: _jsxFileName,
+							lineNumber: 29
+						}
+					}),
+					_react2.default.createElement(_Paragraph2.default, { block: 'business',
+						text: '\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F \u041E\u0440\u0438\u0444\u043B\u044D\u0439\u043C \u0435\u0436\u0435\u043A\u0430\u0442\u0430\u043B\u043E\u0436\u043D\u043E \u0432\u044B\u043F\u043B\u0430\u0447\u0438\u0432\u0430\u0435\u0442 \u043F\u0440\u0435\u043C\u0438\u0438 \u0432 \u0437\u0430\u0432\u0438\u0441\u0438\u043C\u043E\u0441\u0442\u0438 \u043E\u0442 \r \u043E\u0431\u0449\u0435\u0433\u043E \u0442\u043E\u0432\u0430\u0440\u043E\u043E\u0431\u043E\u0440\u043E\u0442\u0430 \u0432\u0441\u0435\u0439 \u0441\u043E\u0437\u0434\u0430\u043D\u043D\u043E\u0439 \u0412\u0430\u043C\u0438 \u0433\u0440\u0443\u043F\u043F\u044B \u043A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442\u043E\u0432. \u0427\u0435\u043C \u0431\u043E\u043B\u044C\u0448\u0435 \u0442\u043E\u0432\u0430\u0440\u043E\u043E\u0431\u043E\u0440\u043E\u0442 \u043A\u043E\u043C\u0430\u043D\u0434\u044B, \u0442\u0435\u043C \u0431\u043E\u043B\u044C\u0448\u0438\u0439 \u043F\u0440\u043E\u0446\u0435\u043D\u0442 \u0412\u0430\u043C \u043D\u0430\u0447\u0438\u0441\u043B\u044F\u044E\u0442(\u043E\u0442 3% \u0434\u043E 22%).', __source: {
+							fileName: _jsxFileName,
+							lineNumber: 31
+						}
+					}),
+					_react2.default.createElement(_Paragraph2.default, { block: 'business',
+						text: '\u042D\u0442\u043E \u043E\u0447\u0435\u043D\u044C \u043F\u0440\u0438\u0431\u044B\u043B\u044C\u043D\u044B\u0439 \u0432\u0438\u0434 \u0434\u0435\u044F\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u0438, \u043C\u043D\u043E\u0433\u0438\u0435 \u0443\u0436\u0435 \u0437\u0430\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u044E\u0442 \u0442\u0430\u043A\u0438\u043C \r \u043E\u0431\u0440\u0430\u0437\u043E\u043C \u0431\u043E\u043B\u0435\u0435 100000 \u0440\u0443\u0431\u043B\u0435\u0439 \u0432 \u043C\u0435\u0441\u044F\u0446!', __source: {
+							fileName: _jsxFileName,
+							lineNumber: 34
+						}
+					}),
+					_react2.default.createElement(_Paragraph2.default, { block: 'business',
+						text: '\u0411\u043E\u043B\u044C\u0448\u0438\u043D\u0441\u0442\u0432\u043E \u043B\u044E\u0434\u0435\u0439 \u0434\u0430\u0436\u0435 \u043D\u0435 \u0434\u043E\u0433\u0430\u0434\u044B\u0432\u0430\u044E\u0442\u0441\u044F \u043E \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E\u0441\u0442\u0438 \u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0435\u0447\u0435\u0441\u0442\u0432\u0430 \r \u0441 \u041E\u0440\u0438\u0444\u043B\u044D\u0439\u043C \u0438 \u043F\u043E\u043B\u0430\u0433\u0430\u044E\u0442, \u0447\u0442\u043E \u043C\u043E\u0436\u043D\u043E \u0437\u0430\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u0442\u044C \u0442\u043E\u043B\u044C\u043A\u043E \u043F\u0440\u043E\u0434\u0430\u0432\u0430\u044F \u043A\u043E\u0441\u043C\u0435\u0442\u0438\u043A\u0443. \r \u041D\u043E \u0438\u043C\u0435\u043D\u043D\u043E \u0437\u0430\u043D\u0438\u043C\u0430\u044F\u0441\u044C \u043F\u0440\u0438\u0433\u043B\u0430\u0448\u0435\u043D\u0438\u0435\u043C \u0438 \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435\u043C \u043B\u044E\u0434\u0435\u0439 \u043C\u043D\u043E\u0433\u0438\u0435 \u0434\u043E\u0441\u0442\u0438\u0433\u043B\u0438 \r \u043F\u043E\u0442\u0440\u044F\u0441\u0430\u044E\u0449\u0438\u0445 \u0434\u043E\u0445\u043E\u0434\u043E\u0432 \u0438 \u0444\u0438\u043D\u0430\u043D\u0441\u043E\u0432\u043E\u0439 \u043D\u0435\u0437\u0430\u0432\u0438\u0441\u0438\u043C\u043E\u0441\u0442\u0438.', __source: {
+							fileName: _jsxFileName,
+							lineNumber: 37
+						}
+					}),
+					_react2.default.createElement(_semanticUiReact.Embed, { className: 'business__video',
+						id: 'KuHhkFDJKP8',
+						placeholder: '',
+						source: 'youtube',
+						__source: {
+							fileName: _jsxFileName,
+							lineNumber: 42
+						}
+					})
+				)
+			);
+		}
+	}]);
+
+	return BusinessContainer;
+}(_react.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+	return {};
+};
+
+exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(BusinessContainer));
+
+},{"./../components/Paragraph":1302,"./../components/Section":1307,"./../components/Title":1312,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929,"semantic-ui-react":1166}],1322:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var _jsxFileName = 'E:\\Dropbox\\Dropbox\\repo\\oriflame\\business\\theme\\src\\blocks\\containers\\ContactsContainer.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactRouterDom = require('react-router-dom');
+
+var _reactRedux = require('react-redux');
+
+var _reactHtmlParser = require('react-html-parser');
+
+var _reactHtmlParser2 = _interopRequireDefault(_reactHtmlParser);
+
+var _semanticUiReact = require('semantic-ui-react');
+
+var _conf = require('./../constants/conf.js');
+
+var _Section = require('./../components/Section');
+
+var _Section2 = _interopRequireDefault(_Section);
+
+var _Title = require('./../components/Title');
+
+var _Title2 = _interopRequireDefault(_Title);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ContactsContainer = function (_Component) {
+	_inherits(ContactsContainer, _Component);
+
+	function ContactsContainer() {
+		_classCallCheck(this, ContactsContainer);
+
+		return _possibleConstructorReturn(this, (ContactsContainer.__proto__ || Object.getPrototypeOf(ContactsContainer)).apply(this, arguments));
+	}
+
+	_createClass(ContactsContainer, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'main',
+				{ className: 'main', __source: {
+						fileName: _jsxFileName,
+						lineNumber: 22
+					}
+				},
+				_react2.default.createElement(
+					_Section2.default,
+					{ block: 'contacts', __source: {
+							fileName: _jsxFileName,
+							lineNumber: 23
+						}
+					},
+					_react2.default.createElement(
+						'div',
+						{ className: 'mapContainer', __source: {
+								fileName: _jsxFileName,
+								lineNumber: 24
+							}
+						},
+						(0, _reactHtmlParser2.default)(_conf.map)
+					),
+					_react2.default.createElement(_Title2.default, { block: 'contacts',
+						text: '\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B', __source: {
+							fileName: _jsxFileName,
+							lineNumber: 27
+						}
+					}),
+					_react2.default.createElement(
+						_semanticUiReact.Card.Group,
+						{ className: 'contactsList', __source: {
+								fileName: _jsxFileName,
+								lineNumber: 29
+							}
+						},
+						_react2.default.createElement(
+							_semanticUiReact.Card,
+							{ className: 'contactsListItem', __source: {
+									fileName: _jsxFileName,
+									lineNumber: 30
+								}
+							},
+							_react2.default.createElement(
+								_semanticUiReact.Card.Content,
+								{
+									__source: {
+										fileName: _jsxFileName,
+										lineNumber: 31
+									}
+								},
+								_react2.default.createElement(
+									_semanticUiReact.Card.Header,
+									{
+										__source: {
+											fileName: _jsxFileName,
+											lineNumber: 32
+										}
+									},
+									'\u0410\u0434\u0440\u0435\u0441'
+								),
+								_react2.default.createElement(
+									_semanticUiReact.Card.Description,
+									{
+										__source: {
+											fileName: _jsxFileName,
+											lineNumber: 35
+										}
+									},
+									_react2.default.createElement(
+										'a',
+										{ className: 'contactsListItem__ref not-follow',
+											href: _conf.addressHref, __source: {
+												fileName: _jsxFileName,
+												lineNumber: 36
+											}
+										},
+										_conf.address
+									)
+								)
+							)
+						),
+						_react2.default.createElement(
+							_semanticUiReact.Card,
+							{ className: 'contactsListItem', __source: {
+									fileName: _jsxFileName,
+									lineNumber: 43
+								}
+							},
+							_react2.default.createElement(
+								_semanticUiReact.Card.Content,
+								{
+									__source: {
+										fileName: _jsxFileName,
+										lineNumber: 44
+									}
+								},
+								_react2.default.createElement(
+									_semanticUiReact.Card.Header,
+									{
+										__source: {
+											fileName: _jsxFileName,
+											lineNumber: 45
+										}
+									},
+									'\u0422\u0435\u043B\u0435\u0444\u043E\u043D'
+								),
+								_react2.default.createElement(
+									_semanticUiReact.Card.Description,
+									{
+										__source: {
+											fileName: _jsxFileName,
+											lineNumber: 48
+										}
+									},
+									_react2.default.createElement(
+										'a',
+										{ className: 'contactsListItem__ref', href: 'tel:' + _conf.phone, __source: {
+												fileName: _jsxFileName,
+												lineNumber: 49
+											}
+										},
+										_conf.phone
+									)
+								)
+							)
+						),
+						_react2.default.createElement(
+							_semanticUiReact.Card,
+							{ className: 'contactsListItem', __source: {
+									fileName: _jsxFileName,
+									lineNumber: 55
+								}
+							},
+							_react2.default.createElement(
+								_semanticUiReact.Card.Content,
+								{
+									__source: {
+										fileName: _jsxFileName,
+										lineNumber: 56
+									}
+								},
+								_react2.default.createElement(
+									_semanticUiReact.Card.Header,
+									{
+										__source: {
+											fileName: _jsxFileName,
+											lineNumber: 57
+										}
+									},
+									'E-mail'
+								),
+								_react2.default.createElement(
+									_semanticUiReact.Card.Description,
+									{
+										__source: {
+											fileName: _jsxFileName,
+											lineNumber: 60
+										}
+									},
+									_react2.default.createElement(
+										'a',
+										{ className: 'contactsListItem__ref', href: 'mailto:' + _conf.email, __source: {
+												fileName: _jsxFileName,
+												lineNumber: 61
+											}
+										},
+										_conf.email
+									)
+								)
+							)
+						)
+					)
+				)
+			);
+		}
+	}]);
+
+	return ContactsContainer;
+}(_react.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+	return {};
+};
+
+exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(ContactsContainer));
+
+},{"./../components/Section":1307,"./../components/Title":1312,"./../constants/conf.js":1314,"prop-types":868,"react":956,"react-html-parser":884,"react-redux":912,"react-router-dom":929,"semantic-ui-react":1166}],1323:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105224,7 +105609,114 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(MainPageContainer));
 
-},{"./../components/About":1287,"./../components/Catalogs":1289,"./../components/MainSlider":1298,"./../components/Present":1304,"./../constants/conf.js":1315,"lozad":1,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929}],1322:[function(require,module,exports){
+},{"./../components/About":1287,"./../components/Catalogs":1289,"./../components/MainSlider":1297,"./../components/Present":1303,"./../constants/conf.js":1314,"lozad":1,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929}],1324:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var _jsxFileName = 'E:\\Dropbox\\Dropbox\\repo\\oriflame\\business\\theme\\src\\blocks\\containers\\MediaContainer.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactRouterDom = require('react-router-dom');
+
+var _reactRedux = require('react-redux');
+
+var _semanticUiReact = require('semantic-ui-react');
+
+var _Section = require('./../components/Section');
+
+var _Section2 = _interopRequireDefault(_Section);
+
+var _Title = require('./../components/Title');
+
+var _Title2 = _interopRequireDefault(_Title);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var MediaContainer = function (_Component) {
+	_inherits(MediaContainer, _Component);
+
+	function MediaContainer() {
+		_classCallCheck(this, MediaContainer);
+
+		return _possibleConstructorReturn(this, (MediaContainer.__proto__ || Object.getPrototypeOf(MediaContainer)).apply(this, arguments));
+	}
+
+	_createClass(MediaContainer, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'main',
+				{ className: 'main', __source: {
+						fileName: _jsxFileName,
+						lineNumber: 14
+					}
+				},
+				_react2.default.createElement(
+					_Section2.default,
+					{ block: 'media', __source: {
+							fileName: _jsxFileName,
+							lineNumber: 15
+						}
+					},
+					_react2.default.createElement(_semanticUiReact.Embed, { className: 'media__video',
+						id: 'g3aI1uMFV-Q',
+						placeholder: '',
+						source: 'youtube',
+						__source: {
+							fileName: _jsxFileName,
+							lineNumber: 16
+						}
+					}),
+					_react2.default.createElement(_semanticUiReact.Embed, { className: 'media__video',
+						id: '94Zxxf-4_VE',
+						placeholder: '',
+						source: 'youtube',
+						__source: {
+							fileName: _jsxFileName,
+							lineNumber: 21
+						}
+					}),
+					_react2.default.createElement(_semanticUiReact.Embed, { className: 'media__video',
+						id: 'KuHhkFDJKP8',
+						placeholder: '',
+						source: 'youtube',
+						__source: {
+							fileName: _jsxFileName,
+							lineNumber: 26
+						}
+					})
+				)
+			);
+		}
+	}]);
+
+	return MediaContainer;
+}(_react.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+	return {};
+};
+
+exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(MediaContainer));
+
+},{"./../components/Section":1307,"./../components/Title":1312,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929,"semantic-ui-react":1166}],1325:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105313,7 +105805,8 @@ var NavContainer = function (_Component) {
       }, 800);
     }, _this.changeActiveNavigationItem = function (navigationItem) {
       return function () {
-        return _this.props.dispatch((0, _navigationActions.selectNavigationItem)(navigationItem));
+        _this.props.dispatch((0, _navigationActions.selectNavigationItem)(navigationItem));
+        _this.closeMenu();
       };
     }, _this.getActiveClasses = function (state) {
       return (0, _classnames2.default)({
@@ -105344,7 +105837,7 @@ var NavContainer = function (_Component) {
         smoothRise: this.smoothRise,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 85
+          lineNumber: 87
         }
       }));
     }
@@ -105375,7 +105868,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(NavContainer));
 
-},{"./../actions/navigationActions.js":1284,"./../components/Navigation":1301,"classnames":32,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929}],1323:[function(require,module,exports){
+},{"./../actions/navigationActions.js":1284,"./../components/Navigation":1300,"classnames":32,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929}],1326:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105531,7 +106024,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(RegistrationContainer));
 
-},{"./../actions/navigationActions.js":1284,"./../actions/registrationActions.js":1285,"./../components/Registration":1305,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929}],1324:[function(require,module,exports){
+},{"./../actions/navigationActions.js":1284,"./../actions/registrationActions.js":1285,"./../components/Registration":1304,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929}],1327:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105580,17 +106073,29 @@ var SharesContainer = function (_Component) {
 	_inherits(SharesContainer, _Component);
 
 	function SharesContainer() {
+		var _ref;
+
+		var _temp, _this, _ret;
+
 		_classCallCheck(this, SharesContainer);
 
-		return _possibleConstructorReturn(this, (SharesContainer.__proto__ || Object.getPrototypeOf(SharesContainer)).apply(this, arguments));
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
+
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = SharesContainer.__proto__ || Object.getPrototypeOf(SharesContainer)).call.apply(_ref, [this].concat(args))), _this), _this.getShares = function () {
+			var _this$props = _this.props,
+			    dispatch = _this$props.dispatch,
+			    isSharesGotten = _this$props.isSharesGotten;
+
+			dispatch((0, _sharesActions.tryGetSharesIfNeeded)(isSharesGotten));
+		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}
 
 	_createClass(SharesContainer, [{
 		key: 'componentDidMount',
 		value: function componentDidMount() {
-			var dispatch = this.props.dispatch;
-
-			dispatch((0, _sharesActions.tryGetShares)());
+			this.getShares();
 		}
 	}, {
 		key: 'componentDidUpdate',
@@ -105609,29 +106114,31 @@ var SharesContainer = function (_Component) {
 				'main',
 				{ className: 'main', __source: {
 						fileName: _jsxFileName,
-						lineNumber: 42
+						lineNumber: 45
 					}
 				},
 				_react2.default.createElement(
 					_Section2.default,
 					{ block: 'shares', __source: {
 							fileName: _jsxFileName,
-							lineNumber: 43
+							lineNumber: 46
 						}
 					},
 					_react2.default.createElement(_semanticUiReact.Button, { loading: isRequestingShares,
+						'aria-pressed': 'false',
 						content: '\u041E\u0431\u043D\u043E\u0432\u0438\u0442\u044C',
+						className: 'defaultButton shares__button',
 						onClick: function onClick() {
-							dispatch((0, _sharesActions.tryGetShares)());
+							dispatch((0, _sharesActions.tryGetSharesIfNeeded)(false));
 						},
 						__source: {
 							fileName: _jsxFileName,
-							lineNumber: 44
+							lineNumber: 47
 						}
 					}),
 					isSharesGotten ? _react2.default.createElement(_SharesList2.default, { shares: sharesList, __source: {
 							fileName: _jsxFileName,
-							lineNumber: 51
+							lineNumber: 56
 						}
 					}) : ''
 				)
@@ -105653,13 +106160,13 @@ SharesContainer.PropTypes = {
 var mapStateToProps = function mapStateToProps(state) {
 	var shares = state.shares;
 
-
+	console.log(shares);
 	return _extends({}, shares);
 };
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(SharesContainer));
 
-},{"./../actions/sharesActions.js":1286,"./../components/Section":1308,"./../components/SharesList":1309,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929,"semantic-ui-react":1166}],1325:[function(require,module,exports){
+},{"./../actions/sharesActions.js":1286,"./../components/Section":1307,"./../components/SharesList":1308,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929,"semantic-ui-react":1166}],1328:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105684,6 +106191,8 @@ var _reactRouterDom = require('react-router-dom');
 
 var _reactRedux = require('react-redux');
 
+var _semanticUiReact = require('semantic-ui-react');
+
 var _sharesActions = require('./../actions/sharesActions.js');
 
 var _SingleShare = require('./../components/SingleShare');
@@ -105702,19 +106211,31 @@ var SingleShareContainer = function (_Component) {
 	_inherits(SingleShareContainer, _Component);
 
 	function SingleShareContainer() {
+		var _ref;
+
+		var _temp, _this, _ret;
+
 		_classCallCheck(this, SingleShareContainer);
 
-		return _possibleConstructorReturn(this, (SingleShareContainer.__proto__ || Object.getPrototypeOf(SingleShareContainer)).apply(this, arguments));
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
+
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = SingleShareContainer.__proto__ || Object.getPrototypeOf(SingleShareContainer)).call.apply(_ref, [this].concat(args))), _this), _this.getShare = function () {
+			var _this$props = _this.props,
+			    dispatch = _this$props.dispatch,
+			    isShareGotten = _this$props.isShareGotten;
+			var shareId = _this.props.match.params.shareId;
+
+
+			dispatch((0, _sharesActions.tryGetSingleSharesIfNeeded)(shareId, isShareGotten));
+		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}
 
 	_createClass(SingleShareContainer, [{
 		key: 'componentDidMount',
 		value: function componentDidMount() {
-			var dispatch = this.props.dispatch;
-			var shareId = this.props.match.params.shareId;
-
-
-			dispatch((0, _sharesActions.tryGetShare)(shareId));
+			this.getShare();
 		}
 	}, {
 		key: 'componentDidUpdate',
@@ -105722,20 +106243,28 @@ var SingleShareContainer = function (_Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			dispatch((0, _sharesActions.clearShares)());
+			var _props = this.props,
+			    isShareGotten = _props.isShareGotten,
+			    dispatch = _props.dispatch;
+
+
 			return _react2.default.createElement(
 				'main',
 				{ className: 'main', __source: {
 						fileName: _jsxFileName,
-						lineNumber: 33
+						lineNumber: 41
 					}
 				},
-				_react2.default.createElement(_SingleShare2.default, _extends({}, this.props, {
+				isShareGotten ? _react2.default.createElement(_SingleShare2.default, _extends({}, this.props, {
 					__source: {
 						fileName: _jsxFileName,
-						lineNumber: 34
+						lineNumber: 43
 					}
-				}))
+				})) : _react2.default.createElement(_semanticUiReact.Loader, { active: true, inline: 'centered', content: '\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0430', size: 'large', __source: {
+						fileName: _jsxFileName,
+						lineNumber: 44
+					}
+				})
 			);
 		}
 	}]);
@@ -105744,6 +106273,7 @@ var SingleShareContainer = function (_Component) {
 }(_react.Component);
 
 SingleShareContainer.PropTypes = {
+	isShareGotten: _propTypes2.default.bool.isRequired,
 	share: _propTypes2.default.object.isRequired,
 	dispatch: _propTypes2.default.func.isRequired,
 	match: _propTypes2.default.object.isRequired
@@ -105752,28 +106282,22 @@ SingleShareContainer.PropTypes = {
 
 var mapStateToProps = function mapStateToProps(state) {
 	var shares = state.shares;
-	var share = shares.share;
+	var share = shares.share,
+	    isShareGotten = shares.isShareGotten;
+
 
 	return {
-		share: share
+		share: share,
+		isShareGotten: isShareGotten
 	};
 };
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(SingleShareContainer));
 
-},{"./../actions/sharesActions.js":1286,"./../components/SingleShare":1311,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929}],1326:[function(require,module,exports){
+},{"./../actions/sharesActions.js":1286,"./../components/SingleShare":1310,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929,"semantic-ui-react":1166}],1329:[function(require,module,exports){
 'use strict';
 
 $(function () {
-  // $(window).resize(() => {
-
-  // let $navList = $('#navList');
-  // if (window.innerWidth > 799) {
-  //   $navList.show('fast');
-  // } else  {
-  //   $navList.hide('fast');
-  // }
-  // });
   $(document).on('click', '.not-follow', openUrlInNewWindow);
 
   function openUrlInNewWindow(e) {
@@ -105800,7 +106324,7 @@ $(function () {
   // }) 
 }); // end ready
 
-},{}],1327:[function(require,module,exports){
+},{}],1330:[function(require,module,exports){
 'use strict';
 
 var _jsxFileName = 'E:\\Dropbox\\Dropbox\\repo\\oriflame\\business\\theme\\src\\blocks\\index.js';
@@ -105851,7 +106375,7 @@ var store = (0, _configureStore2.default)();
   )
 ), document.getElementById('root'));
 
-},{"./containers/App":1320,"./store/configureStore.js":1332,"react":956,"react-dom":873,"react-redux":912,"react-router-dom":929}],1328:[function(require,module,exports){
+},{"./containers/App":1320,"./store/configureStore.js":1335,"react":956,"react-dom":873,"react-redux":912,"react-router-dom":929}],1331:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105885,7 +106409,7 @@ var rootReducer = (0, _redux.combineReducers)({
 
 exports.default = rootReducer;
 
-},{"./navigation.js":1329,"./registration.js":1330,"./shares.js":1331,"redux":1060,"redux-form":1016}],1329:[function(require,module,exports){
+},{"./navigation.js":1332,"./registration.js":1333,"./shares.js":1334,"redux":1060,"redux-form":1016}],1332:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105962,7 +106486,7 @@ var navigation = function navigation() {
 
 exports.default = navigation;
 
-},{"./../constants/navigationTypes.js":1316}],1330:[function(require,module,exports){
+},{"./../constants/navigationTypes.js":1315}],1333:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106003,7 +106527,7 @@ var registration = function registration() {
 
 exports.default = registration;
 
-},{"./../constants/registrationTypes.js":1317}],1331:[function(require,module,exports){
+},{"./../constants/registrationTypes.js":1317}],1334:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106018,7 +106542,8 @@ var initSharesState = {
 	sharesList: [],
 	share: {},
 	isSharesGotten: false,
-	isRequestingShares: false
+	isRequestingShares: false,
+	isShareGotten: false
 };
 
 var shares = function shares() {
@@ -106035,12 +106560,15 @@ var shares = function shares() {
 			return _extends({}, state, {
 				sharesList: action.data,
 				isRequestingShares: false,
-				isSharesGotten: true
+				isSharesGotten: true,
+				isShareGotten: false
 			});
-		case _sharesTypes.GET_SHARES:
+		case _sharesTypes.GET_SINGLE_SHARES:
 			return _extends({}, state, {
 				share: action.data,
-				isRequestingShares: false
+				isRequestingShares: false,
+				isShareGotten: true,
+				isSharesGotten: false
 			});
 		case _sharesTypes.CLEAR_SHARES:
 			return _extends({}, state, {
@@ -106054,7 +106582,7 @@ var shares = function shares() {
 
 exports.default = shares;
 
-},{"./../constants/sharesTypes.js":1318}],1332:[function(require,module,exports){
+},{"./../constants/sharesTypes.js":1318}],1335:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106082,7 +106610,7 @@ function configureStore(initialState) {
   return store;
 }
 
-},{"../reducers/index.js":1328,"redux":1060,"redux-thunk":1054}],1333:[function(require,module,exports){
+},{"../reducers/index.js":1331,"redux":1060,"redux-thunk":1054}],1336:[function(require,module,exports){
 'use strict';
 
 require('jquery');
@@ -106097,7 +106625,7 @@ require('./../blocks/custom/custom.js');
 
 require('./../blocks/index.js');
 
-},{"./../blocks/custom/custom.js":1326,"./../blocks/index.js":1327,"./../libs/jquery.mask.js":1334,"babel-polyfill":6,"jquery":512,"whatwg-fetch":1283}],1334:[function(require,module,exports){
+},{"./../blocks/custom/custom.js":1329,"./../blocks/index.js":1330,"./../libs/jquery.mask.js":1337,"babel-polyfill":6,"jquery":512,"whatwg-fetch":1283}],1337:[function(require,module,exports){
 /**
  * jquery.mask.js
  * @version: v1.14.12
@@ -106705,6 +107233,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }, globals.watchInterval);
 }, window.jQuery, window.Zepto);
 
-},{"jquery":512}]},{},[1333])
+},{"jquery":512}]},{},[1336])
 
 //# sourceMappingURL=main.js.map

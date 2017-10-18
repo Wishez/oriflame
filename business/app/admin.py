@@ -22,6 +22,28 @@ class UserAdmin(admin.ModelAdmin):
         'email',
         'phone_number',
     )
+    fieldsets = (
+        ('Основная информация', {
+            'fields': (
+                ('first_name', 'last_name', 'middle_name',),
+                ('birthday', 'citizenship',),
+            ),
+        },),
+        ('Личные данные', {
+            'fields': (
+                ('passport_data',),
+                ('phone_number', 'email',),
+                ('city', 'region',),
+                ('street', 'num_home', 'num_apartment',),
+            ),
+        },),
+        ('Данные консультанта', {
+            'fields': (
+                ('consultant_num', 'status',),
+                ('registered_date',),
+            ),
+        },),
+    )
 
 class ShareAdmin(admin.ModelAdmin):
     list_per_page = 10
