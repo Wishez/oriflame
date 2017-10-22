@@ -12,6 +12,9 @@ import {
 	catalogSliderCustoms,
 	mainSliderCustoms
  } from './../constants/conf.js';
+import { selectNavigationItem } from './../actions/navigationActions.js'; 
+import { initNavigationState } from './../reducers/navigation.js';
+
 import MainSlider from './../components/MainSlider';
 import Present from './../components/Present';
 import About from './../components/About';
@@ -25,7 +28,8 @@ class MainPageContainer extends Component {
 	}
 
 	componentDidMount() {
-
+		const { dispatch } = this.props;
+		dispatch(selectNavigationItem(initNavigationState.firstNavItem.index));
     }
 
     componentDidUpdate() {

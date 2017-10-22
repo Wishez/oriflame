@@ -12,10 +12,21 @@ import {
 	email,
 	addressHref
  } from './../constants/conf.js';
+import { selectNavigationItem } from './../actions/navigationActions.js'; 
+import { initNavigationState } from './../reducers/navigation.js';
+
 import Section from './../components/Section';
 import Title from './../components/Title';
 
 class ContactsContainer extends Component {
+	static PropTypes = {
+		dispatch: PropTypes.func.isRequired
+	}
+	
+	componentDidMount() {
+		const { dispatch } = this.props;
+		dispatch(selectNavigationItem(initNavigationState.sixthNavItem.index));
+	}
 
 	render() {
 		return (

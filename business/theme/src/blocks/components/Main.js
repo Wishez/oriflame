@@ -13,6 +13,7 @@ import MediaContainer from './../containers/MediaContainer';
 import BusinessContainer from './../containers/BusinessContainer';
 
 const Main = ({
+
 }) => (
     <Route render={({ location }) => (
         <Switch key={location.key} 
@@ -33,7 +34,7 @@ const Main = ({
             <MyRoute path='/media'
                 component={MediaContainer} /> 
             <Route render={() => (
-                <Redirect to="/not_found" />
+                <Redirect to="/" />
             )}  />
             <MyRoute path='/not_found'
                 component={NotFound} />

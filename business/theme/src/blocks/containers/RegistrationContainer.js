@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import { selectNavigationItem } from './../actions/navigationActions.js'; 
+import { initNavigationState } from './../reducers/navigation.js';
+
 import Registration from './../components/Registration';
 import { tryRegister } from './../actions/registrationActions.js';
-import { selectNavigationItem } from './../actions/navigationActions.js';
 
 class RegistrationContainer extends Component {
 	static PropTypes = {
@@ -23,8 +25,8 @@ class RegistrationContainer extends Component {
 	}
 
 	componentDidMount() {
-		// const { dispatch } = this.props;
-		// dispatch(selectNavigationItem('fifthNavItem'));
+		const { dispatch } = this.props;
+		dispatch(selectNavigationItem(initNavigationState.fourthNavItem.index));
 		$('#dateField').mask("00/00/0000", {placeholder: "__/__/____"});
 		this.maskFields(true);
     }

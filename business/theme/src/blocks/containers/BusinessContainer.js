@@ -4,12 +4,22 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Embed, Image } from 'semantic-ui-react';
 
+import { selectNavigationItem } from './../actions/navigationActions.js'; 
+import { initNavigationState } from './../reducers/navigation.js';
+
 import Section from './../components/Section';
 import Title from './../components/Title';
 import Paragraph from './../components/Paragraph';
 
 class BusinessContainer extends Component {
-
+	static PropTypes = {
+		dispatch: PropTypes.func.isRequired
+	}
+	
+	componentDidMount() {
+		const { dispatch } = this.props;
+		dispatch(selectNavigationItem(initNavigationState.secondNavItem.index));
+	}
 	render() {
 		return (
 			<main className='main'>

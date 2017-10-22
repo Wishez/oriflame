@@ -9,6 +9,9 @@ import {
 	tryGetSharesIfNeeded,
 	clearShares
  } from './../actions/sharesActions.js';
+import { selectNavigationItem } from './../actions/navigationActions.js'; 
+import { initNavigationState } from './../reducers/navigation.js';
+
 import ShareList from './../components/SharesList';
 import Section from './../components/Section';
 import { Button } from 'semantic-ui-react';
@@ -20,17 +23,16 @@ class SharesContainer extends Component {
 		sharesList: PropTypes.array.isRequired,
 		dispatch: PropTypes.func.isRequired
 	}
+
 	getShares = () => {
 		const { dispatch, isSharesGotten } = this.props;
 		dispatch(tryGetSharesIfNeeded(isSharesGotten));
 	}
 
 	componentDidMount() {
+		const { dispatch } = this.props;
+		dispatch(selectNavigationItem(initNavigationState.secondNavItem.index));
 		this.getShares();
-    }
-
-    componentDidUpdate() {
-
     }
 
 	render() {

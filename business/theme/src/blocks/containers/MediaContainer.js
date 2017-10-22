@@ -4,10 +4,21 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Embed } from 'semantic-ui-react';
 
+import { selectNavigationItem } from './../actions/navigationActions.js'; 
+import { initNavigationState } from './../reducers/navigation.js';
+
 import Section from './../components/Section';
 import Title from './../components/Title';
 
 class MediaContainer extends Component {
+	static PropTypes = {
+		dispatch: PropTypes.func.isRequired
+	}
+
+	componentDidMount() {
+		const { dispatch } = this.props;
+		dispatch(selectNavigationItem(initNavigationState.fifthNavItem.index));
+	}
 
 	render() {
 		return (
