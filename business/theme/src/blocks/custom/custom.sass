@@ -122,8 +122,9 @@ h4
 ul 
   list-style: none
 
-p, ul, li
-  @extend %defaultTopMargin
+.share 
+  & p, & ul, & li
+    @extend %defaultTopMargin
 a 
   border-radius: 5px
   @include smooth-transition-link

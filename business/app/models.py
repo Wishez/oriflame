@@ -22,6 +22,11 @@ class Share(models.Model):
         _('Дата создания'),
         default=timezone.now
     )
+    image1 = models.ImageField(upload_to='shares/images', blank=True, null=True)
+    image2 = models.ImageField(upload_to='shares/images', blank=True, null=True)
+    image3 = models.ImageField(upload_to='shares/images', blank=True, null=True)
+    image4 = models.ImageField(upload_to='shares/images', blank=True, null=True)
+    image5 = models.ImageField(upload_to='shares/images', blank=True, null=True)
     published_date = models.DateTimeField(
         _('Дата публикации'),
         blank=True,
