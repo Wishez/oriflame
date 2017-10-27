@@ -31,11 +31,11 @@ export const activities = [
 	}
 ];
 // Footer data
-export const email = 'support@cosmeticsyou.ru';
-export const phone = '8 (965) 158-14-81';
-export const address = 'Ивантеевская д. 13 кор.1';
-export const addressHref = 'https://www.google.ru/maps/place/%D0%98%D0%B2%D0%B0%D0%BD%D1%82%D0%B5%D0%B5%D0%B2%D1%81%D0%BA%D0%B0%D1%8F+%D1%83%D0%BB.,+13%D0%BA1,+%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0,+107150/@55.818067,37.7239063,17z/data=!4m5!3m4!1s0x46b53450cf0645b9:0x869f26e9d7ad24d3!8m2!3d55.818067!4d37.726095';
-export const map = '<iframe class="mapContainer__map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d17933.626006869385!2d37.725323!3d55.815752!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b53450cf0645b9%3A0x869f26e9d7ad24d3!2z0JjQstCw0L3RgtC10LXQstGB0LrQsNGPINGD0LsuLCAxM9C6MSwg0JzQvtGB0LrQstCwLCDQoNC-0YHRgdC40Y8sIDEwNzE1MA!5e0!3m2!1sru!2sru!4v1508326598031" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>';
+export const email = 'balagur08@yandex.ru ';
+export const phone = '8 (926) 562-63-01 ';
+export const address = 'М.о. Одинцово, ул.Маршала Неделина 2, подъезд 1';
+export const addressHref = 'https://yandex.ru/maps/-/CBaIyGXtPB';
+export const map = '<iframe src="https://yandex.ru/map-widget/v1/-/CBaIy8W5DA" width="100%" height="600" frameborder="0"></iframe>';
 // Sliders 
 // Main Slider's images
 export const images = [

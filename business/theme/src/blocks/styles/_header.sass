@@ -36,8 +36,8 @@
   @extend %floatRight
   @extend %centerBlock-xs
   color: $darkGray
-  background-color: $pink $i
-  @include smooth-transition-button( lighten($darkGray, 5%) $i, darken($pink, 10%) $i )
+  background-color: $bodyColorBg $i
+  @include smooth-transition-button( lighten($darkGray, 5%) $i, darken($white, 10%) $i )
   @include breakpoint($xs)
     float: none
 
@@ -78,9 +78,9 @@
   &:hover, &--active
     @extend %darkGrayBg
     & .navItem__refer
-      color: $pink $i
+      color: $white $i
       &:hover
-        color: darken($pink, 5%) $i
+        color: darken($white, 5%) $i
     
   
  
