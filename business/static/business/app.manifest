@@ -27,6 +27,16 @@ js%5Cmain%20(%D0%9A%D0%BE%D0%BD%D1%84%D0%BB%D0%B8%D0%BA%D1%82%D1%83%D1%8E%D1%89%
 js/main.js
 js%5Cmain.js%20(%D0%9A%D0%BE%D0%BD%D1%84%D0%BB%D0%B8%D0%BA%D1%82%D1%83%D1%8E%D1%89%D0%B0%D1%8F%20%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F%20%D1%81%20%D0%BA%D0%BE%D0%BC%D0%BF%D1%8C%D1%8E%D1%82%D0%B5%D1%80%D0%B0%20home%202017-10-27).map
 js/main.js.map
+fonts/Montserrat/Montserrat-Bold.eot
+fonts/Montserrat/Montserrat-Bold.otf
+fonts/Montserrat/Montserrat-Bold.svg
+fonts/Montserrat/Montserrat-Bold.ttf
+fonts/Montserrat/Montserrat-Bold.woff
+fonts/Montserrat/Montserrat-Regular.eot
+fonts/Montserrat/Montserrat-Regular.otf
+fonts/Montserrat/Montserrat-Regular.svg
+fonts/Montserrat/Montserrat-Regular.ttf
+fonts/Montserrat/Montserrat-Regular.woff
 fonts/inglobal/inglobal.eot
 fonts/inglobal/inglobal.otf
 fonts/inglobal/inglobal.svg
@@ -47,16 +57,6 @@ fonts/inglobal/inglobali.otf
 fonts/inglobal/inglobali.svg
 fonts/inglobal/inglobali.ttf
 fonts/inglobal/inglobali.woff
-fonts/Montserrat/Montserrat-Bold.eot
-fonts/Montserrat/Montserrat-Bold.otf
-fonts/Montserrat/Montserrat-Bold.svg
-fonts/Montserrat/Montserrat-Bold.ttf
-fonts/Montserrat/Montserrat-Bold.woff
-fonts/Montserrat/Montserrat-Regular.eot
-fonts/Montserrat/Montserrat-Regular.otf
-fonts/Montserrat/Montserrat-Regular.svg
-fonts/Montserrat/Montserrat-Regular.ttf
-fonts/Montserrat/Montserrat-Regular.woff
 fonts/ProximaNova/ProximaNovaB.eot
 fonts/ProximaNova/ProximaNovaB.svg
 fonts/ProximaNova/ProximaNovaB.ttf
@@ -104,4 +104,4 @@ NETWORK:
 SETTINGS:
 prefer-online
 
-# hash: b0a54b2e225e5502c42fd32e20e37e02c715485209dd8f275c7e0652c8327aae
+# hash: 7118359ed43a7bab55ff95fc257b0d8f4b0e377218f63c29ec7b99e12650d9d0

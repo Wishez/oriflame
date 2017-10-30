@@ -6,6 +6,7 @@ import Paragraph from './Paragraph';
 
 const Registration = ({
 	registered,
+	registerMessage,
 	...rest
 }) => (
 	<Section block='registration'>
@@ -34,9 +35,10 @@ const Registration = ({
 		</div>
 		{registered ?
 			<p className='registration__message registration__message_succes'>
-				{rest.registerMessage}
+				В успешно прошли регистрацию!
 			</p> :
  			<RegistrationForm
+ 				registerMessage={registerMessage}
  				{...rest} />
 		}
 	</Section>

@@ -87,12 +87,10 @@ const RegistrationForm = ({
 		 />
 		 <Field component={RenderController}
 		 	name='birthday'
-		 	type='text'
+		 	type='date'
 		 	block='registrationFormController'
-			validate={[required, birthday]}
-			id='dateField'
+			validate={[required]}
 			label='День рождения'
-			pattern='^([0-2][0-9]|3[0-1])\/(0[0-9]|1[0-2])\/([1-2][019][0-9][0-9])$'
 		 />
 		 <div onClick={switchState('isMaskedFields', switchMask)}
 		 	className='registrationFormController registrationFormController_narrow registrationFormController_checkbox'>

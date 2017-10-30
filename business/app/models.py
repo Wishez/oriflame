@@ -64,7 +64,7 @@ class User(models.Model):
     num_home = models.CharField(verbose_name='Дом' , max_length=5)
     num_apartment = models.DecimalField(verbose_name='Квартира', max_digits=999, decimal_places=1)
 
-    email = models.EmailField(unique=True, verbose_name='E-mail')
+    email = models.EmailField(unique=False, verbose_name='E-mail')
 
     consultant_num = models.CharField(verbose_name='Номер консультанта', max_length=40, blank=True, null=True)
 

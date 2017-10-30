@@ -27,7 +27,6 @@ class RegistrationContainer extends Component {
 	componentDidMount() {
 		const { dispatch } = this.props;
 		dispatch(selectNavigationItem(initNavigationState.fourthNavItem.index));
-		$('#dateField').mask("00/00/0000", {placeholder: "__/__/____"});
 		this.maskFields(true);
     }
 
