@@ -20,10 +20,10 @@ const Footer = () => (
         Мы поможем вам научиться оформлять заказы, будем консультировать и сопровождать. 
         А если вы захотите зарабатывать с нами, научим всему необходимому' 
       />
-      <FooterContacts email={email}
-        phone={phone}
-        address={address}
-        addressHref={addressHref}
+      <FooterContacts email={!window.email ? email : window.email}
+        phone={!window.phone ? phone : window.phone}
+        address={!window.address ? address : window.address}
+        addressHref={!window.addressHref ? addressHref : window.addressHref}
       />
       <Copyright />
     </Container>

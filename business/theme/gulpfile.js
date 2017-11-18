@@ -236,22 +236,12 @@ gulp.task('manifest', () => {
 /* Predefined
 /* ----------------- */
 
-// gulp.task('serve', () => { 
-//   browserSync.init({ 
-//     server: { 
-//     baseDir: settings.build 
-//     }, 
-//     open: false, 
-//     port: 9020, 
-//     reloadDelay: 2200 
-//   }); 
-// }); 
 
 gulp.task('watch', () => { 
   gulp.watch(settings.src + '/**/*.sass', ['faststyles']);
   gulp.watch(settings.src + '/img/**/*.*', ['fastimages']);
   gulp.watch(settings.src + '/**/*.js', ['fastjs']);
-  gulp.watch(settings.src + '/*.html', ['html']);
+  gulp.watch(settings.src + '/*.pug', ['html']);
 });
 
 gulp.task('lintfastjs', ['lintsource', 'fastjs']);

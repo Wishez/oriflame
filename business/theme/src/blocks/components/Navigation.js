@@ -21,8 +21,6 @@ const Navigation = ({
         size='big'
         icon='bars'
         onClick={openMenu} />
-      <aside className='navigation__asideButtons' id='asideButtons'>
-      </aside>
       <ul className='navList'
           id='navList'
           style={navStyles}>

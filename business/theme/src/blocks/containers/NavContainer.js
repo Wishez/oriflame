@@ -15,32 +15,26 @@ class NavContainer extends Component {
   state = {
       isOpen: false,
       navStyles: {
-        width: '0',
-        opacity: '0'
       }
   };
 
   openMenu = () => {
-    if (!this.state.isOpen) {
-      let width;
-      const currWidth = window.innerWidth;
+    const isMobile = window.innerWidth <= 800;
+    console.log(isMobile)
+    if (isMobile) {
 
-      if (currWidth <= 800)
-        width = '100%';
-      else if (currWidth <= 1199)
-        width = '40vw';
-      else 
-        width = '25vw';
-      this.setState({
-        isOpen: true,
-        navStyles: {
-          'width': width,
-          'opacity': '1'
-        }
-      });
-      
-    } else {
-      this.closeMenu();
+      if (!this.state.isOpen) {
+        this.setState({
+          isOpen: true,
+          navStyles: {
+            'width': '100%',
+            'opacity': '1'
+          }
+        });
+        
+      } else {
+          this.closeMenu();
+      }
     }
   };
 
@@ -71,13 +65,16 @@ class NavContainer extends Component {
   )
    
   closeMenu = () => {
-    this.setState({
-        isOpen: false,
-        navStyles: {
-          'width': '0',
-          'opacity': '0'
-        }
-      });
+    const isMobile = window.innerWidth <= 800;
+    if (isMobile) {
+      this.setState({
+          isOpen: false,
+          navStyles: {
+            'width': '0',
+            'opacity': '0'
+          }
+        });
+    }
   }
 
 

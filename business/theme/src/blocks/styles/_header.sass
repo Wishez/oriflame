@@ -2,11 +2,15 @@
 .header 
   @extend %clearfix
   & > .container
-    padding: 3em 5%
+    padding: 3em 2em
     @extend %darkGrayBg
     border-top-right-radius: 3px
     border-top-left-radius: 3px
     @extend %overflowHidden
+    @include breakpoint($lg-less)
+        padding-bottom: 1em
+    @include breakpoint($xs)
+        padding-bottom: 2em
 
 
 /* START BRAND */
@@ -14,9 +18,10 @@
   max-width: 320px
   @extend %five
   @extend %inline-block
-  @extend %centerBlock-xs
+  @extend %centerBlock-lgLess
   @extend %fullWidth-xs
-
+  
+    
 
 .brand__name 
   @extend %fullWidth
@@ -26,12 +31,12 @@
 
 /* START NAVIGATION */
 .navigation 
-  @extend %seven
+  @extend %eight
   @extend %floatRight
-  @extend %defaultTopPadding
-  @extend %fullWidth-xs
+  @extend %fullWidth-lgLess
   @extend %defaultTopMargin-xs
-
+  @include breakpoint($lg-less)
+    margin-top: 1em
 .navigation__openMenuButton 
   @extend %floatRight
   @extend %centerBlock-xs
@@ -41,7 +46,9 @@
   @include breakpoint($xs)
     float: none
 
-
+.navigation__openMenuButton, .navigation__closeMenuButton
+  @include breakpoint($xs-up)
+    display: none $i
 
 .navigation__closeMenuButton 
    z-index: 11
@@ -49,34 +56,47 @@
    @extend %absolute
    right: 5%
    top: 5%
+   color: $white
+   @include breakpoint($xs)
+
 
 
 .navList 
-    @extend %zeroOpacity
-    @extend %fixed
-    @extend %zeroLeft
-    @extend %zeroTop
+    display: inline-flex
+    font-size: (13em / 16)
     @extend %fullHeight
     transition: opacity 1.5s, width 1s 
-    width: 0
-    background-color: $white
-    flex-direction: column
-    align-items: space-between
+    @extend %fullWidth
+    flex-flex: row wrap
+    align-items: center
     z-index: 10
+    justify-content: space-between
     @extend %text-center
     @extend %fs-21
-    padding-top: 10%
-    @include breakpoint($xs) 
+
+    @include breakpoint($xs)
+        flex-direction: column
+        padding-top: 5%
+        width: 0
+        opacity: 0
+        position: fixed
+        left: 0
+        top: 0
+        background-color: $darkGray
+
+    
 
 /* END NAV ITEMS */
 
 /* START NAV ITEMS */
 .navItem 
-  // @extend %defaultTopMargin
-  
+
+  @extend %two
   transition: background 1s
+  @include breakpoint($xs)
+    width: 50%;
   &:hover, &--active
-    @extend %darkGrayBg
+    @extend %purpleBg 
     & .navItem__refer
       color: $white $i
       &:hover
@@ -86,7 +106,8 @@
  
 
 .navItem__refer 
-  padding: 1em 0
+  padding: 1em 0.5em
+  color: $white $i
   @extend %fullWidth
   display: block
   @include breakpoint($sm) 
