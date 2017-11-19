@@ -83,7 +83,7 @@ class CustomAdmin(admin.ModelAdmin):
         },),
         ('Шапка сайта', {
             'fields': (
-                ('header_color', 'header_bg',),
+                ('header_color', 'header_bg', 'headings_color',),
                 ('menu_link_color', 'menu_link_hover_color', 'menu_link_active_color',),
                 ('menu_link_hover_bg',),
                 ('open_menu_button_bg', 'open_menu_button_color',),
@@ -98,7 +98,6 @@ class CustomAdmin(admin.ModelAdmin):
         ('Регистрация', {
             'fields': (
                 ('checkbox_field_color', 'checkbox_field_bg',),
-                ('address', 'addressHref',),
             ),
         },),
         ('Кнопки', {
