@@ -130,7 +130,7 @@ class Custom(models.Model):
         blank=True,
         null=True
     )
-    addressHref = models.TextField(
+    addressHref = models.CharField(
         _('Ссылка перенаправляющая на карты(Google/Yandex)'),
         max_length=500,
         blank=True,
@@ -156,8 +156,12 @@ class Custom(models.Model):
         null = True)
     default_link_hover_color = ColorField(_('Стандартный цвет ссылок при наведении'), blank = True,
         null = True)
+    menu_link_color = ColorField(_('Цвет ссылок меню'), blank = True,
+        null = True)
     menu_link_hover_color = ColorField(_('Цвет ссылок меню при наведении'), blank = True,
         null = True)
+    menu_link_active_color = ColorField(_('Цвет шрифактивной ссылки'), blank=True,
+                                    null=True)
     menu_link_hover_bg = ColorField(_('Цвет фона ссылок при наведении'), blank = True,
         null = True)
     default_color = ColorField(_('Цвет шрифта по умолчанию'), blank = True,
@@ -226,3 +230,13 @@ def switch_active_custom(sender, instance, **kwargs):
         instance.is_active = _('Активная')
 
 pre_save.connect(switch_active_custom, sender=Custom)
+
+class Video(models.Model):
+    name = models.CharField(_('Имя видео'), max_length=150, null=True, blank=True)
+    videoId = models.CharField(_('Идентификатор видео'), max_length=50)
+
+    def __str__(self):
+        return self.videoId
+    class Meta:
+        verbose_name = _('Видео')
+        verbose_name_plural = _('Видео')

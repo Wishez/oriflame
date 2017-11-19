@@ -10,3 +10,7 @@ class SharesViewset(ReadOnlyModelViewSet):
         if self.action == 'list':
             return ShareSerializerList
         return ShareSerializer
+
+class VideoViewset(ReadOnlyModelViewSet):
+    queryset = Video.objects.all()
+    serializer_class = VideoSerializer

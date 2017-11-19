@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 
-from app.models import Share
+from app.models import Share, Video
 
 from rest_framework.serializers import ModelSerializer
 
@@ -21,4 +21,13 @@ class ShareSerializer(ModelSerializer):
             'id',
             'title',
             'text',
+        )
+
+
+class VideoSerializer(ModelSerializer):
+    class Meta:
+        model = Video
+        fields = (
+            'videoId',
+            'id',
         )

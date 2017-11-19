@@ -5,5 +5,6 @@ from .views import *
 router = DefaultRouter()
 
 router.register(r'shares', SharesViewset)
+router.register(r'videos', VideoViewset)
 
 urlpatterns = router.urls

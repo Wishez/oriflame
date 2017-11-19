@@ -52,9 +52,77 @@ class ShareAdmin(admin.ModelAdmin):
     search_fields = ('published_date', 'title',)
 
 class CustomAdmin(admin.ModelAdmin):
-    pass
+    list_per_page = 10
+    list_display = ('name', 'title', 'is_active',)
+    filter_fields = (
+    'name', 'title', 'is_active',)
+    fieldsets = (
+        ('Данные настроек сайта', {
+            'fields': (
+                ('name', 'is_active',),
+            ),
+        },),
+        ('Настройка информации сайта', {
+            'fields': (
+                ('widgets',),
+                ('description', 'title',),
+            ),
+        },),
+        ('Настройка контактной информации', {
+            'fields': (
+                ('email', 'phone',),
+                ('address', 'addressHref',),
+            ),
+        },),
+        ('Базовая настройка', {
+            'fields': (
+                ('default_color', 'default_bg',),
+                ('default_link_color', 'default_link_hover_color',),
+                ('preloader_color', 'curtain_bg',),
+            ),
+        },),
+        ('Шапка сайта', {
+            'fields': (
+                ('header_color', 'header_bg',),
+                ('menu_link_color', 'menu_link_hover_color', 'menu_link_active_color',),
+                ('menu_link_hover_bg',),
+                ('open_menu_button_bg', 'open_menu_button_color',),
+                ('close_menu_button_color',),
+            ),
+        },),
+        ('Слайдер', {
+            'fields': (
+                ('slider_buttons_color', 'slider_buttons_bg',),
+            ),
+        },),
+        ('Регистрация', {
+            'fields': (
+                ('checkbox_field_color', 'checkbox_field_bg',),
+                ('address', 'addressHref',),
+            ),
+        },),
+        ('Кнопки', {
+            'fields': (
+                ('button_bg', 'button_hover_bg',),
+                ('button_color', 'button_hover_color',),
+            ),
+        },),
+        ('Нижняя часть сайта', {
+            'fields': (
+                ('footer_color', 'footer_bg',),
+            ),
+        },),
+
+    )
+    search_fields = (
+        'name',
+        'title',
+        'is_active',
+        'description',
+    )
 
 # Register your models here.
 admin.site.register(Share, ShareAdmin)
 admin.site.register(User, UserAdmin)
 admin.site.register(Custom, CustomAdmin)
+admin.site.register(Video)

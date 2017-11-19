@@ -34,6 +34,11 @@ a:hover {
   background-color: {{ custom.menu_link_hover_bg }}!important;
 }
 {% endif %}
+{% if custom.menu_link_color %}
+.navItem__refer {
+  color: {{ custom.menu_link_color }} !important;
+}
+{% endif %}
 body {
   {% if custom.default_color %}
   color: {{ custom.default_color }}!important;
