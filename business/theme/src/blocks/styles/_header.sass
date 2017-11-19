@@ -31,12 +31,12 @@
 
 /* START NAVIGATION */
 .navigation 
-  @extend %eight
+  width: 61.33333%
   @extend %floatRight
   @extend %fullWidth-lgLess
   @extend %defaultTopMargin-xs
+  margin-top: 1em
   @include breakpoint($lg-less)
-    margin-top: 1em
 .navigation__openMenuButton 
   @extend %floatRight
   @extend %centerBlock-xs
@@ -67,7 +67,7 @@
     @extend %fullHeight
     transition: opacity 1.5s, width 1s 
     @extend %fullWidth
-    flex-flex: row wrap
+    // flex-flow: row wrap
     align-items: center
     z-index: 10
     justify-content: space-between

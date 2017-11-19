@@ -44,7 +44,6 @@ class UserAdmin(admin.ModelAdmin):
             ),
         },),
     )
-
 class ShareAdmin(admin.ModelAdmin):
     list_per_page = 10
     list_display = ('title', 'published_date',)
@@ -52,6 +51,10 @@ class ShareAdmin(admin.ModelAdmin):
     filter_fields = ('published_date', 'title',)
     search_fields = ('published_date', 'title',)
 
+class CustomAdmin(admin.ModelAdmin):
+    pass
+
 # Register your models here.
 admin.site.register(Share, ShareAdmin)
 admin.site.register(User, UserAdmin)
+admin.site.register(Custom, CustomAdmin)

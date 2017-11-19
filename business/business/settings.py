@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['localhost']
 INSTALLED_APPS = [
     'rest_framework',
     'grappelli',
+    'colorfield',
     'app.apps.AppConfig',
     'api.apps.ApiConfig',
     'django.contrib.admin',
@@ -128,3 +129,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+GRAPPELLI_CLEAN_INPUT_TYPES = False
