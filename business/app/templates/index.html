@@ -1,41 +1,101 @@
 {% extends 'base.html' %}
-{% block description %}<meta name="description" content="{{ custom.description }}"/>{% endblock %}
-{% block title %}<title>{{ custom.title }}</title>{% endblock %}
-{% block styles %}<style>body {
+{% block description %}
+{% if custom.description %}<meta name="description" content="{{ custom.description }}"/>{% endif %}
+{% endblock %}
+{% block title %}
+{% if custom.title %}<title>{{ custom.title }}</title>{% endif %}
+{% endblock %}
+{% block styles %}<style>.registrationFormController__checkRules, .registrationFormController_checkbox {
+  color: {{ custom.checkbox_field_color }};
+  background-color: {{ custom.checkbox_field_bg }};
+}
+| {% if custom.default_link_color %}
+a {
+  color: {{ custom.default_link_color }};
+}
+{% endif %}
+
+| {% if custom.default_link_hover_color %}
+a:hover {
+  color: {{ custom.default_link_hover_color }} !important;
+}
+| {% endif %}
+| {% if custom.menu_link_hover_color %}
+.navItem:hover .navItem__refer:hover, .navItem--active .navItem__refer:hover {
+  color: {{ custom.menu_link_hover_color }};
+}
+| {% endif %}
+| {% if custom.menu_link_hover_bg %}
+.navItem:hover, .navItem--active {
+  background-color: {{ custom.menu_link_hover_bg }};
+}
+| {% endif %}
+body {
+  | {% if custom.default_color %}
   color: {{ custom.default_color }};
+  | {% endif %}    
+  | {% if custom.default_bg %}
   background-color: {{ custom.default_bg }};
+  | {% endif %}
 }
 .header > .container {
+  | {% if custom.header_color %}
   color: {{ custom.header_color }};
+  | {% endif %}
+  | {% if custom.header_bg %}
   background-color: {{ custom.header_bg }}; 
+  | {% endif %}
 }
 .footer > .container {
+  | {% if custom.footer_color %}
   color: {{ custom.footer_color }};
+  | {% endif %}
+  | {% if custom.footer_bg %}
   background-color: {{ custom.footer_bg }}; 
+  | {% endif %}
 }
 .catalogsSlider .slick-next::before, .catalogsSlider .slick-prev::before {
+  | {% if custom.slider_buttons_color %}
   color: {{ custom.slider_buttons_color }};
+  | {% endif %}
+  | {% if custom.slider_buttons_bg %}
   background-color: {{ custom.slider_buttons_bg }}; 
+  | {% endif %}
 }
 .defaultButton {
+  | {% if custom.button_bg %}
   background-color: {{ custom.button_bg }};
+  | {% endif %}
+  | {% if custom.button_color %}
   color: {{ custom.button_color }};
+  | {% endif %} 
 }
+| {% if custom.headings_color %}
 h2, h4 {
   color: {{ custom.headings_color }};
 }
+| {% endif %}
 #openMenuButton {
+  | {% if custom.open_menu_button_bg %}
   background-color: {{ custom.open_menu_button_bg }};
+  | {% endif %}
+  | {% if custom.open_menu_button_color %}
   color: {{ custom.open_menu_button_color }};
+  | {% endif %}
 }
 #closeMenuButton {
+  | {% if custom.close_menu_button_color %}
   color: {{ custom.close_menu_button_color }};
+  | {% endif %}
 }
 @media (max-width: 800px) {
+  | {% if custom.header_bg %}
   .navList  {
     background-color: {{ custom.header_bg }}; 
   }
+  | {% endif %}
 }
+
 .curtain {
   margin: 0;
   padding: 0;

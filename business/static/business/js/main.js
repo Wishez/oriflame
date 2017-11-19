@@ -103036,10 +103036,10 @@ var Footer = function Footer() {
           lineNumber: 18
         }
       }),
-      _react2.default.createElement(_FooterContacts2.default, { email: _conf.email,
-        phone: _conf.phone,
-        address: _conf.address,
-        addressHref: _conf.addressHref,
+      _react2.default.createElement(_FooterContacts2.default, { email: !window.email ? _conf.email : window.email,
+        phone: !window.phone ? _conf.phone : window.phone,
+        address: !window.address ? _conf.address : window.address,
+        addressHref: !window.addressHref ? _conf.addressHref : window.addressHref,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 23
