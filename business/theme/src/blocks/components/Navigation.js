@@ -44,7 +44,7 @@ const Navigation = ({
               </li>
             ))}
             <li className='navItem'>  
-                <a href='http://beautystore.oriflame.ru/502181' 
+                <a href='http://beautystore.oriflame.ru/105263' 
                   className='not-follow navItem__refer'>
                   Интернет магазин
                 </a>

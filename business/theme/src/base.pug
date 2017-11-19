@@ -11,6 +11,11 @@ html.no-js(lang="ru", manifest="{% static 'business/app.manifest' %}")
       http-equive="X-UA-Compatible",
       content="IE=edge"
     )
+    link(rel="stylesheet",
+         href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css",
+         media='none',
+         onload='if (media == "none") media = "all"'
+    )
     link(
         rel="shortcut icon", 
         type="image/x-icon", 
@@ -32,13 +37,8 @@ html.no-js(lang="ru", manifest="{% static 'business/app.manifest' %}")
         .sk-double-bounce
           .sk-child.sk-double-bounce1
           .sk-child.sk-double-bounce2
-
+    script(async, src="https://www.youtube.com/player_api")
     script(async, src="{% static '/business/js/main.js' %}")
-    link(rel="stylesheet",
-         href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css",
-         media='none',
-         onload='if (media == "none") media = "all"'
-    )
     link(
       rel="stylesheet",
       href="{% static 'business/css/ie-10-up.css' %}",

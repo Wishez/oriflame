@@ -4,17 +4,20 @@
  	CLEAR_SHARES,
  	REQUEST_SHARES
  } from './../constants/sharesTypes.js';
-
+import {
+	REQUEST_VIDEOS
+} from './../constants/actionTypes.js';
 const initSharesState = {
 	sharesList: [],
 	share: {},
 	isSharesGotten: false,
 	isRequestingShares: false,
-	isShareGotten: false
+	isShareGotten: false,
+	videos: []
 };
 
 
-const shares = (
+const app = (
 	state = {},
 	action
 ) => {
@@ -41,6 +44,11 @@ const shares = (
 				isShareGotten: true,
 				isSharesGotten: false
 			};
+		case REQUEST_VIDEOS:
+			localStorage.setItem('videos', JSON.stringify(action.videos));
+			action.context.forceUpdate();
+
+			return state;
 		case CLEAR_SHARES:
 			return {
 				...state,
@@ -52,4 +60,4 @@ const shares = (
 	}
 };
 
-export default shares;
+export default app;

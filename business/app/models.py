@@ -160,7 +160,7 @@ class Custom(models.Model):
         null = True)
     menu_link_hover_color = ColorField(_('Цвет ссылок меню при наведении'), blank = True,
         null = True)
-    menu_link_active_color = ColorField(_('Цвет шрифактивной ссылки'), blank=True,
+    menu_link_active_color = ColorField(_('Цвет шрифта активной ссылки'), blank=True,
                                     null=True)
     menu_link_hover_bg = ColorField(_('Цвет фона ссылок при наведении'), blank = True,
         null = True)

@@ -1,11 +1,12 @@
 
-.media .container
+.media
 	@extend %defaultFlex
 .media__video
 	@extend %five
 	@extend %fullWidth-xs
 	@extend %defaultTopMargin
-	padding-bottom: (9% / 16 * 100 / 2) $i
+	max-width: 560px;
+	margin-bottom: 5em;
 	@include breakpoint($xs)
 		padding-bottom: (9% / 16 * 100) $i
 

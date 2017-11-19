@@ -2,11 +2,13 @@
 .header 
   @extend %clearfix
   & > .container
-    padding: 3em 2em
+    padding: 2em 2em
     @extend %darkGrayBg
     border-top-right-radius: 3px
     border-top-left-radius: 3px
     @extend %overflowHidden
+    @include breakpoint($lg)
+      padding-top: 3em
     @include breakpoint($lg-less)
         padding-bottom: 1em
     @include breakpoint($xs)
@@ -31,12 +33,11 @@
 
 /* START NAVIGATION */
 .navigation 
-  width: 61.33333%
+  @extend %eight
   @extend %floatRight
   @extend %fullWidth-lgLess
-  @extend %defaultTopMargin-xs
-  margin-top: 1em
-  @include breakpoint($lg-less)
+  @extend %defaultTopMargin-xs 
+  padding-left: 1em
 .navigation__openMenuButton 
   @extend %floatRight
   @extend %centerBlock-xs

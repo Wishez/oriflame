@@ -14893,7 +14893,7 @@ var createLocation = exports.createLocation = function createLocation(path, stat
 var locationsAreEqual = exports.locationsAreEqual = function locationsAreEqual(a, b) {
   return a.pathname === b.pathname && a.search === b.search && a.hash === b.hash && a.key === b.key && (0, _valueEqual2.default)(a.state, b.state);
 };
-},{"./PathUtils":499,"resolve-pathname":1063,"value-equal":1281}],499:[function(require,module,exports){
+},{"./PathUtils":499,"resolve-pathname":1063,"value-equal":1282}],499:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -15263,7 +15263,7 @@ var createBrowserHistory = function createBrowserHistory() {
 };
 
 exports.default = createBrowserHistory;
-},{"./DOMUtils":497,"./LocationUtils":498,"./PathUtils":499,"./createTransitionManager":503,"invariant":508,"warning":1282}],501:[function(require,module,exports){
+},{"./DOMUtils":497,"./LocationUtils":498,"./PathUtils":499,"./createTransitionManager":503,"invariant":508,"warning":1283}],501:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -15588,7 +15588,7 @@ var createHashHistory = function createHashHistory() {
 };
 
 exports.default = createHashHistory;
-},{"./DOMUtils":497,"./LocationUtils":498,"./PathUtils":499,"./createTransitionManager":503,"invariant":508,"warning":1282}],502:[function(require,module,exports){
+},{"./DOMUtils":497,"./LocationUtils":498,"./PathUtils":499,"./createTransitionManager":503,"invariant":508,"warning":1283}],502:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -15759,7 +15759,7 @@ var createMemoryHistory = function createMemoryHistory() {
 };
 
 exports.default = createMemoryHistory;
-},{"./LocationUtils":498,"./PathUtils":499,"./createTransitionManager":503,"warning":1282}],503:[function(require,module,exports){
+},{"./LocationUtils":498,"./PathUtils":499,"./createTransitionManager":503,"warning":1283}],503:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -15845,7 +15845,7 @@ var createTransitionManager = function createTransitionManager() {
 };
 
 exports.default = createTransitionManager;
-},{"warning":1282}],504:[function(require,module,exports){
+},{"warning":1283}],504:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -26648,7 +26648,7 @@ var json2mq = function (query) {
 };
 
 module.exports = json2mq;
-},{"string-convert/camel2hyphen":1275}],515:[function(require,module,exports){
+},{"string-convert/camel2hyphen":1276}],515:[function(require,module,exports){
 var getNative = require('./_getNative'),
     root = require('./_root');
 
@@ -59288,7 +59288,7 @@ WritableStream.prototype._write = function(chunk, encoding, cb){
 	this._parser.write(chunk);
 	cb();
 };
-},{"./Parser.js":897,"buffer":30,"inherits":507,"readable-stream":29,"stream":1274,"string_decoder":1276}],902:[function(require,module,exports){
+},{"./Parser.js":897,"buffer":30,"inherits":507,"readable-stream":29,"stream":1275,"string_decoder":1277}],902:[function(require,module,exports){
 var Parser = require("./Parser.js"),
     DomHandler = require("domhandler");
 
@@ -60506,7 +60506,7 @@ BrowserRouter.propTypes = {
   children: _propTypes2.default.node
 };
 exports.default = BrowserRouter;
-},{"./Router":926,"history/createBrowserHistory":500,"prop-types":868,"react":956,"warning":1282}],919:[function(require,module,exports){
+},{"./Router":926,"history/createBrowserHistory":500,"prop-types":868,"react":956,"warning":1283}],919:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -60575,7 +60575,7 @@ HashRouter.propTypes = {
   children: _propTypes2.default.node
 };
 exports.default = HashRouter;
-},{"./Router":926,"history/createHashHistory":501,"prop-types":868,"react":956,"warning":1282}],920:[function(require,module,exports){
+},{"./Router":926,"history/createHashHistory":501,"prop-types":868,"react":956,"warning":1283}],920:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -64310,7 +64310,7 @@ MemoryRouter.propTypes = {
   children: _propTypes2.default.node
 };
 exports.default = MemoryRouter;
-},{"./Router":937,"history/createMemoryHistory":502,"prop-types":868,"react":956,"warning":1282}],934:[function(require,module,exports){
+},{"./Router":937,"history/createMemoryHistory":502,"prop-types":868,"react":956,"warning":1283}],934:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -64510,7 +64510,7 @@ Redirect.contextTypes = {
   }).isRequired
 };
 exports.default = Redirect;
-},{"history":504,"invariant":508,"prop-types":868,"react":956,"warning":1282}],936:[function(require,module,exports){
+},{"history":504,"invariant":508,"prop-types":868,"react":956,"warning":1283}],936:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -64663,7 +64663,7 @@ Route.childContextTypes = {
   router: _propTypes2.default.object.isRequired
 };
 exports.default = Route;
-},{"./matchPath":940,"invariant":508,"prop-types":868,"react":956,"warning":1282}],937:[function(require,module,exports){
+},{"./matchPath":940,"invariant":508,"prop-types":868,"react":956,"warning":1283}],937:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -64783,7 +64783,7 @@ Router.childContextTypes = {
   router: _propTypes2.default.object.isRequired
 };
 exports.default = Router;
-},{"invariant":508,"prop-types":868,"react":956,"warning":1282}],938:[function(require,module,exports){
+},{"invariant":508,"prop-types":868,"react":956,"warning":1283}],938:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -64969,7 +64969,7 @@ StaticRouter.childContextTypes = {
   router: _propTypes2.default.object.isRequired
 };
 exports.default = StaticRouter;
-},{"./Router":937,"history/PathUtils":499,"invariant":508,"prop-types":868,"react":956,"warning":1282}],939:[function(require,module,exports){
+},{"./Router":937,"history/PathUtils":499,"invariant":508,"prop-types":868,"react":956,"warning":1283}],939:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -65066,7 +65066,7 @@ Switch.propTypes = {
   location: _propTypes2.default.object
 };
 exports.default = Switch;
-},{"./matchPath":940,"invariant":508,"prop-types":868,"react":956,"warning":1282}],940:[function(require,module,exports){
+},{"./matchPath":940,"invariant":508,"prop-types":868,"react":956,"warning":1283}],940:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -68236,7 +68236,7 @@ function indexOf(xs, x) {
 }
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./_stream_duplex":959,"./internal/streams/BufferList":964,"./internal/streams/destroy":965,"./internal/streams/stream":966,"_process":864,"core-util-is":447,"events":478,"inherits":507,"isarray":511,"process-nextick-args":863,"safe-buffer":1064,"string_decoder/":1276,"util":29}],962:[function(require,module,exports){
+},{"./_stream_duplex":959,"./internal/streams/BufferList":964,"./internal/streams/destroy":965,"./internal/streams/stream":966,"_process":864,"core-util-is":447,"events":478,"inherits":507,"isarray":511,"process-nextick-args":863,"safe-buffer":1064,"string_decoder/":1277,"util":29}],962:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -69119,7 +69119,7 @@ Writable.prototype._destroy = function (err, cb) {
 };
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./_stream_duplex":959,"./internal/streams/destroy":965,"./internal/streams/stream":966,"_process":864,"core-util-is":447,"inherits":507,"process-nextick-args":863,"safe-buffer":1064,"util-deprecate":1280}],964:[function(require,module,exports){
+},{"./_stream_duplex":959,"./internal/streams/destroy":965,"./internal/streams/stream":966,"_process":864,"core-util-is":447,"inherits":507,"process-nextick-args":863,"safe-buffer":1064,"util-deprecate":1281}],964:[function(require,module,exports){
 'use strict';
 
 /*<replacement>*/
@@ -75769,7 +75769,7 @@ var ActionTypes = exports.ActionTypes = {
     replaceReducer: replaceReducer
   }, _ref2[_symbolObservable2['default']] = observable, _ref2;
 }
-},{"lodash/isPlainObject":814,"symbol-observable":1277}],1060:[function(require,module,exports){
+},{"lodash/isPlainObject":814,"symbol-observable":1278}],1060:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -101413,6 +101413,8 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 module.exports = ReactPropTypesSecret;
 
 },{}],1274:[function(require,module,exports){
+!function(e,t){if("object"==typeof exports&&"object"==typeof module)module.exports=t(require("react"));else if("function"==typeof define&&define.amd)define(["react"],t);else{var o=t("object"==typeof exports?require("react"):e.React);for(var n in o)("object"==typeof exports?exports:e)[n]=o[n]}}(this,function(e){return function(e){function t(n){if(o[n])return o[n].exports;var r=o[n]={exports:{},id:n,loaded:!1};return e[n].call(r.exports,r,r.exports,t),r.loaded=!0,r.exports}var o={};return t.m=e,t.c=o,t.p="",t(0)}([function(e,t,o){"use strict";function n(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(t,"__esModule",{value:!0});var r=o(1),i=n(r);t["default"]=i["default"]},function(e,t,o){"use strict";function n(e){return e&&e.__esModule?e:{"default":e}}function r(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function i(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var o=arguments[t];for(var n in o)Object.prototype.hasOwnProperty.call(o,n)&&(e[n]=o[n])}return e},l=function(){function e(e,t){for(var o=0;o<t.length;o++){var n=t[o];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,o,n){return o&&e(t.prototype,o),n&&e(t,n),t}}(),p=o(2),u=n(p),d=function(e){function t(e){r(this,t);var o=i(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e));return o.startVideoStateObserver=function(e){o.currentVideoReady()&&o.callChangeHandlers(),o.stopObserver||window.requestAnimationFrame(o.startVideoStateObserver)},o.stopVideoStateObserver=function(){o.stopObserver=!0},o.onPlayerReady=function(){(o.props.shouldPrestart||o.props.playing)&&(o.player.playVideo(),o.prestart=!o.props.playing),o.props.onReady({duration:1e3*o.player.getDuration()}),o.setPlayerVolume(o.props.volume),o.startVideoStateObserver()},o.onNewVideoLoaded=function(){o.onPlayerReady(),o.props.playing?o.setVideoPlaying():(o.player.pauseVideo(),o.prestart=!1),o.loadingNewVideo=!1},o.setVideoPlaying=function(){(o.props.shouldPrestart||o.props.playing)&&o.prestart?(o.player.pauseVideo(),o.prestart=!1):o.props.onPlayingChange(!0)},o.onPlayerStateChange=function(e){var t=e.data,n=YT.PlayerState,r=n.PLAYING,i=n.PAUSED,a=n.BUFFERING,s=n.ENDED;switch(t){case r:o.loadingNewVideo?o.onNewVideoLoaded():o.setVideoPlaying();break;case i:o.props.onPlayingChange(!1);break;case a:break;case s:o.props.onPlayingChange(!1)}},o.initializePlayer=function(){var e=o.props,t=e.videoId,n=e.width,r=e.height,i=e.playerVars;o.player=new YT.Player(o.refs.player,{videoId:t,width:n,height:r,playerVars:s({start:o.props.position/1e3},i),events:{onReady:o.onPlayerReady,onStateChange:o.onPlayerStateChange}})},o.player=null,o.onProgressTimer=null,o.loadingNewVideo=!1,o.lastSentPosition=0,o.lastSentVolume=0,o}return a(t,e),l(t,null,[{key:"defaultProps",get:function(){return{position:0,width:"560",height:"315",playing:!1,volume:50,shouldPrestart:!0,minPositionChangeToNotify:100,onProgress:function(){},onPlayingChange:function(){},onReady:function(){},onVolumeChange:function(){},playerVars:{}}}}]),l(t,[{key:"getCurrentTimeInMs",value:function(){return 1e3*this.player.getCurrentTime()}},{key:"callChangeHandlers",value:function(){var e=this.getCurrentTimeInMs(),t=this.player.isMuted()?0:this.player.getVolume();this.lastSentVolume!=t&&(this.lastSentVolume=t,this.props.onVolumeChange(t)),Math.abs(this.lastSentPosition-e)>this.props.minPositionChangeToNotify&&(this.lastSentPosition=e,this.props.onProgress(e))}},{key:"componentWillUnmount",value:function(){this.stopVideoStateObserver()}},{key:"currentVideoReady",value:function(){return this.player&&!isNaN(this.getCurrentTimeInMs())}},{key:"componentDidMount",value:function(){var e=this;"undefined"!=typeof YT&&YT.loaded?this.initializePlayer():!function(){var t=window.onYouTubePlayerAPIReady;window.onYouTubePlayerAPIReady=function(){t&&t(),e.initializePlayer()}}()}},{key:"setPlayerVolume",value:function(e){e>0&&this.player.unMute(),0===e?this.player.mute():this.player.setVolume(e)}},{key:"componentDidUpdate",value:function(e){e.videoId!==this.props.videoId&&(this.player?(this.loadingNewVideo=!0,this.player.loadVideoById(this.props.videoId)):this.initializePlayer()),e.volume!==this.props.volume&&this.setPlayerVolume(this.props.volume),this.lastSentPosition!==this.props.position&&this.player.seekTo(this.props.position/1e3,!0),e.playing===!1&&this.props.playing===!0&&this.player.playVideo(),e.playing===!0&&this.props.playing===!1&&this.player.pauseVideo()}},{key:"render",value:function(){return u["default"].createElement("div",{className:"video"},u["default"].createElement("div",{className:"content"},u["default"].createElement("div",{ref:"player"})))}}]),t}(p.Component);t["default"]=d},function(t,o){t.exports=e}])});
+},{"react":956}],1275:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -101541,7 +101543,7 @@ Stream.prototype.pipe = function(dest, options) {
   return dest;
 };
 
-},{"events":478,"inherits":507,"readable-stream/duplex.js":958,"readable-stream/passthrough.js":967,"readable-stream/readable.js":968,"readable-stream/transform.js":969,"readable-stream/writable.js":970}],1275:[function(require,module,exports){
+},{"events":478,"inherits":507,"readable-stream/duplex.js":958,"readable-stream/passthrough.js":967,"readable-stream/readable.js":968,"readable-stream/transform.js":969,"readable-stream/writable.js":970}],1276:[function(require,module,exports){
 var camel2hyphen = function (str) {
   return str
           .replace(/[A-Z]/g, function (match) {
@@ -101551,7 +101553,7 @@ var camel2hyphen = function (str) {
 };
 
 module.exports = camel2hyphen;
-},{}],1276:[function(require,module,exports){
+},{}],1277:[function(require,module,exports){
 'use strict';
 
 var Buffer = require('safe-buffer').Buffer;
@@ -101824,10 +101826,10 @@ function simpleWrite(buf) {
 function simpleEnd(buf) {
   return buf && buf.length ? this.write(buf) : '';
 }
-},{"safe-buffer":1064}],1277:[function(require,module,exports){
+},{"safe-buffer":1064}],1278:[function(require,module,exports){
 module.exports = require('./lib/index');
 
-},{"./lib/index":1278}],1278:[function(require,module,exports){
+},{"./lib/index":1279}],1279:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -101860,7 +101862,7 @@ var result = (0, _ponyfill2['default'])(root);
 exports['default'] = result;
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./ponyfill":1279}],1279:[function(require,module,exports){
+},{"./ponyfill":1280}],1280:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -101884,7 +101886,7 @@ function symbolObservablePonyfill(root) {
 
 	return result;
 };
-},{}],1280:[function(require,module,exports){
+},{}],1281:[function(require,module,exports){
 (function (global){
 
 /**
@@ -101956,7 +101958,7 @@ function config (name) {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],1281:[function(require,module,exports){
+},{}],1282:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -102000,7 +102002,7 @@ function valueEqual(a, b) {
 
 exports.default = valueEqual;
 module.exports = exports['default'];
-},{}],1282:[function(require,module,exports){
+},{}],1283:[function(require,module,exports){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -102062,7 +102064,7 @@ if ("development" !== 'production') {
 
 module.exports = warning;
 
-},{}],1283:[function(require,module,exports){
+},{}],1284:[function(require,module,exports){
 (function(self) {
   'use strict';
 
@@ -102525,7 +102527,7 @@ module.exports = warning;
   self.fetch.polyfill = true
 })(typeof self !== 'undefined' ? self : this);
 
-},{}],1284:[function(require,module,exports){
+},{}],1285:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -102554,7 +102556,7 @@ var closeNavIfNeededAndSelectNavigationItem = exports.closeNavIfNeededAndSelectN
 	};
 };
 
-},{"./../constants/navigationTypes.js":1315}],1285:[function(require,module,exports){
+},{"./../constants/navigationTypes.js":1317}],1286:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -102615,22 +102617,23 @@ var tryRegister = exports.tryRegister = function tryRegister(data) {
 	};
 };
 
-},{"./../constants/ajax.js":1313,"./../constants/registrationTypes.js":1317}],1286:[function(require,module,exports){
+},{"./../constants/ajax.js":1315,"./../constants/registrationTypes.js":1319}],1287:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.tryGetSingleSharesIfNeeded = exports.tryGetSharesIfNeeded = exports.clearShares = undefined;
+exports.tryGetVideos = exports.tryGetSingleSharesIfNeeded = exports.tryGetSharesIfNeeded = exports.clearShares = undefined;
 
 var _sharesTypes = require('./../constants/sharesTypes.js');
+
+var _actionTypes = require('./../constants/actionTypes.js');
 
 var clearShares = exports.clearShares = function clearShares() {
 	return {
 		type: _sharesTypes.CLEAR_SHARES
 	};
 };
-
 var getShares = function getShares(shares) {
 	return {
 		type: _sharesTypes.GET_SHARES,
@@ -102654,7 +102657,7 @@ var sharesRequesting = function sharesRequesting() {
 var tryGetShares = function tryGetShares() {
 	return function (dispatch) {
 		dispatch(sharesRequesting());
-		console.log('request s');
+
 		return fetch('/getMe/v0/shares/').then(function (resp) {
 			return resp.json();
 		}).then(function (data) {
@@ -102668,7 +102671,7 @@ var tryGetShares = function tryGetShares() {
 var tryGetSingleShare = function tryGetSingleShare(id) {
 	return function (dispatch) {
 		dispatch(sharesRequesting());
-		console.log('request');
+
 		return fetch('/getMe/v0/shares/' + id + '/').then(function (resp) {
 			return resp.json();
 		}).then(function (data) {
@@ -102690,8 +102693,24 @@ var tryGetSingleSharesIfNeeded = exports.tryGetSingleSharesIfNeeded = function t
 		if (!isShareGotten) dispatch(tryGetSingleShare(id));
 	};
 };
+var tryGetVideos = exports.tryGetVideos = function tryGetVideos(context) {
+	return function (dispatch) {
+		console.log('in');
+		return fetch('/getMe/v0/videos/').then(function (resp) {
+			return resp.json();
+		}).then(function (data) {
+			dispatch({
+				type: _actionTypes.REQUEST_VIDEOS,
+				videos: data,
+				context: context
+			});
+		}).catch(function (err) {
+			console.log(err);
+		});
+	};
+};
 
-},{"./../constants/sharesTypes.js":1318}],1287:[function(require,module,exports){
+},{"./../constants/actionTypes.js":1314,"./../constants/sharesTypes.js":1320}],1288:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -102739,7 +102758,7 @@ var About = function About(_ref) {
 
 exports.default = About;
 
-},{"./AboutItem":1288,"./Section":1307,"React":4}],1288:[function(require,module,exports){
+},{"./AboutItem":1289,"./Section":1308,"React":4}],1289:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -102802,7 +102821,7 @@ var AboutItem = function AboutItem(_ref) {
 
 exports.default = AboutItem;
 
-},{"./Text":1311,"./Title":1312,"React":4}],1289:[function(require,module,exports){
+},{"./Text":1312,"./Title":1313,"React":4}],1290:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -102860,7 +102879,7 @@ var Catalogs = function Catalogs(_ref) {
 
 exports.default = Catalogs;
 
-},{"./CatalogsSlider":1290,"./Section":1307,"./Title":1312,"react":956}],1290:[function(require,module,exports){
+},{"./CatalogsSlider":1291,"./Section":1308,"./Title":1313,"react":956}],1291:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -102921,7 +102940,7 @@ var CatalogsSlider = function CatalogsSlider(_ref) {
 
 exports.default = CatalogsSlider;
 
-},{"react":956,"react-slick":945,"semantic-ui-react":1166}],1291:[function(require,module,exports){
+},{"react":956,"react-slick":945,"semantic-ui-react":1166}],1292:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -102983,7 +103002,7 @@ var Copyright = function Copyright(_ref) {
 
 exports.default = Copyright;
 
-},{"./Paragraph":1302,"react":956}],1292:[function(require,module,exports){
+},{"./Paragraph":1303,"react":956}],1293:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103057,7 +103076,7 @@ var Footer = function Footer() {
 
 exports.default = Footer;
 
-},{"./../constants/conf.js":1314,"./Copyright":1291,"./FooterContacts":1293,"./Paragraph":1302,"react":956,"semantic-ui-react":1166}],1293:[function(require,module,exports){
+},{"./../constants/conf.js":1316,"./Copyright":1292,"./FooterContacts":1294,"./Paragraph":1303,"react":956,"semantic-ui-react":1166}],1294:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103179,7 +103198,7 @@ var FooterContacts = function FooterContacts(_ref) {
 
 exports.default = FooterContacts;
 
-},{"./Title":1312,"react":956}],1294:[function(require,module,exports){
+},{"./Title":1313,"react":956}],1295:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103241,7 +103260,7 @@ var Header = function Header(_ref) {
 
 exports.default = Header;
 
-},{"./../containers/NavContainer.js":1325,"./Logo":1295,"react":956,"semantic-ui-react":1166}],1295:[function(require,module,exports){
+},{"./../containers/NavContainer.js":1327,"./Logo":1296,"react":956,"semantic-ui-react":1166}],1296:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103288,7 +103307,7 @@ var Logo = function Logo(_ref) {
 
 exports.default = Logo;
 
-},{"react":956,"react-router-dom":929}],1296:[function(require,module,exports){
+},{"react":956,"react-router-dom":929}],1297:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103372,38 +103391,38 @@ var Main = function Main(_ref) {
                         lineNumber: 21
                     }
                 }),
-                _react2.default.createElement(_MyRoute2.default, { path: '/shares/:shareId/',
-                    component: _SingleShareContainer2.default, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 24
-                    }
-                }),
-                _react2.default.createElement(_MyRoute2.default, { path: '/shares',
-                    component: _SharesContainer2.default, __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 26
-                    }
-                }),
                 _react2.default.createElement(_MyRoute2.default, { path: '/possibilities',
                     component: _BusinessContainer2.default, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 28
+                        lineNumber: 24
                     }
                 }),
                 _react2.default.createElement(_MyRoute2.default, { path: '/registration',
                     component: _RegistrationContainer2.default, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 30
+                        lineNumber: 26
                     }
                 }),
                 _react2.default.createElement(_MyRoute2.default, { path: '/contacts',
                     component: _ContactsContainer2.default, __source: {
                         fileName: _jsxFileName,
-                        lineNumber: 32
+                        lineNumber: 28
                     }
                 }),
                 _react2.default.createElement(_MyRoute2.default, { path: '/media',
                     component: _MediaContainer2.default, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 30
+                    }
+                }),
+                _react2.default.createElement(_MyRoute2.default, { path: '/shares/:shareId/',
+                    component: _SingleShareContainer2.default, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 32
+                    }
+                }),
+                _react2.default.createElement(_MyRoute2.default, { path: '/shares',
+                    component: _SharesContainer2.default, __source: {
                         fileName: _jsxFileName,
                         lineNumber: 34
                     }
@@ -103435,7 +103454,7 @@ var Main = function Main(_ref) {
 
 exports.default = Main;
 
-},{"./../containers/BusinessContainer":1321,"./../containers/ContactsContainer":1322,"./../containers/MainPageContainer":1323,"./../containers/MediaContainer":1324,"./../containers/RegistrationContainer":1326,"./../containers/SharesContainer":1327,"./../containers/SingleShareContainer":1328,"./MyRoute":1298,"./NotFound":1301,"react":956,"react-router-dom":929,"react-router-transition":932}],1297:[function(require,module,exports){
+},{"./../containers/BusinessContainer":1323,"./../containers/ContactsContainer":1324,"./../containers/MainPageContainer":1325,"./../containers/MediaContainer":1326,"./../containers/RegistrationContainer":1328,"./../containers/SharesContainer":1329,"./../containers/SingleShareContainer":1330,"./MyRoute":1299,"./NotFound":1302,"react":956,"react-router-dom":929,"react-router-transition":932}],1298:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103502,7 +103521,7 @@ var MainSlider = function MainSlider(_ref) {
 
 exports.default = MainSlider;
 
-},{"./Section":1307,"react":956,"react-slick":945,"semantic-ui-react":1166}],1298:[function(require,module,exports){
+},{"./Section":1308,"react":956,"react-slick":945,"semantic-ui-react":1166}],1299:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103542,7 +103561,7 @@ var MyRoute = function MyRoute(_ref) {
 };
 exports.default = MyRoute;
 
-},{"react":956,"react-router-dom":929}],1299:[function(require,module,exports){
+},{"react":956,"react-router-dom":929}],1300:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103582,7 +103601,7 @@ var NavItem = function NavItem(_ref) {
 
 exports.default = NavItem;
 
-},{"classnames":32,"react":956,"react-router-dom":929,"semantic-ui-react":1166}],1300:[function(require,module,exports){
+},{"classnames":32,"react":956,"react-router-dom":929,"semantic-ui-react":1166}],1301:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103696,7 +103715,7 @@ var Navigation = function Navigation(_ref) {
           },
           _react2.default.createElement(
             'a',
-            { href: 'http://beautystore.oriflame.ru/502181',
+            { href: 'http://beautystore.oriflame.ru/105263',
               className: 'not-follow navItem__refer', __source: {
                 fileName: _jsxFileName,
                 lineNumber: 47
@@ -103712,7 +103731,7 @@ var Navigation = function Navigation(_ref) {
 
 exports.default = Navigation;
 
-},{"./NavItem":1299,"prop-types":868,"react":956,"semantic-ui-react":1166}],1301:[function(require,module,exports){
+},{"./NavItem":1300,"prop-types":868,"react":956,"semantic-ui-react":1166}],1302:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103768,7 +103787,7 @@ var NotFound = function NotFound(_ref) {
 
 exports.default = NotFound;
 
-},{"./Section":1307,"./Title":1312,"react":956,"react-router-dom":929}],1302:[function(require,module,exports){
+},{"./Section":1308,"./Title":1313,"react":956,"react-router-dom":929}],1303:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103828,7 +103847,7 @@ var Paragraph = function Paragraph(_ref) {
 
 exports.default = Paragraph;
 
-},{"classnames":32,"react":956,"react-html-parser":884}],1303:[function(require,module,exports){
+},{"classnames":32,"react":956,"react-html-parser":884}],1304:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103890,7 +103909,7 @@ var Present = function Present(_ref) {
 // 			block='present' />
 exports.default = Present;
 
-},{"./Section":1307,"React":4,"react-router-dom":929,"semantic-ui-react":1166}],1304:[function(require,module,exports){
+},{"./Section":1308,"React":4,"react-router-dom":929,"semantic-ui-react":1166}],1305:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -103952,21 +103971,21 @@ var Registration = function Registration(_ref) {
 				}
 			}),
 			_react2.default.createElement(_Paragraph2.default, { block: 'registrationInfo',
-				text: '\u0412\u044B \u0441\u0440\u0430\u0437\u0443 \u0436\u0435 \u043F\u043E\u043B\u0443\u0447\u0430\u0435\u0442\u0435 <strong>\u0441\u043A\u0438\u0434\u043A\u0443 20 - 32%</strong> \r \u043D\u0430 \u0431\u043E\u043B\u0435\u0435 \u0447\u0435\u043C 700 \u043D\u0430\u0438\u043C\u0435\u043D\u043E\u0432\u0430\u043D\u0438\u0439 \u0448\u0432\u0435\u0434\u0441\u043A\u043E\u0439 \u043F\u0440\u043E\u0434\u0443\u043A\u0446\u0438\u0438 \u0434\u043B\u044F \u043A\u0440\u0430\u0441\u043E\u0442\u044B \r \u0438 \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F, \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u043E \u043A\u043E\u0442\u043E\u0440\u043E\u0439 \u0441\u043C\u043E\u0433\u043B\u0438 \u043E\u0446\u0435\u043D\u0438\u0442\u044C \u043B\u044E\u0434\u0438 <i>\u0432 60-\u0442\u0438 \r \u0441\u0442\u0440\u0430\u043D\u0430\u0445 \u043C\u0438\u0440\u0430</i> \u043D\u0430 \u043F\u0440\u043E\u0442\u044F\u0436\u0435\u043D\u0438\u0438 49-\u0442\u0438 \u043B\u0435\u0442.', __source: {
+				text: '\u0412\u044B \u0441\u0440\u0430\u0437\u0443 \u0436\u0435 \u043F\u043E\u043B\u0443\u0447\u0430\u0435\u0442\u0435 \u0441\u043A\u0438\u0434\u043A\u0443 20% \u043D\u0430 \u0432\u0441\u044E \u043F\u0440\u043E\u0434\u0443\u043A\u0446\u0438\u044E \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u0438, \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u043E \u043A\u043E\u0442\u043E\u0440\u043E\u0439 \u0441\u043C\u043E\u0433\u043B\u0438 \u043E\u0446\u0435\u043D\u0438\u0442\u044C \u043B\u044E\u0434\u0438 \u0431\u043E\u043B\u0435\u0435 \u0447\u0435\u043C\r\n\u0432 60-\u0442\u0438 \u0441\u0442\u0440\u0430\u043D\u0430\u0445 \u043C\u0438\u0440\u0430.', __source: {
 					fileName: _jsxFileName,
 					lineNumber: 17
 				}
 			}),
 			_react2.default.createElement(_Paragraph2.default, { block: 'registrationInfo',
-				text: '\u0412\u044B \u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u0435\u0441\u044C <strong>\u043B\u044E\u0431\u0438\u043C\u044B\u043C \u043A\u043B\u0438\u0435\u043D\u0442\u043E\u043C \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u0438</strong> \r \u0438 \u0443\u0447\u0430\u0441\u0442\u0432\u0443\u0435\u0442\u0435 \u0432 \u0435\u0436\u0435\u043D\u0435\u0434\u0435\u043B\u044C\u043D\u044B\u0445 \u0440\u0430\u0441\u043F\u0440\u043E\u0434\u0430\u0436\u0430\u0445 \u0434\u043B\u044F \xAB\u0441\u0432\u043E\u0438\u0445\xBB \u0433\u0434\u0435 \u0441\u043A\u0438\u0434\u043A\u0438 \r <i>\u0434\u043E\u0441\u0442\u0438\u0433\u0430\u044E\u0442 80%</i>. \u041F\u0440\u0438\u043D\u044F\u0432 \u0443\u0447\u0430\u0441\u0442\u0438\u0435 \u0432 \u0441\u0442\u0430\u0440\u0442\u043E\u0432\u043E\u0439 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0435, \r \u0432\u044B \u0442\u043E\u043B\u044C\u043A\u043E \u043F\u043E\u0434\u0430\u0440\u043A\u043E\u0432 \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u0435 \u043D\u0430 <i>14 \u041E\u041E\u041E \u0440\u0443\u0431\u043B\u0435\u0439</i>.', __source: {
+				text: '\u0412\u044B \u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u0435\u0441\u044C \u043A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442\u043E\u043C \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u0438 \u0438 \u0443\u0447\u0430\u0441\u0442\u0432\u0443\u0435\u0442\u0435 \u0432 \u0440\u0430\u0441\u043F\u0440\u043E\u0434\u0430\u0436\u0430\u0445 \u0438 \u0430\u043A\u0446\u0438\u044F\u0445, \u0433\u0434\u0435 \u0441\u043A\u0438\u0434\u043A\u0438 \u0434\u043E\u0441\u0442\u0438\u0433\u0430\u044E\u0442 80%. \u041F\u0440\u0438\u043D\u044F\u0432 \u0443\u0447\u0430\u0441\u0442\u0438\u0435 \u0432 \u0441\u0442\u0430\u0440\u0442\u043E\u0432\u043E\u0439 \r\n\u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0435, \u0432\u044B \u0442\u043E\u043B\u044C\u043A\u043E \u043F\u043E\u0434\u0430\u0440\u043A\u043E\u0432 \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u0435 \u0431\u043E\u043B\u0435\u0435 \u0447\u0435\u043C \u043D\u0430 15 \u041E\u041E\u041E \u0440\u0443\u0431\u043B\u0435\u0439.', __source: {
 					fileName: _jsxFileName,
-					lineNumber: 22
+					lineNumber: 20
 				}
 			}),
 			_react2.default.createElement(_Paragraph2.default, { block: 'registrationInfo',
-				text: '\u0417\u0430\u043A\u0430\u0437\u044B \u0434\u0435\u043B\u0430\u0435\u0442\u0435 <strong>\u043F\u0440\u044F\u043C\u043E \u0438\u0437 \u0434\u043E\u043C\u0430</strong> \u0438 \u043F\u043E\u043B\u0443\u0447\u0430\u0435\u0442\u0435 \r <strong>\u0432 \u0443\u0434\u043E\u0431\u043D\u043E\u043C \u0434\u043B\u044F \u0432\u0430\u0441 \u043C\u0435\u0441\u0442\u0435</strong>. \u0410 \u0435\u0441\u043B\u0438 \u043A\u0440\u043E\u043C\u0435 \u043A\u0440\u0430\u0441\u043E\u0442\u044B \r \u0438 \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F \u0432\u0430\u0441 \u0438\u043D\u0442\u0435\u0440\u0435\u0441\u0443\u0435\u0442 \u043F\u0440\u0438\u043B\u0438\u0447\u043D\u044B\u0439 \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u043E\u043A, \u043D\u0435 \u0437\u0430\u0432\u0438\u0441\u044F\u0449\u0438\u0439 \u043E\u0442 \r \u043A\u0440\u0438\u0437\u0438\u0441\u043E\u0432, \u0442\u043E <i>\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u0443\u044F\u0441\u044C</i> \u043D\u0430 \u043D\u0430\u0448\u0435\u043C \u0441\u0430\u0439\u0442\u0435, \u0432\u044B \u043F\u043E\u043F\u0430\u0434\u0430\u0435\u0442\u0435 \u0432 \r \u043D\u0430\u0448\u0443 \u043A\u043E\u043C\u0430\u043D\u0434\u0443, \u043A\u043E\u0442\u043E\u0440\u0430\u044F \u0443\u0441\u043F\u0435\u0448\u043D\u043E \u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442 \u0441 1998 \u0433\u043E\u0434\u0430. <i>\u041E\u0431\u0443\u0447\u0435\u043D\u0438\u0435, \r \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0443 \u0438 \u0441\u043E\u043F\u0440\u043E\u0432\u043E\u0436\u0434\u0435\u043D\u0438\u0435</i> \u043D\u0430 \u0432\u0441\u0435\u0445 \u044D\u0442\u0430\u043F\u0430\u0445 \u0432\u0430\u0448\u0435\u0439 \u0434\u0435\u044F\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u0438 \u043C\u044B \r \u0433\u0430\u0440\u0430\u043D\u0442\u0438\u0440\u0443\u0435\u043C.', __source: {
+				text: '\u0417\u0430\u043A\u0430\u0437\u044B \u0434\u0435\u043B\u0430\u0435\u0442\u0435 \u043F\u0440\u044F\u043C\u043E \u0438\u0437 \u0434\u043E\u043C\u0430 \u0438 \u043F\u043E\u043B\u0443\u0447\u0430\u0435\u0442\u0435 \u0432 \u0443\u0434\u043E\u0431\u043D\u043E\u043C \u0434\u043B\u044F \u0432\u0430\u0441 \u043C\u0435\u0441\u0442\u0435. \u0410 \u0435\u0441\u043B\u0438 \u043A\u0440\u043E\u043C\u0435 \u043A\u0440\u0430\u0441\u043E\u0442\u044B \u0438 \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F \u0432\u0430\u0441 \u0438\u043D\u0442\u0435\u0440\u0435\u0441\u0443\u0435\u0442 \u043F\u0440\u0438\u043B\u0438\u0447\u043D\u044B\u0439 \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u043E\u043A, \u043D\u0435 \u0437\u0430\u0432\u0438\u0441\u044F\u0449\u0438\u0439 \r\n\u043E\u0442 \u043A\u0440\u0438\u0437\u0438\u0441\u043E\u0432, \u0442\u043E \u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u0443\u044F\u0441\u044C \u043D\u0430 \u043D\u0430\u0448\u0435\u043C \u0441\u0430\u0439\u0442\u0435, \u0432\u044B \u043F\u043E\u043F\u0430\u0434\u0430\u0435\u0442\u0435 \u0432 \u043D\u0430\u0448\u0443 \u043A\u043E\u043C\u0430\u043D\u0434\u0443, \u043A\u043E\u0442\u043E\u0440\u0430\u044F \u0443\u0441\u043F\u0435\u0448\u043D\u043E \u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442 \u0441 1996 \u0433\u043E\u0434\u0430. \u041E\u0431\u0443\u0447\u0435\u043D\u0438\u0435, \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0443 \u0438 \u0441\u043E\u043F\u0440\u043E\u0432\u043E\u0436\u0434\u0435\u043D\u0438\u0435 \r\n\u043D\u0430 \u0432\u0441\u0435\u0445 \u044D\u0442\u0430\u043F\u0430\u0445 \u0432\u0430\u0448\u0435\u0439 \u0434\u0435\u044F\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u0438 \u043C\u044B \u0433\u0430\u0440\u0430\u043D\u0442\u0438\u0440\u0443\u0435\u043C.', __source: {
 					fileName: _jsxFileName,
-					lineNumber: 27
+					lineNumber: 23
 				}
 			})
 		),
@@ -103974,7 +103993,7 @@ var Registration = function Registration(_ref) {
 			'p',
 			{ className: 'registration__message registration__message_succes', __source: {
 					fileName: _jsxFileName,
-					lineNumber: 37
+					lineNumber: 29
 				}
 			},
 			'\u0412 \u0443\u0441\u043F\u0435\u0448\u043D\u043E \u043F\u0440\u043E\u0448\u043B\u0438 \u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044E!'
@@ -103983,7 +104002,7 @@ var Registration = function Registration(_ref) {
 		}, rest, {
 			__source: {
 				fileName: _jsxFileName,
-				lineNumber: 40
+				lineNumber: 32
 			}
 		}))
 	);
@@ -103991,7 +104010,7 @@ var Registration = function Registration(_ref) {
 
 exports.default = Registration;
 
-},{"./Paragraph":1302,"./RegistrationForm":1305,"./Section":1307,"./Title":1312,"react":956}],1305:[function(require,module,exports){
+},{"./Paragraph":1303,"./RegistrationForm":1306,"./Section":1308,"./Title":1313,"react":956}],1306:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104340,7 +104359,7 @@ exports.default = (0, _reduxForm.reduxForm)({
 	form: 'registrationForm'
 })(RegistrationForm);
 
-},{"./../constants/validation.js":1319,"./RenderController":1306,"react":956,"react-html-parser":884,"redux-form":1016,"semantic-ui-react":1166}],1306:[function(require,module,exports){
+},{"./../constants/validation.js":1321,"./RenderController":1307,"react":956,"react-html-parser":884,"redux-form":1016,"semantic-ui-react":1166}],1307:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104418,7 +104437,7 @@ var RenderController = function RenderController(_ref) {
 
 exports.default = RenderController;
 
-},{"react":956,"semantic-ui-react":1166}],1307:[function(require,module,exports){
+},{"react":956,"semantic-ui-react":1166}],1308:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104463,7 +104482,7 @@ var Section = function Section(_ref) {
 
 exports.default = Section;
 
-},{"./Paragraph":1302,"react":956,"semantic-ui-react":1166}],1308:[function(require,module,exports){
+},{"./Paragraph":1303,"react":956,"semantic-ui-react":1166}],1309:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104509,7 +104528,7 @@ var SharesList = function SharesList(_ref) {
 
 exports.default = SharesList;
 
-},{"./SharesListItem":1309,"./Title":1312,"react":956,"react-router-dom":929}],1309:[function(require,module,exports){
+},{"./SharesListItem":1310,"./Title":1313,"react":956,"react-router-dom":929}],1310:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104584,7 +104603,7 @@ var SharesListItem = function SharesListItem(_ref) {
 
 exports.default = SharesListItem;
 
-},{"./../constants/pureFunctions.js":1316,"./Text":1311,"./Title":1312,"React":4,"react-router-dom":929}],1310:[function(require,module,exports){
+},{"./../constants/pureFunctions.js":1318,"./Text":1312,"./Title":1313,"React":4,"react-router-dom":929}],1311:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104655,7 +104674,7 @@ var SingleShare = function SingleShare(_ref) {
 
 exports.default = SingleShare;
 
-},{"./Text":1311,"./Title":1312,"React":4,"react-router-dom":929,"semantic-ui-react":1166}],1311:[function(require,module,exports){
+},{"./Text":1312,"./Title":1313,"React":4,"react-router-dom":929,"semantic-ui-react":1166}],1312:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104691,7 +104710,7 @@ var Text = function Text(_ref) {
 
 exports.default = Text;
 
-},{"react":956,"react-html-parser":884}],1312:[function(require,module,exports){
+},{"react":956,"react-html-parser":884}],1313:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104725,7 +104744,15 @@ var Title = function Title(_ref) {
 
 exports.default = Title;
 
-},{"react":956,"react-html-parser":884}],1313:[function(require,module,exports){
+},{"react":956,"react-html-parser":884}],1314:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var REQUEST_VIDEOS = exports.REQUEST_VIDEOS = 'REQUEST_VIDEOS';
+
+},{}],1315:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104777,7 +104804,7 @@ var customAjaxRequest = function customAjaxRequest(_ref) {
 
 exports.default = customAjaxRequest;
 
-},{"js-cookie":513}],1314:[function(require,module,exports){
+},{"js-cookie":513}],1316:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104849,7 +104876,7 @@ var catalogSliderCustoms = exports.catalogSliderCustoms = {
 	}]
 };
 
-},{}],1315:[function(require,module,exports){
+},{}],1317:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104867,7 +104894,7 @@ var navigationItems = exports.navigationItems = {
 	contacts: 'Контакты'
 };
 
-},{}],1316:[function(require,module,exports){
+},{}],1318:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104903,7 +104930,7 @@ var convertDate = exports.convertDate = function convertDate(date) {
 	});
 };
 
-},{}],1317:[function(require,module,exports){
+},{}],1319:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104912,7 +104939,7 @@ Object.defineProperty(exports, "__esModule", {
 var REGISTER = exports.REGISTER = 'REGISTER';
 var REQUEST_REGISTER = exports.REQUEST_REGISTER = 'REQUEST_REGISTER';
 
-},{}],1318:[function(require,module,exports){
+},{}],1320:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104923,7 +104950,7 @@ var GET_SINGLE_SHARES = exports.GET_SINGLE_SHARES = 'GET_SINGLE_SHARES';
 var CLEAR_SHARES = exports.CLEAR_SHARES = 'CLEAR_SHARES';
 var REQUEST_SHARES = exports.REQUEST_SHARES = 'REQUEST_SHARES';
 
-},{}],1319:[function(require,module,exports){
+},{}],1321:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -104992,7 +105019,7 @@ var phoneLength = exports.phoneLength = function phoneLength(value) {
 	return value && value.length > 0 ? undefined : createLengthMessage('номера телефон', 11, 24);
 };
 
-},{}],1320:[function(require,module,exports){
+},{}],1322:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105088,7 +105115,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(App));
 
-},{"./../components/Footer":1292,"./../components/Header":1294,"./../components/Main":1296,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929}],1321:[function(require,module,exports){
+},{"./../components/Footer":1293,"./../components/Header":1295,"./../components/Main":1297,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929}],1323:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105111,6 +105138,10 @@ var _reactRouterDom = require('react-router-dom');
 var _reactRedux = require('react-redux');
 
 var _semanticUiReact = require('semantic-ui-react');
+
+var _statefulReactYoutube = require('stateful-react-youtube');
+
+var _statefulReactYoutube2 = _interopRequireDefault(_statefulReactYoutube);
 
 var _navigationActions = require('./../actions/navigationActions.js');
 
@@ -105150,7 +105181,7 @@ var BusinessContainer = function (_Component) {
 		value: function componentDidMount() {
 			var dispatch = this.props.dispatch;
 
-			dispatch((0, _navigationActions.selectNavigationItem)(_navigation.initNavigationState.secondNavItem.index));
+			dispatch((0, _navigationActions.selectNavigationItem)(_navigation.initNavigationState.thirdNavItem.index));
 		}
 	}, {
 		key: 'render',
@@ -105159,26 +105190,26 @@ var BusinessContainer = function (_Component) {
 				'main',
 				{ className: 'main', __source: {
 						fileName: _jsxFileName,
-						lineNumber: 25
+						lineNumber: 26
 					}
 				},
 				_react2.default.createElement(
 					_Section2.default,
 					{ block: 'business', __source: {
 							fileName: _jsxFileName,
-							lineNumber: 26
+							lineNumber: 27
 						}
 					},
 					_react2.default.createElement(_Title2.default, { block: 'business',
 						text: '\u0421\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u0447\u0430\u044F \u0441 \u041E\u0440\u0438\u0444\u043B\u044D\u0439\u043C, \u0412\u044B \u0441\u043C\u043E\u0436\u0435\u0442\u0435:', __source: {
 							fileName: _jsxFileName,
-							lineNumber: 27
+							lineNumber: 28
 						}
 					}),
 					_react2.default.createElement(_Paragraph2.default, { block: 'business',
-						text: '\u041E\u0442\u043B\u0438\u0447\u043D\u043E \u0432\u044B\u0433\u043B\u044F\u0434\u0435\u0442\u044C, \u043F\u043E\u043A\u0443\u043F\u0430\u0442\u044C \u043A\u043E\u0441\u043C\u0435\u0442\u0438\u043A\u0443 \u0441\u043E \u0441\u043A\u0438\u0434\u043A\u043E\u0439 \u043E\u0442 20 \u0434\u043E 32%;\r \u0417\u0430\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u0442\u044C, \u0441\u043E\u0432\u043C\u0435\u0449\u0430\u044F \u0441 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0439 \u0440\u0430\u0431\u043E\u0442\u043E\u0439;\r \u041D\u0430\u0447\u0430\u0442\u044C \u0441\u0432\u043E\u0439 \u0431\u0438\u0437\u043D\u0435\u0441 \u0431\u0435\u0437 \u0441\u0442\u0430\u0440\u0442\u043E\u0432\u043E\u0433\u043E \u043A\u0430\u043F\u0438\u0442\u0430\u043B\u0430 \u0438 \u0432\u044B\u0441\u043E\u043A\u0438\u043C \u0434\u043E\u0445\u043E\u0434\u043E\u043C;', __source: {
+						text: '\u041E\u0442\u043B\u0438\u0447\u043D\u043E \u0432\u044B\u0433\u043B\u044F\u0434\u0438\u0442\u044C, \u043F\u043E\u043A\u0443\u043F\u0430\u0442\u044C \u043A\u043E\u0441\u043C\u0435\u0442\u0438\u043A\u0443 \u0441\u043E \u0441\u043A\u0438\u0434\u043A\u043E\u0439 \u043E\u0442 20%. \u0417\u0430\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u0442\u044C, \u0441\u043E\u0432\u043C\u0435\u0449\u0430\u044F \u0441 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0439 \u0440\u0430\u0431\u043E\u0442\u043E\u0439. \r\n\u041D\u0430\u0447\u0430\u0442\u044C \u0441\u0432\u043E\u0439 \u0432\u044B\u0441\u043E\u043A\u043E\u0434\u043E\u0445\u043E\u0434\u043D\u044B\u0439 \u0431\u0438\u0437\u043D\u0435\u0441 \u0431\u0435\u0437 \u0441\u0442\u0430\u0440\u0442\u043E\u0432\u043E\u0433\u043E \u043A\u0430\u043F\u0438\u0442\u0430\u043B\u0430.', __source: {
 							fileName: _jsxFileName,
-							lineNumber: 29
+							lineNumber: 30
 						}
 					}),
 					_react2.default.createElement(_semanticUiReact.Image, { className: 'business__image',
@@ -105194,7 +105225,7 @@ var BusinessContainer = function (_Component) {
 						}
 					}),
 					_react2.default.createElement(_Paragraph2.default, { block: 'business',
-						text: '\u041E\u0444\u043E\u0440\u043C\u0438\u0432 \u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044E \u0432 \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u0438 \u0443 \u0412\u0430\u0441 \u043F\u043E\u044F\u0432\u0438\u0442\u0441\u044F \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E\u0441\u0442\u044C \u043F\u043E\u043A\u0443\u043F\u0430\u0442\u044C \u043F\u0440\u043E\u0434\u0443\u043A\u0446\u0438\u044E \u0441\u043E \u0441\u043A\u0438\u0434\u043A\u043E\u0439 \u043E\u0442 20 \u0434\u043E 32%. \u0422\u0430\u043A\u0436\u0435 \u0412\u044B \u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u0435\u0441\u044C \u0443\u0447\u0430\u0441\u0442\u043D\u0438\u043A\u043E\u043C \u0430\u043A\u0446\u0438\u0439 \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u0438, \u043F\u043E \u043A\u043E\u0442\u043E\u0440\u044B\u043C \u0434\u0430\u0440\u044F\u0442 \u043C\u043D\u043E\u0436\u0435\u0441\u0442\u0432\u043E \u043F\u043E\u0434\u0430\u0440\u043A\u043E\u0432.', __source: {
+						text: '\u041E\u0444\u043E\u0440\u043C\u0438\u0432 \u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044E \u0432 \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u0438 \u0443 \u0412\u0430\u0441 \u043F\u043E\u044F\u0432\u0438\u0442\u0441\u044F \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E\u0441\u0442\u044C \u043F\u043E\u043A\u0443\u043F\u0430\u0442\u044C \u043F\u0440\u043E\u0434\u0443\u043A\u0446\u0438\u044E \u0441\u043E \u0441\u043A\u0438\u0434\u043A\u043E\u0439 \u043E\u0442 20%.\u0422\u0430\u043A \u0436\u0435 \u0412\u044B \u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u0435\u0441\u044C \u0443\u0447\u0430\u0441\u0442\u043D\u0438\u043A\u043E\u043C \u0430\u043A\u0446\u0438\u0439 \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u0438, \r\n\u043F\u043E \u043A\u043E\u0442\u043E\u0440\u044B\u043C \u0434\u0430\u0440\u044F\u0442 \u043C\u043D\u043E\u0436\u0435\u0441\u0442\u0432\u043E \u043F\u043E\u0434\u0430\u0440\u043A\u043E\u0432.', __source: {
 							fileName: _jsxFileName,
 							lineNumber: 37
 						}
@@ -105202,36 +105233,40 @@ var BusinessContainer = function (_Component) {
 					_react2.default.createElement(_Paragraph2.default, { block: 'business',
 						text: '\u041F\u043E\u0441\u0442\u0440\u043E\u0435\u043D\u0438\u0435 \u0441\u0432\u043E\u0435\u0439 \u043A\u043E\u043C\u0430\u043D\u0434\u044B \u2013 \u044D\u0442\u043E \u043F\u0440\u0438\u0433\u043B\u0430\u0448\u0435\u043D\u0438\u0435 \u0432 \u041E\u0440\u0438\u0444\u043B\u044D\u0439\u043C \u0434\u0440\u0443\u0433\u0438\u0445 \u043B\u044E\u0434\u0435\u0439 \u0432 \u0441\u0432\u043E\u044E \u0433\u0440\u0443\u043F\u043F\u0443.', __source: {
 							fileName: _jsxFileName,
-							lineNumber: 39
+							lineNumber: 40
 						}
 					}),
 					_react2.default.createElement(_Paragraph2.default, { block: 'business',
 						text: '\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F \u041E\u0440\u0438\u0444\u043B\u044D\u0439\u043C \u0435\u0436\u0435\u043A\u0430\u0442\u0430\u043B\u043E\u0436\u043D\u043E \u0432\u044B\u043F\u043B\u0430\u0447\u0438\u0432\u0430\u0435\u0442 \u043F\u0440\u0435\u043C\u0438\u0438 \u0432 \u0437\u0430\u0432\u0438\u0441\u0438\u043C\u043E\u0441\u0442\u0438 \u043E\u0442 \r \u043E\u0431\u0449\u0435\u0433\u043E \u0442\u043E\u0432\u0430\u0440\u043E\u043E\u0431\u043E\u0440\u043E\u0442\u0430 \u0432\u0441\u0435\u0439 \u0441\u043E\u0437\u0434\u0430\u043D\u043D\u043E\u0439 \u0412\u0430\u043C\u0438 \u0433\u0440\u0443\u043F\u043F\u044B \u043A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u043D\u0442\u043E\u0432. \u0427\u0435\u043C \u0431\u043E\u043B\u044C\u0448\u0435 \u0442\u043E\u0432\u0430\u0440\u043E\u043E\u0431\u043E\u0440\u043E\u0442 \u043A\u043E\u043C\u0430\u043D\u0434\u044B, \u0442\u0435\u043C \u0431\u043E\u043B\u044C\u0448\u0438\u0439 \u043F\u0440\u043E\u0446\u0435\u043D\u0442 \u0412\u0430\u043C \u043D\u0430\u0447\u0438\u0441\u043B\u044F\u044E\u0442(\u043E\u0442 3% \u0434\u043E 22%).', __source: {
 							fileName: _jsxFileName,
-							lineNumber: 41
+							lineNumber: 42
 						}
 					}),
 					_react2.default.createElement(_Paragraph2.default, { block: 'business',
-						text: '\u042D\u0442\u043E \u043E\u0447\u0435\u043D\u044C \u043F\u0440\u0438\u0431\u044B\u043B\u044C\u043D\u044B\u0439 \u0432\u0438\u0434 \u0434\u0435\u044F\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u0438, \u043C\u043D\u043E\u0433\u0438\u0435 \u0443\u0436\u0435 \u0437\u0430\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u044E\u0442 \u0442\u0430\u043A\u0438\u043C \r \u043E\u0431\u0440\u0430\u0437\u043E\u043C \u0431\u043E\u043B\u0435\u0435 100000 \u0440\u0443\u0431\u043B\u0435\u0439 \u0432 \u043C\u0435\u0441\u044F\u0446!', __source: {
+						text: '\u042D\u0442\u043E \u043E\u0447\u0435\u043D\u044C \u043F\u0440\u0438\u0431\u044B\u043B\u044C\u043D\u044B\u0439 \u0432\u0438\u0434 \u0434\u0435\u044F\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u0438, \u043C\u043D\u043E\u0433\u0438\u0435 \u0443\u0436\u0435 \u0437\u0430\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u044E\u0442 \u0442\u0430\u043A\u0438\u043C \r \u043E\u0431\u0440\u0430\u0437\u043E\u043C \u0431\u043E\u043B\u0435\u0435 100 000 \u0440\u0443\u0431\u043B\u0435\u0439 \u0432 \u043C\u0435\u0441\u044F\u0446!', __source: {
 							fileName: _jsxFileName,
-							lineNumber: 44
+							lineNumber: 45
 						}
 					}),
 					_react2.default.createElement(_Paragraph2.default, { block: 'business',
 						text: '\u0411\u043E\u043B\u044C\u0448\u0438\u043D\u0441\u0442\u0432\u043E \u043B\u044E\u0434\u0435\u0439 \u0434\u0430\u0436\u0435 \u043D\u0435 \u0434\u043E\u0433\u0430\u0434\u044B\u0432\u0430\u044E\u0442\u0441\u044F \u043E \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E\u0441\u0442\u0438 \u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0435\u0447\u0435\u0441\u0442\u0432\u0430 \r \u0441 \u041E\u0440\u0438\u0444\u043B\u044D\u0439\u043C \u0438 \u043F\u043E\u043B\u0430\u0433\u0430\u044E\u0442, \u0447\u0442\u043E \u043C\u043E\u0436\u043D\u043E \u0437\u0430\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u0442\u044C \u0442\u043E\u043B\u044C\u043A\u043E \u043F\u0440\u043E\u0434\u0430\u0432\u0430\u044F \u043A\u043E\u0441\u043C\u0435\u0442\u0438\u043A\u0443. \r \u041D\u043E \u0438\u043C\u0435\u043D\u043D\u043E \u0437\u0430\u043D\u0438\u043C\u0430\u044F\u0441\u044C \u043F\u0440\u0438\u0433\u043B\u0430\u0448\u0435\u043D\u0438\u0435\u043C \u0438 \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435\u043C \u043B\u044E\u0434\u0435\u0439 \u043C\u043D\u043E\u0433\u0438\u0435 \u0434\u043E\u0441\u0442\u0438\u0433\u043B\u0438 \r \u043F\u043E\u0442\u0440\u044F\u0441\u0430\u044E\u0449\u0438\u0445 \u0434\u043E\u0445\u043E\u0434\u043E\u0432 \u0438 \u0444\u0438\u043D\u0430\u043D\u0441\u043E\u0432\u043E\u0439 \u043D\u0435\u0437\u0430\u0432\u0438\u0441\u0438\u043C\u043E\u0441\u0442\u0438.', __source: {
 							fileName: _jsxFileName,
-							lineNumber: 47
+							lineNumber: 48
 						}
 					}),
-					_react2.default.createElement(_semanticUiReact.Embed, { className: 'business__video',
-						id: 'KuHhkFDJKP8',
-						placeholder: '',
-						source: 'youtube',
-						__source: {
-							fileName: _jsxFileName,
-							lineNumber: 52
-						}
-					})
+					_react2.default.createElement(
+						'div',
+						{ className: 'business__video', __source: {
+								fileName: _jsxFileName,
+								lineNumber: 53
+							}
+						},
+						_react2.default.createElement(_statefulReactYoutube2.default, { videoId: '94Zxxf-4_VE', __source: {
+								fileName: _jsxFileName,
+								lineNumber: 54
+							}
+						})
+					)
 				)
 			);
 		}
@@ -105251,7 +105286,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(BusinessContainer));
 
-},{"./../actions/navigationActions.js":1284,"./../components/Paragraph":1302,"./../components/Section":1307,"./../components/Title":1312,"./../reducers/navigation.js":1332,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929,"semantic-ui-react":1166}],1322:[function(require,module,exports){
+},{"./../actions/navigationActions.js":1285,"./../components/Paragraph":1303,"./../components/Section":1308,"./../components/Title":1313,"./../reducers/navigation.js":1335,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929,"semantic-ui-react":1166,"stateful-react-youtube":1274}],1324:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105320,25 +105355,29 @@ var ContactsContainer = function (_Component) {
 	}, {
 		key: 'render',
 		value: function render() {
+			var curEmail = !window.email ? _conf.email : window.email,
+			    curPhone = !window.phone ? _conf.phone : window.phone,
+			    curAddress = !window.address ? _conf.address : window.address,
+			    curAddressHref = !window.addressHref ? _conf.addressHref : window.addressHref;
 			return _react2.default.createElement(
 				'main',
 				{ className: 'main', __source: {
 						fileName: _jsxFileName,
-						lineNumber: 33
+						lineNumber: 37
 					}
 				},
 				_react2.default.createElement(
 					_Section2.default,
 					{ block: 'contacts', __source: {
 							fileName: _jsxFileName,
-							lineNumber: 34
+							lineNumber: 38
 						}
 					},
 					_react2.default.createElement(
 						'div',
 						{ className: 'mapContainer', __source: {
 								fileName: _jsxFileName,
-								lineNumber: 35
+								lineNumber: 39
 							}
 						},
 						(0, _reactHtmlParser2.default)(_conf.map)
@@ -105346,21 +105385,21 @@ var ContactsContainer = function (_Component) {
 					_react2.default.createElement(_Title2.default, { block: 'contacts',
 						text: '\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B', __source: {
 							fileName: _jsxFileName,
-							lineNumber: 38
+							lineNumber: 42
 						}
 					}),
 					_react2.default.createElement(
 						_semanticUiReact.Card.Group,
 						{ className: 'contactsList', __source: {
 								fileName: _jsxFileName,
-								lineNumber: 40
+								lineNumber: 44
 							}
 						},
 						_react2.default.createElement(
 							_semanticUiReact.Card,
 							{ className: 'contactsListItem', __source: {
 									fileName: _jsxFileName,
-									lineNumber: 41
+									lineNumber: 45
 								}
 							},
 							_react2.default.createElement(
@@ -105368,7 +105407,7 @@ var ContactsContainer = function (_Component) {
 								{
 									__source: {
 										fileName: _jsxFileName,
-										lineNumber: 42
+										lineNumber: 46
 									}
 								},
 								_react2.default.createElement(
@@ -105376,7 +105415,7 @@ var ContactsContainer = function (_Component) {
 									{
 										__source: {
 											fileName: _jsxFileName,
-											lineNumber: 43
+											lineNumber: 47
 										}
 									},
 									'\u0410\u0434\u0440\u0435\u0441'
@@ -105386,18 +105425,18 @@ var ContactsContainer = function (_Component) {
 									{
 										__source: {
 											fileName: _jsxFileName,
-											lineNumber: 46
+											lineNumber: 50
 										}
 									},
 									_react2.default.createElement(
 										'a',
 										{ className: 'contactsListItem__ref not-follow',
-											href: _conf.addressHref, __source: {
+											href: curAddressHref, __source: {
 												fileName: _jsxFileName,
-												lineNumber: 47
+												lineNumber: 51
 											}
 										},
-										_conf.address
+										curAddress
 									)
 								)
 							)
@@ -105406,7 +105445,7 @@ var ContactsContainer = function (_Component) {
 							_semanticUiReact.Card,
 							{ className: 'contactsListItem', __source: {
 									fileName: _jsxFileName,
-									lineNumber: 54
+									lineNumber: 58
 								}
 							},
 							_react2.default.createElement(
@@ -105414,7 +105453,7 @@ var ContactsContainer = function (_Component) {
 								{
 									__source: {
 										fileName: _jsxFileName,
-										lineNumber: 55
+										lineNumber: 59
 									}
 								},
 								_react2.default.createElement(
@@ -105422,7 +105461,7 @@ var ContactsContainer = function (_Component) {
 									{
 										__source: {
 											fileName: _jsxFileName,
-											lineNumber: 56
+											lineNumber: 60
 										}
 									},
 									'\u0422\u0435\u043B\u0435\u0444\u043E\u043D'
@@ -105432,17 +105471,17 @@ var ContactsContainer = function (_Component) {
 									{
 										__source: {
 											fileName: _jsxFileName,
-											lineNumber: 59
+											lineNumber: 63
 										}
 									},
 									_react2.default.createElement(
 										'a',
-										{ className: 'contactsListItem__ref', href: 'tel:' + _conf.phone, __source: {
+										{ className: 'contactsListItem__ref', href: 'tel:' + curPhone, __source: {
 												fileName: _jsxFileName,
-												lineNumber: 60
+												lineNumber: 64
 											}
 										},
-										_conf.phone
+										curPhone
 									)
 								)
 							)
@@ -105451,7 +105490,7 @@ var ContactsContainer = function (_Component) {
 							_semanticUiReact.Card,
 							{ className: 'contactsListItem', __source: {
 									fileName: _jsxFileName,
-									lineNumber: 66
+									lineNumber: 70
 								}
 							},
 							_react2.default.createElement(
@@ -105459,7 +105498,7 @@ var ContactsContainer = function (_Component) {
 								{
 									__source: {
 										fileName: _jsxFileName,
-										lineNumber: 67
+										lineNumber: 71
 									}
 								},
 								_react2.default.createElement(
@@ -105467,7 +105506,7 @@ var ContactsContainer = function (_Component) {
 									{
 										__source: {
 											fileName: _jsxFileName,
-											lineNumber: 68
+											lineNumber: 72
 										}
 									},
 									'E-mail'
@@ -105477,17 +105516,17 @@ var ContactsContainer = function (_Component) {
 									{
 										__source: {
 											fileName: _jsxFileName,
-											lineNumber: 71
+											lineNumber: 75
 										}
 									},
 									_react2.default.createElement(
 										'a',
-										{ className: 'contactsListItem__ref', href: 'mailto:' + _conf.email, __source: {
+										{ className: 'contactsListItem__ref', href: 'mailto:' + curEmail, __source: {
 												fileName: _jsxFileName,
-												lineNumber: 72
+												lineNumber: 76
 											}
 										},
-										_conf.email
+										curEmail
 									)
 								)
 							)
@@ -105512,7 +105551,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(ContactsContainer));
 
-},{"./../actions/navigationActions.js":1284,"./../components/Section":1307,"./../components/Title":1312,"./../constants/conf.js":1314,"./../reducers/navigation.js":1332,"prop-types":868,"react":956,"react-html-parser":884,"react-redux":912,"react-router-dom":929,"semantic-ui-react":1166}],1323:[function(require,module,exports){
+},{"./../actions/navigationActions.js":1285,"./../components/Section":1308,"./../components/Title":1313,"./../constants/conf.js":1316,"./../reducers/navigation.js":1335,"prop-types":868,"react":956,"react-html-parser":884,"react-redux":912,"react-router-dom":929,"semantic-ui-react":1166}],1325:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105645,7 +105684,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(MainPageContainer));
 
-},{"./../actions/navigationActions.js":1284,"./../components/About":1287,"./../components/Catalogs":1289,"./../components/MainSlider":1297,"./../components/Present":1303,"./../constants/conf.js":1314,"./../reducers/navigation.js":1332,"lozad":1,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929}],1324:[function(require,module,exports){
+},{"./../actions/navigationActions.js":1285,"./../components/About":1288,"./../components/Catalogs":1290,"./../components/MainSlider":1298,"./../components/Present":1304,"./../constants/conf.js":1316,"./../reducers/navigation.js":1335,"lozad":1,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929}],1326:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105667,11 +105706,15 @@ var _reactRouterDom = require('react-router-dom');
 
 var _reactRedux = require('react-redux');
 
-var _semanticUiReact = require('semantic-ui-react');
+var _statefulReactYoutube = require('stateful-react-youtube');
+
+var _statefulReactYoutube2 = _interopRequireDefault(_statefulReactYoutube);
 
 var _navigationActions = require('./../actions/navigationActions.js');
 
 var _navigation = require('./../reducers/navigation.js');
+
+var _sharesActions = require('./../actions/sharesActions.js');
 
 var _Section = require('./../components/Section');
 
@@ -105693,9 +105736,21 @@ var MediaContainer = function (_Component) {
 	_inherits(MediaContainer, _Component);
 
 	function MediaContainer() {
+		var _ref;
+
+		var _temp, _this, _ret;
+
 		_classCallCheck(this, MediaContainer);
 
-		return _possibleConstructorReturn(this, (MediaContainer.__proto__ || Object.getPrototypeOf(MediaContainer)).apply(this, arguments));
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
+
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = MediaContainer.__proto__ || Object.getPrototypeOf(MediaContainer)).call.apply(_ref, [this].concat(args))), _this), _this.getVideosOrNull = function () {
+			var videos = localStorage.getItem('videos');
+
+			return !videos ? false : JSON.parse(videos);
+		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}
 
 	_createClass(MediaContainer, [{
@@ -105703,52 +105758,57 @@ var MediaContainer = function (_Component) {
 		value: function componentDidMount() {
 			var dispatch = this.props.dispatch;
 
+			localStorage.setItem('videos', JSON.stringify([]));
+
 			dispatch((0, _navigationActions.selectNavigationItem)(_navigation.initNavigationState.fifthNavItem.index));
+			dispatch((0, _sharesActions.tryGetVideos)(this));
 		}
 	}, {
 		key: 'render',
 		value: function render() {
+
+			var videos = this.getVideosOrNull();
+
 			return _react2.default.createElement(
 				'main',
 				{ className: 'main', __source: {
 						fileName: _jsxFileName,
-						lineNumber: 25
+						lineNumber: 39
 					}
 				},
 				_react2.default.createElement(
 					_Section2.default,
-					{ block: 'media', __source: {
+					{ block: 'videos', __source: {
 							fileName: _jsxFileName,
-							lineNumber: 26
+							lineNumber: 40
 						}
 					},
-					_react2.default.createElement(_semanticUiReact.Embed, { className: 'media__video',
-						id: 'g3aI1uMFV-Q',
-						placeholder: '',
-						source: 'youtube',
-						__source: {
-							fileName: _jsxFileName,
-							lineNumber: 27
-						}
-					}),
-					_react2.default.createElement(_semanticUiReact.Embed, { className: 'media__video',
-						id: '94Zxxf-4_VE',
-						placeholder: '',
-						source: 'youtube',
-						__source: {
-							fileName: _jsxFileName,
-							lineNumber: 32
-						}
-					}),
-					_react2.default.createElement(_semanticUiReact.Embed, { className: 'media__video',
-						id: 'KuHhkFDJKP8',
-						placeholder: '',
-						source: 'youtube',
-						__source: {
-							fileName: _jsxFileName,
-							lineNumber: 37
-						}
-					})
+					_react2.default.createElement(
+						'ul',
+						{ className: 'media', __source: {
+								fileName: _jsxFileName,
+								lineNumber: 41
+							}
+						},
+						videos ? videos.map(function (video) {
+							return _react2.default.createElement(
+								'li',
+								{ className: 'media__video', key: video.id, __source: {
+										fileName: _jsxFileName,
+										lineNumber: 44
+									}
+								},
+								_react2.default.createElement(_statefulReactYoutube2.default, {
+									videoId: video.videoId,
+									className: 'media__video',
+									__source: {
+										fileName: _jsxFileName,
+										lineNumber: 45
+									}
+								})
+							);
+						}) : ''
+					)
 				)
 			);
 		}
@@ -105768,7 +105828,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(MediaContainer));
 
-},{"./../actions/navigationActions.js":1284,"./../components/Section":1307,"./../components/Title":1312,"./../reducers/navigation.js":1332,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929,"semantic-ui-react":1166}],1325:[function(require,module,exports){
+},{"./../actions/navigationActions.js":1285,"./../actions/sharesActions.js":1287,"./../components/Section":1308,"./../components/Title":1313,"./../reducers/navigation.js":1335,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929,"stateful-react-youtube":1274}],1327:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -105921,7 +105981,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(NavContainer));
 
-},{"./../actions/navigationActions.js":1284,"./../components/Navigation":1300,"classnames":32,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929}],1326:[function(require,module,exports){
+},{"./../actions/navigationActions.js":1285,"./../components/Navigation":1301,"classnames":32,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929}],1328:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106079,7 +106139,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(RegistrationContainer));
 
-},{"./../actions/navigationActions.js":1284,"./../actions/registrationActions.js":1285,"./../components/Registration":1304,"./../reducers/navigation.js":1332,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929}],1327:[function(require,module,exports){
+},{"./../actions/navigationActions.js":1285,"./../actions/registrationActions.js":1286,"./../components/Registration":1305,"./../reducers/navigation.js":1335,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929}],1329:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106225,7 +106285,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(SharesContainer));
 
-},{"./../actions/navigationActions.js":1284,"./../actions/sharesActions.js":1286,"./../components/Section":1307,"./../components/SharesList":1308,"./../reducers/navigation.js":1332,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929,"semantic-ui-react":1166}],1328:[function(require,module,exports){
+},{"./../actions/navigationActions.js":1285,"./../actions/sharesActions.js":1287,"./../components/Section":1308,"./../components/SharesList":1309,"./../reducers/navigation.js":1335,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929,"semantic-ui-react":1166}],1330:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106353,7 +106413,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(SingleShareContainer));
 
-},{"./../actions/sharesActions.js":1286,"./../components/SingleShare":1310,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929,"semantic-ui-react":1166}],1329:[function(require,module,exports){
+},{"./../actions/sharesActions.js":1287,"./../components/SingleShare":1311,"prop-types":868,"react":956,"react-redux":912,"react-router-dom":929,"semantic-ui-react":1166}],1331:[function(require,module,exports){
 'use strict';
 
 $(function () {
@@ -106383,7 +106443,7 @@ $(function () {
   // }) 
 }); // end ready
 
-},{}],1330:[function(require,module,exports){
+},{}],1332:[function(require,module,exports){
 'use strict';
 
 var _jsxFileName = 'C:\\Users\\Shining\\Dropbox\\repo\\oriflame\\business\\theme\\src\\blocks\\index.js';
@@ -106434,7 +106494,70 @@ var store = (0, _configureStore2.default)();
   )
 ), document.getElementById('root'));
 
-},{"./containers/App":1320,"./store/configureStore.js":1335,"react":956,"react-dom":873,"react-redux":912,"react-router-dom":929}],1331:[function(require,module,exports){
+},{"./containers/App":1322,"./store/configureStore.js":1337,"react":956,"react-dom":873,"react-redux":912,"react-router-dom":929}],1333:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _sharesTypes = require('./../constants/sharesTypes.js');
+
+var _actionTypes = require('./../constants/actionTypes.js');
+
+var initSharesState = {
+	sharesList: [],
+	share: {},
+	isSharesGotten: false,
+	isRequestingShares: false,
+	isShareGotten: false,
+	videos: []
+};
+
+var app = function app() {
+	var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	var action = arguments[1];
+
+	switch (action.type) {
+		case _sharesTypes.REQUEST_SHARES:
+			return _extends({}, state, {
+				isRequestingShares: true,
+				isSharesGotten: false
+			});
+		case _sharesTypes.GET_SHARES:
+			return _extends({}, state, {
+				sharesList: action.data,
+				isRequestingShares: false,
+				isSharesGotten: true,
+				isShareGotten: false
+			});
+		case _sharesTypes.GET_SINGLE_SHARES:
+			return _extends({}, state, {
+				share: action.data,
+				isRequestingShares: false,
+				isShareGotten: true,
+				isSharesGotten: false
+			});
+		case _actionTypes.REQUEST_VIDEOS:
+			localStorage.setItem('videos', JSON.stringify(action.videos));
+			action.context.forceUpdate();
+
+			return state;
+		case _sharesTypes.CLEAR_SHARES:
+			return _extends({}, state, {
+				share: {},
+				shares: []
+			});
+		default:
+			return state;
+	}
+};
+
+exports.default = app;
+
+},{"./../constants/actionTypes.js":1314,"./../constants/sharesTypes.js":1320}],1334:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106453,9 +106576,9 @@ var _registration = require('./registration.js');
 
 var _registration2 = _interopRequireDefault(_registration);
 
-var _shares = require('./shares.js');
+var _app = require('./app.js');
 
-var _shares2 = _interopRequireDefault(_shares);
+var _app2 = _interopRequireDefault(_app);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -106463,12 +106586,12 @@ var rootReducer = (0, _redux.combineReducers)({
 	form: _reduxForm.reducer,
 	navigation: _navigation2.default,
 	registration: _registration2.default,
-	shares: _shares2.default
+	app: _app2.default
 });
 
 exports.default = rootReducer;
 
-},{"./navigation.js":1332,"./registration.js":1333,"./shares.js":1334,"redux":1060,"redux-form":1016}],1332:[function(require,module,exports){
+},{"./app.js":1333,"./navigation.js":1335,"./registration.js":1336,"redux":1060,"redux-form":1016}],1335:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106545,7 +106668,7 @@ var navigation = function navigation() {
 
 exports.default = navigation;
 
-},{"./../constants/navigationTypes.js":1315}],1333:[function(require,module,exports){
+},{"./../constants/navigationTypes.js":1317}],1336:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106586,62 +106709,7 @@ var registration = function registration() {
 
 exports.default = registration;
 
-},{"./../constants/registrationTypes.js":1317}],1334:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _sharesTypes = require('./../constants/sharesTypes.js');
-
-var initSharesState = {
-	sharesList: [],
-	share: {},
-	isSharesGotten: false,
-	isRequestingShares: false,
-	isShareGotten: false
-};
-
-var shares = function shares() {
-	var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-	var action = arguments[1];
-
-	switch (action.type) {
-		case _sharesTypes.REQUEST_SHARES:
-			return _extends({}, state, {
-				isRequestingShares: true,
-				isSharesGotten: false
-			});
-		case _sharesTypes.GET_SHARES:
-			return _extends({}, state, {
-				sharesList: action.data,
-				isRequestingShares: false,
-				isSharesGotten: true,
-				isShareGotten: false
-			});
-		case _sharesTypes.GET_SINGLE_SHARES:
-			return _extends({}, state, {
-				share: action.data,
-				isRequestingShares: false,
-				isShareGotten: true,
-				isSharesGotten: false
-			});
-		case _sharesTypes.CLEAR_SHARES:
-			return _extends({}, state, {
-				share: {},
-				shares: []
-			});
-		default:
-			return state;
-	}
-};
-
-exports.default = shares;
-
-},{"./../constants/sharesTypes.js":1318}],1335:[function(require,module,exports){
+},{"./../constants/registrationTypes.js":1319}],1337:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -106669,7 +106737,7 @@ function configureStore(initialState) {
   return store;
 }
 
-},{"../reducers/index.js":1331,"redux":1060,"redux-thunk":1054}],1336:[function(require,module,exports){
+},{"../reducers/index.js":1334,"redux":1060,"redux-thunk":1054}],1338:[function(require,module,exports){
 'use strict';
 
 require('jquery');
@@ -106684,7 +106752,7 @@ require('./../blocks/custom/custom.js');
 
 require('./../blocks/index.js');
 
-},{"./../blocks/custom/custom.js":1329,"./../blocks/index.js":1330,"./../libs/jquery.mask.js":1337,"babel-polyfill":6,"jquery":512,"whatwg-fetch":1283}],1337:[function(require,module,exports){
+},{"./../blocks/custom/custom.js":1331,"./../blocks/index.js":1332,"./../libs/jquery.mask.js":1339,"babel-polyfill":6,"jquery":512,"whatwg-fetch":1284}],1339:[function(require,module,exports){
 /**
  * jquery.mask.js
  * @version: v1.14.12
@@ -107292,6 +107360,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }, globals.watchInterval);
 }, window.jQuery, window.Zepto);
 
-},{"jquery":512}]},{},[1336])
+},{"jquery":512}]},{},[1338])
 
 //# sourceMappingURL=main.js.map

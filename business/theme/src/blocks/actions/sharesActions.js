@@ -3,13 +3,14 @@
  	GET_SINGLE_SHARES,
  	CLEAR_SHARES,
  	REQUEST_SHARES
- } from './../constants/sharesTypes.js';
-
+} from './../constants/sharesTypes.js';
+import {
+	REQUEST_VIDEOS
+} from './../constants/actionTypes.js';
 
 export const clearShares = () => ({
 	type: CLEAR_SHARES
 });
-
 const getShares = shares => ({
 	type: GET_SHARES,
 	data: shares
@@ -26,7 +27,7 @@ const sharesRequesting = () => ({
 
 const tryGetShares = () => dispatch => {
 	dispatch(sharesRequesting());
-	console.log('request s')
+	
 	return fetch('/getMe/v0/shares/')
 		.then(resp => resp.json())
 		.then(data => {
@@ -39,7 +40,7 @@ const tryGetShares = () => dispatch => {
 
 const tryGetSingleShare = id => dispatch => {
 	dispatch(sharesRequesting());
-	console.log('request')
+	
 	return fetch(`/getMe/v0/shares/${id}/`)
 		.then(resp => resp.json())
 		.then(data => {
@@ -56,4 +57,19 @@ export const tryGetSharesIfNeeded = isSharesGotten => dispatch => {
 
 export const tryGetSingleSharesIfNeeded = (id, isShareGotten) => dispatch => {
 	if (!isShareGotten) dispatch(tryGetSingleShare(id));
+};
+export const tryGetVideos = (context) => dispatch => {
+	console.log('in');
+	return fetch('/getMe/v0/videos/')
+		.then(resp => resp.json())
+		.then(data => {
+			dispatch({
+				type: REQUEST_VIDEOS,
+				videos: data,
+				context: context
+			});
+		})
+		.catch(err => { 
+			console.log(err);
+		});
 }

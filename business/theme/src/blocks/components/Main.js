@@ -21,10 +21,6 @@ const Main = ({
             <Route exact path='/' render={props => (
                    <MainPageContainer {...props} />
             )} />   
-            <MyRoute path='/shares/:shareId/'
-                component={SingleShareContainer} />
-            <MyRoute path='/shares'
-                component={SharesContainer} />
             <MyRoute path='/possibilities'
                 component={BusinessContainer} />
             <MyRoute path='/registration'
@@ -33,6 +29,10 @@ const Main = ({
                 component={ContactsContainer} /> 
             <MyRoute path='/media'
                 component={MediaContainer} /> 
+            <MyRoute path='/shares/:shareId/'
+                component={SingleShareContainer} />
+            <MyRoute path='/shares'
+                component={SharesContainer} />
             <Route render={() => (
                 <Redirect to="/" />
             )}  />

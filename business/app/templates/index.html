@@ -39,6 +39,11 @@ a:hover {
   color: {{ custom.menu_link_color }} !important;
 }
 {% endif %}
+{% if custom.menu_link_active_color %}
+.navItem--active .navItem__refer {
+  color: {{ custom.menu_link_active_color }}!important;
+}
+{% endif %}
 body {
   {% if custom.default_color %}
   color: {{ custom.default_color }}!important;
@@ -172,11 +177,14 @@ h2, h4 {
     -webkit-transform: scale(1);
             transform: scale(1); } }</style>{% endblock %}
 {% block conf_js %}<script>{% if custom.address %}
-  window.address = {{ cusotm.address }}
+  window.address = "{{ custom.address }}";
 {% endif %}
 {% if cusotm.phone %}
-  window.phone = {{ cusotm.phone }}
+  window.phone = "{{ custom.phone }}";
 {% endif %}
 {% if cusotm.email %}
-  window.email = {{ cusotm.email }}
+  window.email = "{{ custom.email }}";
+{% endif %}
+{% if cusotm.addressHref %}
+  window.addressHref = "{{ custom.addressHref }}";
 {% endif %}</script>{% endblock %}

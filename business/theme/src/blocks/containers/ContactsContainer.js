@@ -29,6 +29,10 @@ class ContactsContainer extends Component {
 	}
 
 	render() {
+		const curEmail = !window.email ? email : window.email,
+			curPhone = !window.phone ? phone : window.phone,
+			curAddress = !window.address ? address : window.address,
+			curAddressHref = !window.addressHref ? addressHref : window.addressHref;
 		return (
 			<main className='main'>
 				<Section block='contacts'>
@@ -45,8 +49,8 @@ class ContactsContainer extends Component {
 								</Card.Header> 
 								<Card.Description> 
 									<a className="contactsListItem__ref not-follow" 
-										href={addressHref} >
-										{address}
+										href={curAddressHref} >
+										{curAddress}
 									</a>
 								</Card.Description> 
 							</Card.Content>
@@ -57,8 +61,8 @@ class ContactsContainer extends Component {
 									Телефон
 								</Card.Header> 
 								<Card.Description> 
-									<a class="contactsListItem__ref" href={`tel:${phone}`}>
-										{phone}
+									<a class="contactsListItem__ref" href={`tel:${curPhone}`}>
+										{curPhone}
 									</a>
 								</Card.Description>
 							</Card.Content>
@@ -69,8 +73,8 @@ class ContactsContainer extends Component {
 									E-mail
 								</Card.Header> 
 								<Card.Description> 
-									<a class="contactsListItem__ref" href={`mailto:${email}`}>
-										{email}
+									<a class="contactsListItem__ref" href={`mailto:${curEmail}`}>
+										{curEmail}
 									</a>
 								</Card.Description> 
 							</Card.Content>
