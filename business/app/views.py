@@ -7,12 +7,15 @@ from django.views.decorators.csrf import csrf_exempt
 
 def index(request):
     custom = Custom.objects.filter(is_active='Активная')
+    if len(custom):
+        custom = custom[0]
+
 
     return render(
         request,
         'index.html',
         {
-            "custom": custom[0]
+            "custom": custom
         }
     )
 

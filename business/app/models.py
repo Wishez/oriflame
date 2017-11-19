@@ -3,7 +3,6 @@ from django.db import models
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
-from colorful.fields import RGBColorField
 from django.db.models.signals import pre_save
 from colorfield.fields import ColorField
 if not settings.DEBUG:

@@ -1,7 +1,0 @@
-{% extends 'base.html' %}
-{% load blog_filters %}
-{% block title %}<title>{{ title }}</title>{% endblock %} 
-{% block description %}<meta name="description" content="{{ desctiption }}"/>{% endblock %}
-{% block content %}<main id="main" style="display: none;"></main><script>window.props = {{props|json}};
-window.react_mount = document.getElementById('main');
-</script><script async="async" src="/media/public/components/{{component}}"></script>{% endblock %}

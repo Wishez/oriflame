@@ -4,3 +4,5 @@ node_modules
 admin
 rest_framework
 db.sqlite3
+colorfield
+colorful

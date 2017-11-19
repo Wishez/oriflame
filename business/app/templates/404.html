@@ -1,5 +1,190 @@
-{% load static %}<!DOCTYPE html><html class="no-js" lang="ru" manifest="{% static 'public/app.manifest' %}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equive="X-UA-Compatible" content="IE=edge"><link rel="shortcut icon" type="image/x-icon" href="{% static 'public/img/favicon.ico' %}"><title>Site Title</title></head><body><div id="root"></div><script async src="{% static 'public/js/main.js' %}"></script><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css" media="none" onload="if (media == &quot;none&quot;) media = &quot;all&quot;"><link rel="stylesheet" href="{% static 'public/css/main.css' %}" media="none" onload="if (media == &quot;none&quot;) media = &quot;all&quot;"><link rel="stylesheet" href="{% static 'public/css/ie-10-up.css' %}" media="none" onload="if (media == &quot;none&quot;) media = &quot;all&quot;"><!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js">
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js">
-<![endif]-->
-<!--[if IE]><link type="text/css" rel="stylesheet" href="{% static 'public/css/ie9.css' %}" lazyload="1" /><![endif]--></body></html>
+{% extends 'base.html' %}
+{% block description %}
+{% if custom.description %}<meta name="description" content="{{ custom.description }}"/>{% endif %}
+{% endblock %}
+{% block title %}
+{% if custom.title %}<title>{{ custom.title }}</title>{% endif %}
+{% endblock %}
+{% block styles %}<style>.registrationFormController__checkRules, .registrationFormController_checkbox {
+  {% if custom.checkbox_field_color %}
+  color: {{ custom.checkbox_field_color }} !important;
+  {% endif %}
+  {% if custom.checkbox_field_bg %}
+  background-color: {{ custom.checkbox_field_bg }} !important;
+  {% endif %}
+}
+{% if custom.default_link_color %}
+a {
+  color: {{ custom.default_link_color }}!important;
+}
+{% endif %}
+
+{% if custom.default_link_hover_color %}
+a:hover {
+  color: {{ custom.default_link_hover_color }} !important;
+}
+{% endif %}
+{% if custom.menu_link_hover_color %}
+.navItem:hover .navItem__refer:hover, .navItem--active .navItem__refer:hover {
+  color: {{ custom.menu_link_hover_color }}!important;
+}
+{% endif %}
+{% if custom.menu_link_hover_bg %}
+.navItem:hover, .navItem--active {
+  background-color: {{ custom.menu_link_hover_bg }}!important;
+}
+{% endif %}
+{% if custom.menu_link_color %}
+.navItem__refer {
+  color: {{ custom.menu_link_color }} !important;
+}
+{% endif %}
+{% if custom.menu_link_active_color %}
+.navItem--active .navItem__refer {
+  color: {{ custom.menu_link_active_color }}!important;
+}
+{% endif %}
+body {
+  {% if custom.default_color %}
+  color: {{ custom.default_color }}!important;
+  {% endif %}    
+  {% if custom.default_bg %}
+  background-color: {{ custom.default_bg }}!important;
+  {% endif %}
+}
+.header > .container {
+  {% if custom.header_color %}
+  color: {{ custom.header_color }}!important;
+  {% endif %}
+  {% if custom.header_bg %}
+  background-color: {{ custom.header_bg }}!important; 
+  {% endif %}
+}
+.copyright {
+  {% if custom.footer_color %}
+  color: {{ custom.footer_color }}!important;
+  {% endif %}
+  {% if custom.footer_bg %}
+  background-color: {{ custom.footer_bg }}!important; 
+  {% endif %}
+}
+.catalogsSlider .slick-next::before, .catalogsSlider .slick-prev::before {
+  {% if custom.slider_buttons_color %}
+  color: {{ custom.slider_buttons_color }}!important;
+  {% endif %}
+  {% if custom.slider_buttons_bg %}
+  background-color: {{ custom.slider_buttons_bg }}!important; 
+  {% endif %}
+}
+.defaultButton {
+  {% if custom.button_bg %}
+  background-color: {{ custom.button_bg }}!important;
+  {% endif %}
+  {% if custom.button_color %}
+  color: {{ custom.button_color }}!important;
+  {% endif %} 
+}
+.defaultButton:hover {
+  {% if custom.button_hover_bg %}
+  background-color: {{ custom.button_hover_bg }}!important;
+  {% endif %}
+  {% if custom.button_hover_color %}
+  color: {{ custom.button_hover_color }}!important;
+  {% endif %} 
+}
+{% if custom.headings_color %}
+h2, h4 {
+  color: {{ custom.headings_color }}!important;
+}
+{% endif %}
+#openMenuButton {
+  {% if custom.open_menu_button_bg %}
+  background-color: {{ custom.open_menu_button_bg }}!important;
+  {% endif %}
+  {% if custom.open_menu_button_color %}
+  color: {{ custom.open_menu_button_color }}!important;
+  {% endif %}
+}
+#closeMenuButton {
+  {% if custom.close_menu_button_color %}
+  color: {{ custom.close_menu_button_color }}!important;
+  {% endif %}
+}
+@media (max-width: 800px) {
+  {% if custom.header_bg %}
+  .navList  {
+    background-color: {{ custom.header_bg }}!important; 
+  }
+  {% endif %}
+}
+
+.curtain {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 40vh;
+  {% if custom.curtain_bg %}
+  background-color: {{ custom.curtain_bg }}!important;
+  {% else %}
+  background-color: #1E1F1E;
+  {% endif %}
+  transition: width 1s;
+  z-index: 99;
+}
+.sk-double-bounce {
+  transition: opacity 1.5s;
+  opacity: 1;
+  width: 60px;
+  height: 60px;
+  position: relative;
+  margin: 40px auto; }
+.sk-double-bounce .sk-child {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  {% if custom.preloader_color %}
+  background-color: {{ custom.preloader_color }}!important;
+  {% else %}
+  background-color: #f2f2f2;
+  {% endif %}
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: sk-doubleBounce 2s infinite ease-in-out;
+          animation: sk-doubleBounce 2s infinite ease-in-out; }
+.sk-double-bounce .sk-double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+          animation-delay: -1.0s; }
+
+@-webkit-keyframes sk-doubleBounce {
+  0%, 100% {
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes sk-doubleBounce {
+  0%, 100% {
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }</style>{% endblock %}
+{% block conf_js %}<script>{% if custom.address %}
+  window.address = "{{ custom.address }}";
+{% endif %}
+{% if cusotm.phone %}
+  window.phone = "{{ custom.phone }}";
+{% endif %}
+{% if cusotm.email %}
+  window.email = "{{ custom.email }}";
+{% endif %}
+{% if cusotm.addressHref %}
+  window.addressHref = "{{ custom.addressHref }}";
+{% endif %}</script>{% endblock %}
