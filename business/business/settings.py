@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'grappelli',
     'colorfield',
+    'colorful',
     'app.apps.AppConfig',
     'api.apps.ApiConfig',
     'django.contrib.admin',

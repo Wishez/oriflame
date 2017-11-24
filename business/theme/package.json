@@ -92,6 +92,7 @@
     "jquery.easing": "^1.4.1",
     "js-cookie": "^2.1.4",
     "jshint": "^2.9.5",
+    "lozad": "^1.0.9",
     "prop-types": "^15.5.8",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",

@@ -216,7 +216,7 @@ class Custom(models.Model):
         verbose_name = _('Настройка')
         verbose_name_plural = _('Настройки')
 
-from django.db.models.signals import pre_save
+
 
 def switch_active_custom(sender, instance, **kwargs):
     print('Sender:', sender.objects.all())
@@ -225,7 +225,8 @@ def switch_active_custom(sender, instance, **kwargs):
         customs = sender.objects.all()
         if len(customs):
             for custom in customs:
-                custom.is_active = _('Не активна')
+                custom.is_active = _('Не активная')
+                custom.save()
         instance.is_active = _('Активная')
 
 pre_save.connect(switch_active_custom, sender=Custom)
