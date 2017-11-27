@@ -63,7 +63,7 @@ export const mainSliderCustoms = {
 };
 export const catalogs = [
 	{
-		refer: 'http://ru.oriflame.com/ecatalogue/502181?per=201609',
+		refer: 'http://ru.oriflame.com/ecatalogue/105263?per=201609',
 		image: 'http://ru.oriflame.com/catalogue-image.png'
 	}
 ];

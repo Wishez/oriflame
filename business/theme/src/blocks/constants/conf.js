@@ -38,12 +38,13 @@ export const addressHref = 'https://yandex.ru/maps/-/CBaIyGXtPB';
 export const map = '<iframe src="https://yandex.ru/map-widget/v1/-/CBaIy8W5DA" width="100%" height="600" frameborder="0"></iframe>';
 // Sliders 
 // Main Slider's images
+const staticPath = '/static/business/img/slides/';
 export const images = [
-	'slide1.jpg',
-	'slide2.png',
-	'slide3.jpg',
-	'slide4.jpg',
-	'slide5.jpg'
+	staticPath + 'slide1.jpg',
+	staticPath + 'slide2.png',
+	staticPath + 'slide3.jpg',
+	staticPath + 'slide4.jpg',
+	staticPath + 'slide5.jpg'
 ];
 export const mainSliderCustoms = {
   dots: true,
@@ -63,7 +64,7 @@ export const mainSliderCustoms = {
 };
 export const catalogs = [
 	{
-		refer: 'http://ru.oriflame.com/ecatalogue/502181?per=201609',
+		refer: 'http://ru.oriflame.com/ecatalogue/105263?per=201609',
 		image: 'http://ru.oriflame.com/catalogue-image.png'
 	}
 ];

@@ -187,6 +187,25 @@ style.
 | {% endblock %}
 | {% block conf_js %}
 script.
+  var slidesUrls = [];
+  var mediaPath = '/media/';
+  {% if custom.slide_1 %}
+    slidesUrls.push(mediaPath + "{{ custom.slide_1 }}")
+  {% endif %}
+  {% if custom.slide_2 %}
+    slidesUrls.push(mediaPath + "{{ custom.slide_2 }}")
+  {% endif %}
+  {% if custom.slide_3 %}
+    slidesUrls.push(mediaPath + "{{ custom.slide_3 }}")
+  {% endif %}
+  {% if custom.slide_4 %}
+    slidesUrls.push(mediaPath + "{{ custom.slide_4 }}")
+  {% endif %}
+  {% if custom.slide_5 %}
+    slidesUrls.push(mediaPath + "{{ custom.slide_5 }}")
+  {% endif %}
+
+  localStorage.setItem('slidesUrls', JSON.stringify(slidesUrls));
 
   {% if custom.address %}
     window.address = "{{ custom.address }}";

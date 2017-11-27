@@ -32,15 +32,14 @@ class MainPageContainer extends Component {
 		dispatch(selectNavigationItem(initNavigationState.firstNavItem.index));
     }
 
-    componentDidUpdate() {
-    
-    }
-
-
 	render() {
+		const slidesUrls = JSON.parse(localStorage.getItem('slidesUrls'));
 		return (
 			<main className='main'>
-				<MainSlider images={images}
+				<MainSlider images={
+					slidesUrls.length
+						? slidesUrls : 
+						images}
 					{...mainSliderCustoms} />
 				<Present />
 				<About activities={activities}/>
