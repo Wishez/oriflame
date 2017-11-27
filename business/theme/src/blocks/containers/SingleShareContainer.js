@@ -22,7 +22,7 @@ class SingleShareContainer extends Component {
 	getShare = () => {
 		const { dispatch, isShareGotten } = this.props;
 		const { shareId } = this.props.match.params;
-
+		
 		dispatch(tryGetSingleSharesIfNeeded(shareId, isShareGotten));
 	}
 
@@ -49,8 +49,8 @@ class SingleShareContainer extends Component {
 }
 
 const mapStateToProps = state => {
-	const { shares } = state;
-	const { share, isShareGotten } = shares;
+	const { app } = state;
+	const { share, isShareGotten } = app;
 	
 	return {
 		share,

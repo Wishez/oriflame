@@ -65,10 +65,16 @@ class SharesContainer extends Component {
 }
 
 const mapStateToProps = state => {
-	const { shares } = state;
-	console.log(shares);
+	const { app } = state;
+	const { 
+		isSharesGotten,
+		sharesList
+	} = app;
+	
 	return {
-		...shares
+		sharesList,
+		isSharesGotten
+
 	};
 }
 
