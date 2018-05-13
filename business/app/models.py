@@ -147,6 +147,11 @@ class Custom(models.Model):
         blank=True,
         null=True
     )
+    slide_1 = models.FileField(_('Слайд'), upload_to='uploads/slider/', blank=True, null=True)
+    slide_2 = models.FileField(_('Слайд'), upload_to='uploads/slider/', blank=True, null=True)
+    slide_3 = models.FileField(_('Слайд'), upload_to='uploads/slider/', blank=True, null=True)
+    slide_4 = models.FileField(_('Слайд'), upload_to='uploads/slider/', blank=True, null=True)
+    slide_5 = models.FileField(_('Слайд'), upload_to='uploads/slider/', blank=True, null=True)
     checkbox_field_color = ColorField(_('Цвет текста чекбокса регистрации'), blank = True,
         null = True)
     checkbox_field_bg = ColorField(_('Цвет фона блока чекбокса регистрации'), blank = True,
@@ -219,8 +224,7 @@ class Custom(models.Model):
 
 
 def switch_active_custom(sender, instance, **kwargs):
-    print('Sender:', sender.objects.all())
-    print('Instance:', instance.is_active)
+
     if instance.is_active == _('Активная'):
         customs = sender.objects.all()
         if len(customs):
@@ -230,7 +234,6 @@ def switch_active_custom(sender, instance, **kwargs):
         instance.is_active = _('Активная')
 
 pre_save.connect(switch_active_custom, sender=Custom)
-
 class Video(models.Model):
     name = models.CharField(_('Имя видео'), max_length=150, null=True, blank=True)
     videoId = models.CharField(_('Идентификатор видео'), max_length=50)

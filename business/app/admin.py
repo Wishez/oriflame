@@ -93,6 +93,9 @@ class CustomAdmin(admin.ModelAdmin):
         ('Слайдер', {
             'fields': (
                 ('slider_buttons_color', 'slider_buttons_bg',),
+                ('slide_1', 'slide_2',),
+                ('slide_3', 'slide_4',),
+                ('slide_5',),
             ),
         },),
         ('Регистрация', {
